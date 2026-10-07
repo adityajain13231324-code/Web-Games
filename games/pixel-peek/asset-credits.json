@@ -1,0 +1,2783 @@
+[
+  {
+    "pack": "gaming",
+    "title": "Minecraft",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/minecraft.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Nintendo",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/nintendo.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Nintendo Switch",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/nintendoswitch.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Nintendo 3DS",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/nintendo3ds.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Nintendo GameCube",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/nintendogamecube.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Xbox",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/xbox.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Wii",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/wii.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Wii U",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/wiiu.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Oculus",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/oculus.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Origin",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/origin.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Atari",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/atari.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "PlayStation 2",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/playstation2.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "PlayStation 3",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/playstation3.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "PlayStation Vita",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/playstationvita.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Undertale",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/undertale.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "osu!",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/osu.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Lichess",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/lichess.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Corsair",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/corsair.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "HyperX",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/hyperx.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Elgato",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/elgato.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Steelseries",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/steelseries.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Game Jolt",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/gamejolt.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Gameloft",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/gameloft.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Game Science",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/gamescience.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Gamemaker",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/gamemaker.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Roblox Studio",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/robloxstudio.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "NVIDIA",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/nvidia.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "Unity",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/unity.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "gaming",
+    "title": "SteamDB",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/steamdb.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Taco Bell",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/tacobell.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Walmart",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/walmart.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Lidl",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/lidl.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Carrefour",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/carrefour.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Tesco",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/tesco.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "H&M",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/handm.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Zara",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/zara.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Uniqlo",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/uniqlo.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Dior",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dior.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "The North Face",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/thenorthface.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Fila",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/fila.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Panasonic",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/panasonic.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Fujifilm",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/fujifilm.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Leica",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/leica.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Sennheiser",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/sennheiser.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Sonos",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/sonos.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Beats",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/beats.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Logitech",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/logitech.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Corsair",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/corsair.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Kingston Technology",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/kingstontechnology.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [
+      "Kingston"
+    ],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "SanDisk",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/sandisk.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Western Digital",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/westerndigital.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [
+      "WD"
+    ],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Seagate",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/seagate.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Epson",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/epson.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Bosch",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/bosch.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Siemens",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/siemens.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Toshiba",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/toshiba.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Hitachi",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/hitachi.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Caterpillar",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/caterpillar.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "John Deere",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/johndeere.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Vespa",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vespa.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Dacia",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dacia.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Land Rover",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/landrover.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Jaguar",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/jaguar.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Acura",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/acura.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Cadillac",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/cadillac.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Chrysler",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/chrysler.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Ram",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/ram.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Mini",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/mini.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Lucid",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/lucid.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Opel",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/opel.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "SEAT",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/seat.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Alfa Romeo",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/alfaromeo.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "Koenigsegg",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/koenigsegg.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "brands",
+    "title": "DS Automobiles",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dsautomobiles.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Amazon",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/amazon.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Amazon Prime",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/amazonprime.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Prime Video",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/primevideo.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Crunchyroll",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/crunchyroll.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Plex",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/plex.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Letterboxd",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/letterboxd.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "IMDb",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/imdb.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Goodreads",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/goodreads.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Deezer",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/deezer.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Tidal",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/tidal.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Bandcamp",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/bandcamp.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Vimeo",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vimeo.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Dailymotion",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dailymotion.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Kick",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/kick.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Strava",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/strava.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Fitbit",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/fitbit.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Todoist",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/todoist.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "TickTick",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/ticktick.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Evernote",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/evernote.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Obsidian",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/obsidian.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Anytype",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/anytype.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Canva",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/canva.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "VSCO",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vsco.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Proton Mail",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/protonmail.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Proton",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/proton.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Bitwarden",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/bitwarden.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "1Password",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/1password.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "LastPass",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/lastpass.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Firefox",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/firefox.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Vivaldi",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vivaldi.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Opera GX",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/operagx.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Brave",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/brave.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Tor Browser",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/torbrowser.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Yelp",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/yelp.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Tripadvisor",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/tripadvisor.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Booking.com",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/bookingdotcom.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Expedia",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/expedia.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Deliveroo",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/deliveroo.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "DoorDash",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/doordash.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Grubhub",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/grubhub.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Instacart",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/instacart.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Etsy",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/etsy.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Vinted",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vinted.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "AliExpress",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/aliexpress.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Alibaba.com",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/alibabadotcom.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Flipkart",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/flipkart.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Zalando",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/zalando.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Shopee",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/shopee.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Mercado Pago",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/mercadopago.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Venmo",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/venmo.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Cash App",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/cashapp.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Revolut",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/revolut.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Wise",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/wise.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Monzo",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/monzo.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "N26",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/n26.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Klarna",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/klarna.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Patreon",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/patreon.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Ko-fi",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/kofi.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Substack",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/substack.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Product Hunt",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/producthunt.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Behance",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/behance.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Dribbble",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dribbble.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "ArtStation",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/artstation.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "DeviantArt",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/deviantart.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "500px",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/500px.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Flickr",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/flickr.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Unsplash",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/unsplash.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Pexels",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/pexels.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Pixabay",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/pixabay.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Wikipedia",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/wikipedia.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Wikimedia Commons",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/wikimediacommons.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Anki",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/anki.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Quizlet",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/quizlet.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "apps",
+    "title": "Kahoot!",
+    "url": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/kahoot.svg",
+    "artist": "Simple Icons contributors",
+    "license": "CC0-1.0",
+    "aliases": [],
+    "modifications": "Rendered in the default monochrome style."
+  },
+  {
+    "pack": "loot",
+    "title": "Treasure chest",
+    "aliases": [
+      "chest",
+      "loot chest"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/chest.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Health potion",
+    "aliases": [
+      "potion",
+      "healing potion"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/health-potion.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Magic potion",
+    "aliases": [
+      "potion",
+      "mana potion"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/magic-potion.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Mimic",
+    "aliases": [
+      "monster chest",
+      "chest"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/mimic-chest.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Spellbook",
+    "aliases": [
+      "magic book",
+      "book"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/spell-book.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Furnace",
+    "aliases": [
+      "oven"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/furnace.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Barrel",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/barrel.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Quiver",
+    "aliases": [
+      "arrows"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/quiver.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Crossbow",
+    "aliases": [
+      "bow"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/carl-olsen/crossbow.svg",
+    "artist": "carl-olsen",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Flail",
+    "aliases": [
+      "mace"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/flail.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Halberd",
+    "aliases": [
+      "axe",
+      "polearm"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/halberd.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Katana",
+    "aliases": [
+      "sword"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/katana.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Shuriken",
+    "aliases": [
+      "ninja star",
+      "throwing star"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/darkzaitzev/shuriken.svg",
+    "artist": "darkzaitzev",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Grenade",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/grenade.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Smoke bomb",
+    "aliases": [
+      "bomb"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/darkzaitzev/smoke-bomb.svg",
+    "artist": "darkzaitzev",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Flashbang",
+    "aliases": [
+      "stun grenade",
+      "grenade"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/stun-grenade.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Landmine",
+    "aliases": [
+      "mine"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/land-mine.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Ammo box",
+    "aliases": [
+      "ammunition",
+      "ammo"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/sbed/ammo-box.svg",
+    "artist": "sbed",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Bullet",
+    "aliases": [
+      "gun"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/sbed/rifle.svg",
+    "artist": "sbed",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Shotgun shell",
+    "aliases": [
+      "gun"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/sbed/shotgun.svg",
+    "artist": "sbed",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Crosshair",
+    "aliases": [
+      "blaster",
+      "gun"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/sbed/laser-gun.svg",
+    "artist": "sbed",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Jetpack",
+    "aliases": [
+      "jet pack"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/sbed/jet-pack.svg",
+    "artist": "sbed",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "VR headset",
+    "aliases": [
+      "vr",
+      "virtual reality"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/vr-headset.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Game controller",
+    "aliases": [
+      "controller",
+      "gamepad"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/skoll/console-controller.svg",
+    "artist": "skoll",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Game console",
+    "aliases": [
+      "console"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/game-console.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Treasure map",
+    "aliases": [
+      "map"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/treasure-map.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Pirate flag",
+    "aliases": [
+      "jolly roger"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/pirate-flag.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Pirate hat",
+    "aliases": [
+      "hat"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/pirate-hat.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Pirate hook",
+    "aliases": [
+      "hook"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/pirate-hook.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Cannon",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/pirate-cannon.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Saddle",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/saddle.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Horseshoe",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/horseshoe.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Caltrops",
+    "aliases": [
+      "spikes"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/caltrops.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Drawbridge",
+    "aliases": [
+      "bridge"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/drawbridge.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Catapult",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/heavenly-dog/catapult.svg",
+    "artist": "heavenly-dog",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Ballista",
+    "aliases": [
+      "crossbow"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/skoll/ballista.svg",
+    "artist": "skoll",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Siege tower",
+    "aliases": [
+      "tower"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/siege-tower.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Minecart",
+    "aliases": [
+      "mine cart"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/mine-wagon.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Wheelbarrow",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/wheelbarrow.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Sundial",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/sundial.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Hourglass",
+    "aliases": [
+      "sand timer"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/hourglass.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Scroll",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/tied-scroll.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Wizard staff",
+    "aliases": [
+      "staff"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/wizard-staff.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Trident",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/trident.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Battle axe",
+    "aliases": [
+      "axe"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/battle-axe.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Sword",
+    "aliases": [
+      "greatsword"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/two-handed-sword.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Armor",
+    "aliases": [
+      "armour",
+      "breastplate"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/breastplate.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Chainmail",
+    "aliases": [
+      "armor",
+      "armour"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/willdabeast/chain-mail.svg",
+    "artist": "willdabeast",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Gauntlet",
+    "aliases": [
+      "glove"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/gauntlet.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Cape",
+    "aliases": [
+      "cloak"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/cape.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Spartan helmet",
+    "aliases": [
+      "helmet"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/spartan-helmet.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Viking helmet",
+    "aliases": [
+      "helmet"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/viking-helmet.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Samurai helmet",
+    "aliases": [
+      "helmet"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/samurai-helmet.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Campfire",
+    "aliases": [
+      "fire"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/campfire.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Torch",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/torch.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Compass",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/compass.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Spyglass",
+    "aliases": [
+      "telescope"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/spyglass.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Rupee",
+    "aliases": [
+      "zelda rupee",
+      "gem"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/rupee.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Triforce",
+    "aliases": [
+      "zelda",
+      "legend of zelda"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/triforce.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Companion cube",
+    "aliases": [
+      "portal",
+      "cube"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/companion-cube.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Super mushroom",
+    "aliases": [
+      "mario mushroom",
+      "mushroom",
+      "mario"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/super-mushroom.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Metroid",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/metroid.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Samus",
+    "aliases": [
+      "samus helmet",
+      "metroid"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/samus-helmet.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "loot",
+    "title": "Sonic shoes",
+    "aliases": [
+      "sonic"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/sonic-shoes.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Goblin",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/goblin-head.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Orc",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/orc-head.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Wizard",
+    "aliases": [
+      "mage",
+      "sorcerer"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/wizard-face.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Witch",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/cathelineau/witch-face.svg",
+    "artist": "cathelineau",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Dwarf",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/dwarf-face.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Elf",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/woman-elf-face.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Mummy",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/mummy-head.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Vampire",
+    "aliases": [
+      "dracula"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/vampire-dracula.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Werewolf",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/werewolf.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Skeleton",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/skoll/skeleton.svg",
+    "artist": "skoll",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Zombie",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/shambling-zombie.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Slime",
+    "aliases": [
+      "blob"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/slime.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Golem",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/golem-head.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Centaur",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/centaur.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Mermaid",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/mermaid.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Fairy",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/fairy.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Pegasus",
+    "aliases": [
+      "winged horse"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/skoll/pegasus.svg",
+    "artist": "skoll",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Unicorn",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/unicorn.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Minotaur",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/minotaur.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Hydra",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/hydra.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Kraken",
+    "aliases": [
+      "tentacle"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/kraken-tentacle.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Griffin",
+    "aliases": [
+      "gryphon"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/griffin-symbol.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Cyclops",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/cyclops.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Imp",
+    "aliases": [
+      "demon"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/imp.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Gargoyle",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/gargoyle.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Medusa",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/cathelineau/medusa-head.svg",
+    "artist": "cathelineau",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "fantasy",
+    "title": "Grim reaper",
+    "aliases": [
+      "reaper"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/grim-reaper.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Sydney Opera House",
+    "aliases": [
+      "opera house"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/sydney-opera-house.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Arc de Triomphe",
+    "aliases": [
+      "triumphal arch"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/arc-triomphe.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Leaning Tower",
+    "aliases": [
+      "tower of pisa",
+      "pisa"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/pisa-tower.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Windmill",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/windmill.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Lighthouse",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/lighthouse.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Pagoda",
+    "aliases": [
+      "temple"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/pagoda.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Igloo",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/igloo.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Sphinx",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/egyptian-sphinx.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Pyramids",
+    "aliases": [
+      "pyramid",
+      "giza"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/egyptian-pyramids.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Obelisk",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/obelisk.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Waterfall",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/waterfall.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Cave",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/cave-entrance.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Oasis",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/oasis.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Water tower",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/water-tower.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Observatory",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/observatory.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Barn",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/barn.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Submarine",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/submarine.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Hot air balloon",
+    "aliases": [
+      "balloon"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/air-balloon.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Airship",
+    "aliases": [
+      "blimp",
+      "zeppelin"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/skoll/zeppelin.svg",
+    "artist": "skoll",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Space shuttle",
+    "aliases": [
+      "shuttle"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/space-shuttle.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Bulldozer",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/bulldozer.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Forklift",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/forklift.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Crane",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/crane.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Unicycle",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/unicycle.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Steam train",
+    "aliases": [
+      "train"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/steam-locomotive.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Formula 1",
+    "aliases": [
+      "f1",
+      "racing car"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/skoll/f1-car.svg",
+    "artist": "skoll",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "places",
+    "title": "Hang glider",
+    "aliases": [
+      "glider"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/hang-glider.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Capybara",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/caro-asercion/capybara.svg",
+    "artist": "caro-asercion",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Axolotl",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/caro-asercion/axolotl.svg",
+    "artist": "caro-asercion",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Ostrich",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/ostrich.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Toucan",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/toucan.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Raven",
+    "aliases": [
+      "crow"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/raven.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Seahorse",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/seahorse.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Salamander",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/salamander.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Armadillo",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/armadillo.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Anteater",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/caro-asercion/anteater.svg",
+    "artist": "caro-asercion",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Porcupine",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/caro-asercion/porcupine.svg",
+    "artist": "caro-asercion",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Chameleon",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/darkzaitzev/chameleon-glyph.svg",
+    "artist": "darkzaitzev",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Walrus",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/walrus-head.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Manta ray",
+    "aliases": [
+      "stingray",
+      "ray"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/manta-ray.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Mantis",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/praying-mantis.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Vulture",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/lorc/vulture.svg",
+    "artist": "lorc",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Ibis",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/ibis.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Hummingbird",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/hummingbird.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Lynx",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/lynx-head.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Hyena",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/caro-asercion/hyena-head.svg",
+    "artist": "caro-asercion",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Saber tooth tiger",
+    "aliases": [
+      "sabre tooth tiger"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/saber-toothed-cat-head.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Triceratops",
+    "aliases": [],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/triceratops-head.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Pterodactyl",
+    "aliases": [
+      "pterosaur"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/pterodactylus.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  },
+  {
+    "pack": "animals",
+    "title": "Velociraptor",
+    "aliases": [
+      "raptor"
+    ],
+    "url": "https://raw.githubusercontent.com/game-icons/icons/master/delapouite/velociraptor.svg",
+    "artist": "delapouite",
+    "license": "CC-BY-3.0",
+    "modifications": "Removed square background and recolored foreground for the game canvas."
+  }
+]

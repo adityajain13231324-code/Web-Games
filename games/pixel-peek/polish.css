@@ -1,0 +1,118 @@
+/* Pixel Peek polish layer: motion, lobby pack picker, feedback. Loaded last. */
+:root{--spring:cubic-bezier(.34,1.56,.64,1);--ease:cubic-bezier(.2,.8,.2,1)}
+
+/* screen changes */
+main>section.enter{animation:secIn .45s var(--ease) both}
+@keyframes secIn{from{opacity:0;transform:translateY(16px)}}
+
+/* brand tiles wave once on load */
+.brand i{animation:tileIn .5s var(--spring) both}
+.brand i:nth-child(1){animation-delay:.02s}.brand i:nth-child(2){animation-delay:.05s}.brand i:nth-child(3){animation-delay:.08s}.brand i:nth-child(4){animation-delay:.11s}.brand i:nth-child(5){animation-delay:.14s}.brand i:nth-child(7){animation-delay:.2s}.brand i:nth-child(8){animation-delay:.23s}.brand i:nth-child(9){animation-delay:.26s}.brand i:nth-child(10){animation-delay:.29s}
+@keyframes tileIn{from{opacity:0;transform:translateY(-10px) rotate(-8deg)}}
+
+/* avatar picker */
+.av-opt{transition:transform .18s var(--spring),border-color .15s,background .15s}
+.av-opt[aria-pressed=true]{transform:scale(1.08);animation:avPick .35s var(--spring)}
+@keyframes avPick{40%{transform:scale(1.22) rotate(-6deg)}}
+
+/* room code tiles drop in */
+.tiles span{animation:codeIn .5s var(--spring) both;animation-delay:calc(var(--i,0)*70ms)}
+@keyframes codeIn{from{opacity:0;transform:translateY(-18px) scale(.7)}}
+
+/* player slots */
+.slot{position:relative;transition:border-color .2s}
+.slot.joined{animation:slotIn .55s var(--spring)}
+@keyframes slotIn{from{opacity:0;transform:translateX(-18px) scale(.95)}}
+.slot .ready{margin-left:auto;font-family:var(--mono);font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--good);background:color-mix(in srgb,var(--good) 14%,transparent);padding:4px 8px;border-radius:999px}
+.slot div{flex:1}
+
+/* pack picker */
+#packGroups{gap:22px!important}
+.grp{gap:12px}
+.grphead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-bottom:8px;border-bottom:1px dashed var(--line)}
+.gname{font-family:var(--display);font-size:1rem;letter-spacing:.02em}
+.gcount{font-family:var(--mono);font-size:.72rem;font-weight:800;color:var(--muted);padding:3px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--line);transition:all .2s}
+.gcount:empty{display:none}
+.gcount.on{color:#2a1a00;background:var(--p1);border-color:transparent}
+.gsp{flex:1}
+.gbtn{font-size:.78rem;font-weight:700;color:var(--muted);padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--bg);min-height:34px;transition:color .15s,border-color .15s,background .15s,opacity .15s}
+.gbtn:hover:not(:disabled){color:var(--fg);border-color:var(--p2)}
+.gbtn:disabled{opacity:.35;cursor:default}
+.packs{grid-template-columns:repeat(auto-fill,minmax(176px,1fr))!important;gap:12px!important}
+.pack{animation:packIn .42s var(--ease) both;animation-delay:calc(min(var(--i,0),30)*16ms);transition:border-color .18s,background .18s,transform .18s var(--spring),box-shadow .18s!important;cursor:pointer}
+@keyframes packIn{from{opacity:0;transform:translateY(10px) scale(.97)}}
+.pack:hover:not(:disabled){transform:translateY(-3px)!important;box-shadow:0 10px 24px -14px #000}
+.pack:active:not(:disabled){transform:scale(.97)!important}
+.pack .pv{transition:transform .25s var(--spring)}
+.pack:hover:not(:disabled) .pv{transform:rotate(-6deg) scale(1.08)}
+.pack[aria-pressed=true]{box-shadow:0 0 0 1px color-mix(in srgb,var(--p1) 40%,transparent),0 12px 26px -16px color-mix(in srgb,var(--p1) 80%,transparent)}
+.pack .ck{display:grid!important;transform:scale(0);transition:transform .25s var(--spring)}
+.pack[aria-pressed=true] .ck{transform:scale(1)}
+.pack[aria-pressed=false] .pv img{filter:saturate(.75)}
+.pack.bump{animation:bumpA .35s var(--spring)}
+@keyframes bumpA{40%{transform:scale(.94)}75%{transform:scale(1.03)}}
+#packCount{font-variant-numeric:tabular-nums}
+
+/* presets */
+.presets button{transition:transform .18s var(--spring),border-color .15s,background .15s}
+.presets button:hover{transform:translateY(-2px)}
+.presets button.picked{border-color:var(--p1)!important;background:color-mix(in srgb,var(--p1) 12%,transparent)!important}
+
+/* segmented controls */
+.segs button{transition:background .2s,color .2s,box-shadow .2s}
+
+/* start button breathes when ready */
+#startBtn.ready:not(:disabled){animation:breathe 2.4s ease-in-out infinite}
+@keyframes breathe{50%{box-shadow:0 5px 0 #b77d12,0 0 0 8px color-mix(in srgb,var(--p1) 16%,transparent),0 14px 40px -8px color-mix(in srgb,var(--p1) 70%,transparent)}}
+
+/* game feedback */
+.screen{transition:border-color .3s}
+.screen.flash-good{animation:flashG .7s ease-out}
+.screen.flash-bad{animation:flashB .45s ease-out}
+@keyframes flashG{0%{border-color:var(--good);box-shadow:0 0 0 6px color-mix(in srgb,var(--good) 40%,transparent),0 0 60px color-mix(in srgb,var(--good) 50%,transparent)}}
+@keyframes flashB{0%,60%{border-color:var(--bad);box-shadow:0 0 0 4px color-mix(in srgb,var(--bad) 35%,transparent)}}
+.ov.rev.anim .res{animation:resIn .4s var(--spring) both}
+.ov.rev.anim .ans{animation:ansIn .55s var(--spring) .08s both}
+.ov.rev.anim .nx{animation:secIn .4s var(--ease) .3s both}
+@keyframes resIn{from{opacity:0;transform:translateY(8px) scale(.8)}}
+@keyframes ansIn{from{opacity:0;transform:translateY(14px) scale(.85)}}
+.timer.low i{animation:lowPulse .6s ease-in-out infinite alternate}
+@keyframes lowPulse{to{opacity:.55}}
+.pc{transition:border-color .25s,box-shadow .25s,transform .2s}
+.pc.bump{animation:bumpA .45s var(--spring)}
+.pc .streak{animation:resIn .35s var(--spring)}
+.guess input{transition:border-color .15s,box-shadow .15s}
+
+/* end screen */
+.crown{animation:crownIn .7s var(--spring) both}
+@keyframes crownIn{from{opacity:0;transform:scale(.4) rotate(-14deg)}}
+.winner{animation:ansIn .6s var(--spring) .1s both}
+.fin{animation:packIn .45s var(--ease) .2s both}
+.hist .hi{animation:packIn .4s var(--ease) both;animation-delay:calc(.3s + min(var(--i,0),30)*45ms);transition:transform .2s var(--spring)}
+.hist .hi:hover{transform:translateY(-3px)}
+
+/* toasts */
+.toasts{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:60;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none;width:max-content;max-width:calc(100% - 32px)}
+.toast{background:var(--panel2);border:1px solid var(--line2);color:var(--fg);font-weight:700;font-size:.92rem;padding:10px 16px;border-radius:999px;box-shadow:0 14px 34px -10px #000;animation:toastIn .4s var(--spring) both;text-align:center}
+.toast.good{border-color:color-mix(in srgb,var(--good) 60%,transparent)}
+.toast.bad{border-color:color-mix(in srgb,var(--bad) 60%,transparent)}
+.toast.out{animation:toastOut .35s ease-in forwards}
+@keyframes toastIn{from{opacity:0;transform:translateY(-14px) scale(.9)}}
+@keyframes toastOut{to{opacity:0;transform:translateY(-10px) scale(.95)}}
+
+/* buttons feel pressable everywhere */
+.btn{transition:transform .12s var(--spring),filter .15s,box-shadow .15s}
+.btn:hover:not(:disabled){transform:translateY(-1px)}
+
+@media (max-width:560px){
+  .packs{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .pack{padding:8px;gap:8px}
+  .pack .pv{width:38px;height:38px}
+  .pack b{font-size:.84rem}
+  .grphead .gbtn{padding:5px 9px;font-size:.72rem}
+}
+@media (max-width:680px){
+  .startbar{flex-wrap:nowrap;gap:10px;padding:10px!important}
+  .startbar .btn.big{min-width:0;width:auto;flex:0 0 auto;font-size:1rem;padding:12px 16px}
+  .startbar .status{min-width:0;font-size:.78rem;line-height:1.3}
+}

@@ -1,0 +1,173 @@
+/* Pixel Peek party edition: up to 8 players, live leaderboard, podium. Loaded last. */
+
+/* ---------- lobby: settings and seats ---------- */
+.settings{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.settings .seg-wide{grid-column:1/-1}
+.segs{flex-wrap:wrap}
+.segs button{min-width:56px}
+.mode-note{min-height:1.3em;font-size:.85rem}
+.seathead{display:flex;justify-content:space-between;align-items:center}
+.seatcount{font-family:var(--mono);font-weight:800;font-size:.8rem;color:var(--p2)}
+.seats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seat{display:flex;align-items:center;gap:8px;padding:8px;border-radius:14px;background:var(--bg);border:2px solid color-mix(in srgb,var(--pc,var(--line)) 60%,var(--line));min-width:0;transition:border-color .2s}
+.seat img,.seat .ph{width:36px;height:36px;flex:none;border-radius:10px;background:var(--panel2);padding:4px}
+.seat .ph{display:grid;place-items:center;color:var(--dim);font-family:var(--display);font-size:1.1rem}
+.seat div{display:flex;flex-direction:column;min-width:0}
+.seat b{font-size:.88rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.seat small{font-size:.7rem;color:var(--muted)}
+.seat.me{box-shadow:0 0 0 1px var(--pc) inset}
+.seat.empty{border-style:dashed;border-color:var(--line);opacity:.55}
+.seat.empty b{color:var(--muted);font-weight:600}
+.seat.joined{animation:slotIn .55s var(--spring)}
+
+/* ---------- reactions ---------- */
+.react-tray{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding-top:10px;border-top:1px dashed var(--line)}
+.react-btn{font-size:1.3rem;width:40px;height:40px;border-radius:11px;border:1px solid var(--line);background:var(--bg);transition:transform .15s var(--spring),border-color .15s}
+.react-btn:hover{transform:translateY(-3px) scale(1.08);border-color:var(--p2)}
+.react-btn.bump{animation:bumpA .35s var(--spring)}
+.react-feed{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:55;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.react-bubble{display:flex;align-items:center;gap:8px;background:var(--panel2);border:2px solid var(--pc,var(--p2));border-radius:999px;padding:6px 14px 6px 12px;box-shadow:0 12px 30px -10px #000;animation:toastIn .35s var(--spring) both}
+.react-bubble b{font-size:.85rem;color:var(--pc,var(--fg));max-width:9em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.react-bubble span{font-size:1.5rem;line-height:1}
+.react-bubble.out{animation:toastOut .35s ease-in forwards}
+.over .react-tray{border-top:0}
+
+/* ---------- game layout ---------- */
+.arena2{display:grid;grid-template-columns:minmax(0,600px) minmax(260px,320px);gap:24px;justify-content:center;align-items:start;padding-top:4px}
+.stage{display:flex;flex-direction:column;gap:12px;min-width:0}
+.stagetop{flex-wrap:wrap}
+.chip.mode{color:var(--p2);border-color:color-mix(in srgb,var(--p2) 40%,var(--line))}
+.ov.intro .md{font-family:var(--mono);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--p1);padding:4px 10px;border:1px solid color-mix(in srgb,var(--p1) 50%,transparent);border-radius:999px}
+.ov.intro .md:empty{display:none}
+.solvedtag{position:absolute;top:22px;left:50%;transform:translateX(-50%);z-index:2;background:var(--good);color:#06240f;font-weight:900;padding:6px 14px;border-radius:999px;box-shadow:0 10px 30px -8px #000;animation:resIn .45s var(--spring) both;max-width:80%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ov.rev .res{background:var(--panel2)}
+.ov.rev .res.ok{color:var(--good)}
+.ov.rev .who{display:flex;flex-wrap:wrap;gap:6px}
+.ov.rev .who span{font-weight:800;font-size:.85rem;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--pc) 22%,rgba(10,7,18,.85));border:1px solid var(--pc);color:var(--fg)}
+.ov.rev .who b{color:var(--pc)}
+.ov.rev.anim .who span{animation:resIn .4s var(--spring) both}
+.ov.rev.anim .who span:nth-child(2){animation-delay:.08s}.ov.rev.anim .who span:nth-child(3){animation-delay:.16s}.ov.rev.anim .who span:nth-child(4){animation-delay:.24s}.ov.rev.anim .who span:nth-child(n+5){animation-delay:.32s}
+
+/* ---------- leaderboard ---------- */
+.board{position:sticky;top:calc(16px + env(safe-area-inset-top,0px));padding:16px;gap:12px}
+.boardhead{display:flex;justify-content:space-between;align-items:center}
+.solvedcount{font-family:var(--mono);font-size:.78rem;font-weight:800;color:var(--good)}
+.boardlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.boardlist li{position:relative;display:grid;grid-template-columns:20px 40px minmax(0,1fr) auto;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:14px;background:var(--bg);border:2px solid color-mix(in srgb,var(--pc) 35%,var(--line));transition:border-color .25s,background .25s,opacity .25s}
+.boardlist li.me{background:color-mix(in srgb,var(--pc) 10%,var(--bg))}
+.boardlist li.solved{border-color:var(--good);background:color-mix(in srgb,var(--good) 9%,var(--bg))}
+.boardlist li.off{opacity:.45}
+.boardlist li.bump{animation:bumpA .45s var(--spring)}
+.boardlist .rk{font-family:var(--display);font-size:.95rem;color:var(--muted);text-align:center}
+.boardlist li:first-child .rk{color:var(--p1)}
+.boardlist .av{width:40px;height:40px;border-radius:11px;background:var(--panel2);padding:4px;border:2px solid var(--pc)}
+.boardlist .nmw{display:flex;flex-direction:column;min-width:0}
+.boardlist .nm{font-size:.95rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.boardlist .stt{font-size:.78rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.boardlist .stt.ok{color:var(--good);font-weight:700}
+.boardlist .stt.bad{color:color-mix(in srgb,var(--bad) 80%,var(--fg))}
+.boardlist .sc{font-family:var(--display);font-size:1.45rem;color:var(--pc);font-variant-numeric:tabular-nums}
+.row-pop{position:absolute;right:10px;top:-10px;font-family:var(--display);font-size:1.05rem;color:var(--good);pointer-events:none;animation:pop 1.3s ease-out forwards}
+.row-react{position:absolute;left:30px;top:-14px;font-size:1.5rem;pointer-events:none;animation:pop 1.6s ease-out forwards}
+
+/* ---------- results ---------- */
+.over{gap:18px!important}
+.over>.eyebrow{margin-bottom:-6px}
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:14px;margin-top:8px;width:100%;max-width:620px}
+.pod{flex:1;max-width:190px;display:flex;flex-direction:column;align-items:center;gap:6px;animation:podIn .7s var(--spring) both;animation-delay:calc(.15s + var(--d)*.18s)}
+.pod img{width:64px;height:64px;border-radius:18px;background:var(--panel2);padding:7px;border:3px solid var(--pc)}
+.pod.p1 img{width:86px;height:86px;border-radius:22px;box-shadow:0 0 50px -6px var(--pc)}
+.pod .pn{font-size:.95rem;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pod .ps{font-family:var(--display);font-size:1.6rem;color:var(--pc);line-height:1}
+.pod .step{width:100%;border-radius:14px 14px 4px 4px;background:linear-gradient(180deg,color-mix(in srgb,var(--pc) 45%,var(--panel2)),var(--panel));border:1px solid color-mix(in srgb,var(--pc) 50%,var(--line));display:grid;place-items:center}
+.pod .step span{font-family:var(--display);font-size:2rem;color:var(--fg);opacity:.85}
+.pod.p1 .step{height:120px}.pod.p2 .step{height:84px}.pod.p3 .step{height:60px}
+.pod.me .pn{color:var(--pc)}
+@keyframes podIn{from{opacity:0;transform:translateY(40px)}}
+.ranks{list-style:none;margin:0;padding:0;width:100%;max-width:520px;display:flex;flex-direction:column;gap:8px}
+.ranks:empty{display:none}
+.ranks li{display:grid;grid-template-columns:28px 36px minmax(0,1fr) auto;align-items:center;gap:10px;padding:8px 14px;border-radius:14px;background:var(--panel);border:1px solid var(--line);animation:packIn .4s var(--ease) both;animation-delay:calc(.6s + var(--i)*.07s);text-align:left}
+.ranks .rk{font-family:var(--display);color:var(--muted)}
+.ranks img{width:36px;height:36px}
+.ranks b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ranks .sc{font-family:var(--display);color:var(--pc);font-size:1.2rem}
+
+/* ---------- phones and small laptops ---------- */
+@media (max-width:980px){
+  .arena2{grid-template-columns:minmax(0,1fr);max-width:620px;margin:0 auto;gap:12px}
+  .board{position:static;order:-1;padding:10px;gap:8px}
+  .boardhead{display:none}
+  .boardlist{flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:thin}
+  .boardlist li{grid-template-columns:32px auto;grid-template-rows:auto auto;min-width:118px;padding:6px 10px 6px 6px;gap:2px 8px}
+  .boardlist .rk{display:none}
+  .boardlist .av{grid-row:1/3;width:32px;height:32px;padding:3px}
+  .boardlist .nmw{grid-column:2}
+  .boardlist .nm{font-size:.8rem;max-width:7.5em}
+  .boardlist .stt{font-size:.7rem;max-width:8.5em}
+  .boardlist .sc{grid-column:2;grid-row:auto;font-size:1.05rem;position:absolute;right:10px;top:6px}
+  .board .react-tray{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-top:8px}
+  .react-btn{flex:none;width:36px;height:36px;font-size:1.15rem}
+}
+@media (max-width:560px){
+  .seats{grid-template-columns:1fr 1fr}
+  .podium{gap:8px}
+  .pod img{width:48px;height:48px}.pod.p1 img{width:64px;height:64px}
+  .pod .ps{font-size:1.25rem}
+  .pod.p1 .step{height:90px}.pod.p2 .step{height:64px}.pod.p3 .step{height:46px}
+  .stagetop .chip{font-size:.68rem;padding:5px 8px}
+  .react-feed{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
+
+/* presets: tidy grid instead of one orphan button */
+.presets{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.presets>.lab{grid-column:1/-1}
+.presets button{min-width:0!important}
+@media (max-width:560px){ .presets{grid-template-columns:repeat(2,minmax(0,1fr))} }
+
+/* phones: scoreboard strip on top, reactions and leave below the guess box */
+@media (max-width:980px){
+  .board{display:contents}
+  .boardlist{order:-1}
+  .board .react-tray{order:2;border-top:0;padding-top:0;justify-content:center;flex-wrap:wrap}
+  #gameLeaveBtn{order:3;justify-self:center}
+  .boardlist li{padding-right:40px}
+  .boardlist .sc{right:10px;top:50%;transform:translateY(-50%)}
+  .boardlist .nm{max-width:6.5em}
+}
+.row-react{left:auto;right:56px;top:-12px}
+@media (max-width:980px){
+  .boardlist li{min-width:158px}
+  .boardlist .nm{max-width:7.5em}
+}
+@media (max-width:560px){
+  .stagetop{gap:6px;justify-content:flex-start}
+  .react-feed{top:calc(118px + env(safe-area-inset-top,0px));bottom:auto}
+}
+
+/* ---------- kick buttons ---------- */
+.seat{position:relative}
+.kick{flex:none;margin-left:auto;min-width:28px;height:28px;padding:0 8px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:.75rem;font-weight:800;transition:background .15s,color .15s,border-color .15s}
+.kick:hover{color:var(--fg);border-color:var(--bad)}
+.kick.armed{background:var(--bad);border-color:var(--bad);color:#2a0008}
+.boardlist .kick{position:absolute;top:-9px;right:-9px;margin:0;opacity:.6;z-index:2}
+.boardlist li:hover .kick,.boardlist .kick:focus-visible,.boardlist .kick.armed{opacity:1}
+#fsBtn.on{color:var(--p2);border-color:var(--p2)}
+
+/* ---------- keep the whole game on one screen ---------- */
+body.ingame .top{padding-block:8px;margin-bottom:10px}
+body.ingame .top .brand{font-size:.95rem}
+body.ingame .credits{display:none}
+body.ingame{padding-block-end:16px}
+.arena2{grid-template-columns:auto minmax(260px,320px)}
+.stage{width:min(600px,calc(100vh - 300px));width:min(600px,calc(100dvh - 300px));min-width:min(300px,100%);max-width:100%;margin-inline:auto}
+.stage{gap:10px}
+.hint{min-height:1.4em}
+@media (max-width:980px){
+  .arena2{grid-template-columns:minmax(0,1fr)}
+  .stage{width:min(100%,calc(100vh - 390px));width:min(100%,calc(100dvh - 390px));min-width:min(280px,100%)}
+}
+@media (max-height:620px) and (min-width:981px){
+  .stage{width:min(600px,calc(100vh - 270px));width:min(600px,calc(100dvh - 270px))}
+}
+.stagetop{gap:6px}
+.stagetop .chip{font-size:.68rem;padding:5px 9px;letter-spacing:.04em}

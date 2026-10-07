@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#2a0a14">
+<meta name="description" content="Liar's Call: a desi bluffing card game. Jhooth bolo, pakde mat jao, golgappa khao.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Liar's Call">
+<title>Liar's Call</title>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <div id="bg"></div>
+    <div id="seats"></div>
+    <div id="tableWrap">
+      <div id="table">
+        <div class="edge"></div><div class="edge2"></div><div class="top"></div>
+        <div class="felt"></div>
+        <div id="spots" style="position:absolute;inset:0"></div>
+        <div id="tcard" class="tcard" style="left:31%;top:50%"></div>
+        <div id="pile" style="left:54%;top:52%"></div>
+      </div>
+    </div>
+    <div id="plates"></div>
+    <div id="me"><div class="av"></div></div>
+    <div id="hand" class="locked"></div>
+    <div id="controls">
+      <button class="btn liar" id="btnLiar" disabled>LIAR!</button>
+      <button class="btn play" id="btnPlay" disabled>PLAY</button>
+      <div id="hint"></div>
+    </div>
+    <div id="react"></div>
+    <div id="specBanner">👀 Watching · you'll get a seat in the next game</div>
+    <div id="hud">
+      <div class="tl"><div class="chip" id="hudRound"><span class="lab">Round</span>–</div><div class="chip tc" id="hudTC" style="display:none"></div></div>
+      <div id="ticker">Welcome to the shaadi!</div>
+      <div class="tr">
+        <button class="ib" id="btnMusic" title="Music">🥁</button>
+        <button class="ib" id="btnSfx" title="Sound effects">🔊</button>
+        <button class="ib" id="btnLog" title="Round log">📜</button>
+        <button class="ib" id="btnHelp" title="How to play">?</button>
+        <button class="ib btnFull" title="Full screen">⛶</button>
+        <button class="ib" id="btnPause" title="Menu">☰</button>
+      </div>
+    </div>
+    <button class="btn ghost" id="ff" style="left:50%;top:64px;transform:translateX(-50%)">⏩ Fast forward</button>
+    <div id="logPanel"><div class="lh">This game so far</div><div id="logList"></div></div>
+    <div id="tauntPanel"></div>
+    <div id="fx"><div id="stampEl" class="stamp"></div></div>
+    <div id="flashEl" class="flash"></div>
+    <div id="eat"></div>
+
+    <!-- HOME -->
+    <div class="screen" id="home">
+      <div class="homewrap">
+        <div class="marquee"><div class="logo">Liar's <span>Call</span></div><div class="tag">Jhooth bolo. Pakde mat jao. Golgappa khao. 🌶️</div></div>
+        <div class="stagepick">
+          <button class="arrow" id="homePrev" aria-label="Previous character">‹</button>
+          <div class="cast" id="homeCast"></div>
+          <button class="arrow" id="homeNext" aria-label="Next character">›</button>
+          <div class="spot"></div>
+        </div>
+        <div class="who" id="homeWho"></div>
+        <div class="fitbox" id="homeFit"></div>
+        <div class="namebox"><label for="homeName">Your name</label><input id="homeName" maxlength="16" autocomplete="off" spellcheck="false"></div>
+        <div class="menu">
+          <button class="btn play big" id="goOnline">PLAY WITH FRIENDS<small>online room, 2–6 players</small></button>
+          <button class="btn green big" id="goBots">PLAY VS BOTS<small>practice against the uncles</small></button>
+          <button class="btn ghost" id="goHow">How to play</button>
+        </div>
+        <div class="hstats" id="homeStats"></div>
+        <div class="corner"><button class="btn ghost sm" id="btnInstall" style="display:none">📲 Install app</button><button class="btn ghost sm btnFull">⛶ Full screen</button></div>
+      </div>
+    </div>
+
+    <!-- ONLINE: create or join -->
+    <div class="screen" id="online">
+      <div class="card online">
+        <h2>Play with friends</h2>
+        <p class="sub" id="onlineHint">Make a room and share the code, or join a friend's room.</p>
+        <div class="two">
+          <div class="pane">
+            <div class="big-ico">🏠</div>
+            <h3>Create a room</h3>
+            <p>You'll get a 4-letter code to send your friends. Empty seats can be bots.</p>
+            <button class="btn play" id="btnCreate">CREATE ROOM</button>
+          </div>
+          <div class="pane">
+            <div class="big-ico">🔑</div>
+            <h3>Join a room</h3>
+            <p>Enter the code your friend sent you.</p>
+            <input id="joinCode" class="code" maxlength="4" placeholder="ABCD" autocomplete="off" spellcheck="false">
+            <button class="btn green" id="btnJoin">JOIN</button>
+          </div>
+        </div>
+        <button class="btn ghost back">‹ Back</button>
+      </div>
+    </div>
+
+    <!-- BOTS setup -->
+    <div class="screen" id="botsetup">
+      <div class="card">
+        <h2>Play vs bots</h2>
+        <div class="opts">
+          <div class="opt"><span class="lab">Players</span><div class="seg" id="optN"></div></div>
+          <div class="opt"><span class="lab">Bots</span><div class="seg" id="optL"></div></div>
+          <div class="opt"><span class="lab">Turn timer</span><div class="seg" id="optT"></div></div>
+        </div>
+        <div class="opts"><div class="opt"><span class="lab">Table</span><div class="seg wrap" id="optTheme"></div></div></div>
+        <div class="row"><button class="btn ghost back">‹ Back</button><button class="btn play" id="btnStart" style="min-width:220px">START</button></div>
+      </div>
+    </div>
+
+    <!-- LOBBY -->
+    <div class="screen" id="lobby">
+      <div class="card lobby">
+        <div class="lobtop">
+          <div><span class="lab">Room code</span><div class="roomcode" id="lobCode">----</div></div>
+          <div class="invite">
+            <input id="lobLink" readonly>
+            <div class="row"><button class="btn ghost sm" id="lobCopy">📋 Copy link</button><a class="btn wa sm" id="lobWa" target="_blank" rel="noopener">WhatsApp</a></div>
+          </div>
+        </div>
+        <div class="seats6" id="lobSeats"></div>
+        <div class="lobpick"><span class="lab">Your character</span><div class="strip" id="lobPick"></div></div>
+        <div id="lobHostOpts">
+          <div class="opts">
+            <div class="opt"><span class="lab">Turn timer</span><div class="seg" id="lobTimer"></div></div>
+            <div class="opt"><span class="lab">Bots</span><div class="seg" id="lobLevel"></div></div>
+          </div>
+          <div class="opts"><div class="opt"><span class="lab">Table</span><div class="seg wrap" id="lobTheme"></div></div></div>
+        </div>
+        <div id="lobWatch" class="sub"></div>
+        <div id="lobGuestWait" class="wait">Waiting for the host to start the game...</div>
+        <div class="sub" id="lobInfo"></div>
+        <div class="row"><button class="btn ghost" id="lobLeave">Leave</button><button class="btn play" id="lobStart">START GAME</button></div>
+      </div>
+    </div>
+
+    <div class="screen" id="howto">
+      <div class="card howto">
+        <h2>How to play</h2>
+        <div class="cards" id="howCards"></div>
+        <ol>
+          <li>Everyone gets <b>5 cards</b>. Each round has a <b>table card</b>: Raja, Rani or Ikka. Jokers count as the table card too.</li>
+          <li>On your turn, play <b>1 to 3 cards face down</b> and claim they're all the table card. You can lie.</li>
+          <li>Or shout <b>LIAR!</b> on the player before you. Their cards get flipped.</li>
+          <li>If they lied, <b>they</b> eat a golgappa. If they told the truth, <b>you</b> eat one.</li>
+          <li>Everyone has 6 golgappas and <b>two are filled with ghost-pepper pani</b>. Eat it and you're out. Each one you survive makes the next more dangerous.</li>
+          <li>When only one player still has cards, they must call LIAR. Last one standing wins.</li>
+          <li>Watch the uncles and aunties: bots often give away a bluff with a <b>tell</b> (moustache twirl, glasses push, a flex...). Not always.</li>
+        </ol>
+        <div class="row"><button class="btn play" id="btnHowBack">Got it</button></div>
+      </div>
+    </div>
+
+    <div class="screen" id="over"><div class="card over"><div id="overBody"></div><div id="overWait" class="wait" style="display:none">The host can start a rematch.</div><div class="row"><button class="btn play" id="btnAgain">Rematch</button><button class="btn ghost" id="btnMenu">Menu</button></div></div></div>
+    <div class="screen" id="pause"><div class="card"><h2 style="margin:0 0 14px;color:var(--gold);font-size:34px">Paused</h2><div class="row"><button class="btn play" id="btnResume">Resume</button><button class="btn ghost" id="btnQuit">Leave game</button></div></div></div>
+  </div>
+</div>
+<div id="toasts"></div>
+<div id="msg"></div>
+<script src="js/peerjs.min.js"></script>
+<script src="js/net.js"></script>
+<script src="js/rules.js"></script>
+<script src="js/bots.js"></script>
+<script src="js/art.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
