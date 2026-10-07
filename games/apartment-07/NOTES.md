@@ -114,7 +114,7 @@ Last updated: 7 October 2026. Read this before changing anything. It's written s
 ## Planned or discussed, not built
 
 - **Checking the overhaul on the user's own laptop.** It was only verified in a headless test browser, which ran at about 3 fps with software rendering. Real feel (speed, light, music) still needs a human check. The music has never been heard by a person.
-- **Mobile / touch controls.** The game is desktop and keyboard only.
+- **Mobile / touch controls.** The game is desktop and keyboard only. The home screen shows a banner saying so (`.device-note` in `src/main.ts` / `src/style.css`); remove it once touch controls exist.
 - **More chapters or maps.** The engine is built around one map (`shared/map.ts`) and one content file. A second chapter needs its own map, content and action handlers.
 
 ## Known bugs and limitations
@@ -124,6 +124,7 @@ Last updated: 7 October 2026. Read this before changing anything. It's written s
 - **Winning saves "Home Again" as your track.** `sound.set({ track: 'home' })` on the win screen also stores it as the saved preference.
 - **No Shift sprint in chat.** Movement keys are ignored while any text input is focused. This is deliberate.
 - **Server restarts end rooms.** Restarting the server clears all rooms, and it runs on a single instance only.
+- **Changes here don't reach the live game by themselves.** Railway deploys from the separate [apartment-07](https://github.com/adityajain13231324-code/apartment-07) repo, so a change made only in this folder (for example the PC/laptop-only banner) stays invisible on https://apartment07.up.railway.app until the same change is committed to that repo's `main`.
 - **Dev-only test hook.** `window.a07` exposes the scene, state, room and sound for automated tests. It only exists in `vite dev` (`import.meta.env.DEV`) and isn't in production builds.
 
 ## Decisions and why
