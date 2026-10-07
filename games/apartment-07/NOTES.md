@@ -102,15 +102,28 @@ Last updated: 7 October 2026. Read this before changing anything. It's written s
   - Floating-lights ending screen.
 - **Tests:** 14 engine tests, including new ones for position validation and objectives, plus the 2 network tests, all pass. The network "escape" test had a bug, also present in the original code: the bots froze once the game was won, before reaching their last waypoint. It now stops walking once the phase is `won`, and its pathfinder keeps a 1-pixel margin from furniture.
 
+## Live deployment (7 October 2026)
+
+## Play online
+
+**[Play Apartment 07](https://apartment07.up.railway.app)** — no installation or account required.
+
+1. Click to come inside, customize your explorer and select **New apartment**.
+2. Create a room and share its invitation link or six-letter code with up to three friends.
+3. Friends open the same site and use **Join friends**, or follow the invite link.
+4. The host selects **Begin the story**. Solve the apartment together and have everyone walk through the opened entrance. Solo works too.
+
+The game runs on Railway, so the creator's laptop does not need to stay on. Sessions are held in server memory; a server restart or redeployment ends active games.
+
+- **Public address:** https://apartment07.up.railway.app
+- **Host:** Railway, project Apartment 07, production service apartment-07.
+- **Deployment source:** [adityajain13231324-code/apartment-07](https://github.com/adityajain13231324-code/apartment-07), main branch. This Web-Games folder is a separate snapshot; edits here do not automatically deploy.
+- **Packaging:** one Docker service serves frontend assets, HTTP room endpoints and persistent WebSockets. Railway supplies PORT=8080 and the public domain targets 8080. Single origin; no separate frontend server URL is needed. One replica, health check /api/health and app sleeping disabled.
+- **Verified against the public deployment:** HTTPS page/artwork; four clients joining; shared inventory and mechanism ownership; late joining; disconnect/reconnect; all seven doors and the complete four-player reunion. The deployed source's 22 engine tests also passed. This does not establish first-time human pacing or all-browser testing.
+- **No Mum voice was added.** Audio remains procedural music, rain, thunder and effects.
+
 ## Planned or discussed, not built
 
-- **Hosting for friends over the internet.** The game needs a long-running Node/WebSocket server. A static host like Vercel alone is not enough, unlike Pixel Peek and Liar's Call. The `Dockerfile` and README "Hosting" section describe the setup:
-  - Deploy the server somewhere that supports WebSockets.
-  - Set `CLIENT_ORIGIN` on the server.
-  - Build the client with `VITE_SERVER_URL=https://your-server`.
-  - Put `dist/` on a static host.
-
-  The user hasn't chosen a host yet.
 - **Checking the overhaul on the user's own laptop.** It was only verified in a headless test browser, which ran at about 3 fps with software rendering. Real feel (speed, light, music) still needs a human check. The music has never been heard by a person.
 - **Mobile / touch controls.** The game is desktop and keyboard only.
 - **More chapters or maps.** The engine is built around one map (`shared/map.ts`) and one content file. A second chapter needs its own map, content and action handlers.
@@ -139,6 +152,5 @@ Last updated: 7 October 2026. Read this before changing anything. It's written s
 - The user asked to "make it a lot better" and allowed Claude's own ideas. Everything listed above was built. The user hasn't reviewed it yet.
 - The user wants to work from Claude Code with this repo, seeing changes live. Use `node scripts/dev.mjs` and keep the browser open on `http://127.0.0.1:5173`, which hot-reloads.
 - Possible next steps that were mentioned but not requested:
-  - hosting the server
   - a phone layout and touch controls
   - more chapters

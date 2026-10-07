@@ -1,4 +1,17 @@
-# How to run Apartment 07 locally
+# How to play and run Apartment 07
+
+## Play online
+
+**[Play Apartment 07](https://apartment07.up.railway.app)** — no installation or account required.
+
+1. Click to come inside, customize your explorer and select **New apartment**.
+2. Create a room and share its invitation link or six-letter code with up to three friends.
+3. Friends open the same site and use **Join friends**, or follow the invite link.
+4. The host selects **Begin the story**. Solve the apartment together and have everyone walk through the opened entrance. Solo works too.
+
+The game runs on Railway, so the creator's laptop does not need to stay on. Sessions are held in server memory; a server restart or redeployment ends active games.
+
+## Local development
 
 This game has two parts, a **game server** (Node + Colyseus) and a **web client** (Vite + Phaser), so it can't be opened by double-clicking a file.
 
@@ -41,12 +54,6 @@ pnpm test:network     # multiplayer tests (start the server first with node scri
 pnpm build            # production build: dist/ (client) and dist-server/ (server)
 ```
 
-## Playing with friends over the internet
+## Live hosting
 
-Localhost links only work on your own computer. For friends elsewhere:
-
-1. Deploy the server (the `Dockerfile` builds it) to a host that supports WebSockets. Set `CLIENT_ORIGIN` to your website's address.
-2. Build the client with `VITE_SERVER_URL=https://your-server-address pnpm build`.
-3. Upload `dist/` to a static host such as Netlify or Vercel.
-
-See the "Hosting" section of `README.md` for details.
+Friends can use https://apartment07.up.railway.app now. Localhost is only for development. The live frontend and WebSocket server run together on Railway; deployment changes come from the separate [apartment-07 repository](https://github.com/adityajain13231324-code/apartment-07). The public domain targets the service's current PORT, 8080. Keep one replica and deploy updates between games, because restarts clear active sessions.

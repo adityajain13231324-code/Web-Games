@@ -2,6 +2,17 @@
 
 A browser-based cooperative escape mystery for 1–4 players. Phaser renders the apartment; a Colyseus server owns movement, locks, inventory and puzzle progress. No accounts or external AI calls are needed to play.
 
+## Play online
+
+**[Play Apartment 07](https://apartment07.up.railway.app)** — no installation or account required.
+
+1. Click to come inside, customize your explorer and select **New apartment**.
+2. Create a room and share its invitation link or six-letter code with up to three friends.
+3. Friends open the same site and use **Join friends**, or follow the invite link.
+4. The host selects **Begin the story**. Solve the apartment together and have everyone walk through the opened entrance. Solo works too.
+
+The game runs on Railway, so the creator's laptop does not need to stay on. Sessions are held in server memory; a server restart or redeployment ends active games.
+
 ## Run locally
 
 Requires Node 22+ and pnpm 11. From this directory:
@@ -28,7 +39,9 @@ Engine tests cover both puzzle-branch orders with 1, 2 and 4 players, idempotent
 
 ## Hosting
 
-The frontend and server are deployed separately. Set `VITE_SERVER_URL` to the server's public HTTPS URL before building the frontend; publish `dist/` on a static host such as Vercel. The included Dockerfile builds the persistent Node/WebSocket server. Set `CLIENT_ORIGIN` to the frontend origin(s), and expose the server through HTTPS/WebSocket-capable hosting. Localhost invitation links only work on the same computer; public play with friends requires hosting both components. There is no paid hosting automatically provisioned by this project.
+The live deployment serves the webpage, artwork, room API and WebSockets from one Railway service. Its deployment source is [adityajain13231324-code/apartment-07](https://github.com/adityajain13231324-code/apartment-07), on the main branch. The public domain targets port 8080, matching Railway's injected PORT. No VITE_SERVER_URL or CLIENT_ORIGIN setting is needed for this single-origin deployment. Keep one server replica because sessions live in memory.
+
+This Web-Games folder remains the game catalog/source snapshot; changes here do not automatically update the live deployment. Publish runtime changes through the deployment repository. The deployed game was verified on 7 October 2026: HTTPS page and artwork, four-player joining, shared items, reconnecting, and a complete four-player escape through all seven doors to the reunion. The 30–40-minute pacing target still needs first-time human playtests.
 
 Private rooms have six-letter codes, a four-player capacity, two-minute disconnect reservations and a 20-minute empty-room lifetime. Server restarts clear sessions. Play one room across browsers on a single server instance; scaling to multiple instances needs shared room discovery/presence and is outside v1.
 
