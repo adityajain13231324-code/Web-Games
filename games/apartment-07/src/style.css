@@ -104,6 +104,7 @@ kbd { display: inline-flex; align-items: center; justify-content: center; min-wi
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
 /* ── Home: layout ────────────────────────────────────────── */
+.device-note { position: absolute; top: 0; left: 0; right: 0; z-index: 6; padding: 9px 16px; text-align: center; font-size: 13px; letter-spacing: .02em; color: var(--gold-hi); background: #1a2a2ff2; border-bottom: 1px solid #e0bd8266; }
 .shell { position: relative; z-index: 2; height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) minmax(380px, 470px); grid-template-rows: auto 1fr auto auto; column-gap: clamp(32px, 6vw, 110px); padding: 28px clamp(24px, 5vw, 80px) 22px; opacity: 0; transition: opacity .8s .3s; }
 .entered .shell { opacity: 1; }
 .welcome.leaving .shell { opacity: 0; transform: scale(.98); filter: blur(6px); transition: all .6s var(--ease); }
