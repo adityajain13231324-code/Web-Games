@@ -125,7 +125,7 @@ The game runs on Railway, so the creator's laptop does not need to stay on. Sess
 ## Planned or discussed, not built
 
 - **Checking the overhaul on the user's own laptop.** It was only verified in a headless test browser, which ran at about 3 fps with software rendering. Real feel (speed, light, music) still needs a human check. The music has never been heard by a person.
-- **Mobile / touch controls.** The game is desktop and keyboard only.
+- **Mobile / touch controls.** The game is desktop and keyboard only. The home screen shows a banner saying so (`.device-note` in `src/main.ts` / `src/style.css`); remove it once touch controls exist.
 - **More chapters or maps.** The engine is built around one map (`shared/map.ts`) and one content file. A second chapter needs its own map, content and action handlers.
 
 ## Known bugs and limitations
