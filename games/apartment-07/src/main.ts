@@ -37,6 +37,7 @@ const keycap = (k: string) => `<kbd>${k}</kbd>`;
 
 $('app').innerHTML = `
 <main id="welcome" class="welcome">
+  <div class="device-note" role="note">💻 Heads up: Apartment 07 is only playable on a PC or laptop with a keyboard for now. Phones and tablets aren't supported yet.</div>
   <div class="scene-bg" aria-hidden="true">
     <div class="cover-art" id="cover-art"></div>
     <div class="cover-shade"></div>
