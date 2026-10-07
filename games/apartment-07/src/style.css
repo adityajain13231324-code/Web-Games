@@ -246,6 +246,9 @@ input[type='range']::-moz-range-thumb { width: 16px; height: 16px; border: 0; bo
 .game-logo { display: flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: .22em; }
 .game-logo small { display: block; font-family: var(--serif-text); font-style: italic; font-size: 13px; letter-spacing: 0; color: var(--muted); margin-top: 4px; }
 .game-logo .brand-mark { font-size: 20px; }
+.maker-credit { display: block; margin-top: 7px; font: 400 10px/1.4 var(--sans); letter-spacing: .035em; color: var(--muted); white-space: nowrap; }
+.gate .maker-credit { margin-top: -8px; }
+.game-logo .maker-credit { margin-top: 4px; font-size: 9px; }
 .room-share { display: flex; gap: 16px; align-items: center; font-size: 11px; letter-spacing: .2em; color: var(--muted); padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: #0c151799; backdrop-filter: blur(8px); }
 .room-share b { font-size: 15px; letter-spacing: .3em; color: var(--gold-hi); margin-left: 8px; }
 .room-share .quiet { font-size: 12px; letter-spacing: 0; border-left: 1px solid var(--line); padding-left: 16px; }

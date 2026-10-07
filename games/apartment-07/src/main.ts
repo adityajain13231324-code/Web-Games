@@ -49,6 +49,7 @@ $('app').innerHTML = `
   <div id="gate" class="gate" role="button" tabindex="0" aria-label="Enter Apartment 07">
     <div class="gate-mark"><svg viewBox="0 0 120 120" aria-hidden="true"><rect x="6" y="6" width="108" height="108" rx="2"/></svg><span>07</span></div>
     <p class="gate-title">APARTMENT 07</p>
+    <p class="maker-credit">Made by @adityajain1323</p>
     <p class="gate-cta"><span class="pulse-dot"></span>Click anywhere to come inside</p>
     <p class="gate-note">♫ &nbsp;Best with headphones</p>
   </div>
@@ -63,6 +64,7 @@ $('app').innerHTML = `
       <div class="eyebrow reveal" style="--r:1"><span class="gold-line"></span>A COOPERATIVE ESCAPE MYSTERY</div>
       <h1 class="title" aria-label="Apartment 07"><span class="word">${titleLetters('Apartment')}</span> <em class="word">${titleLetters('07', 10)}</em></h1>
       <p class="subtitle reveal" style="--r:3">LOST AT HOME</p>
+      <p class="maker-credit reveal" style="--r:3">Made by @adityajain1323</p>
       <p class="tagline reveal" style="--r:4">The storm knocked the power out. Every door in the flat is locked tight, and Mum is somewhere on the other side. Find the little things that will bring you back together.</p>
       <div class="chips reveal" style="--r:5"><span>◈ 1–4 explorers</span><span>◷ 30–40 min</span><span>☂ No time limit</span><span>✦ 7 doors to open</span></div>
     </section>
@@ -141,7 +143,7 @@ $('app').innerHTML = `
 <main id="play" class="play hidden">
   <div id="game-canvas"></div><div class="vignette"></div>
   <header class="game-top">
-    <div class="game-logo"><span class="brand-mark">07</span><div>APARTMENT 07<small>Lost at Home</small></div></div>
+    <div class="game-logo"><span class="brand-mark">07</span><div>APARTMENT 07<small>Lost at Home</small><span class="maker-credit">Made by @adityajain1323</span></div></div>
     <div class="room-share"><span>ROOM <b id="hud-code">------</b></span><button id="copy-invite" class="quiet">Copy invite ↗</button></div>
     <div class="top-right"><span id="timer" class="timer">00:00</span><button id="music-button" class="icon-button" aria-label="Music">♫</button><button id="settings" class="icon-button" aria-label="Settings">⚙</button></div>
   </header>
