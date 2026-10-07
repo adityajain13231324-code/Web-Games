@@ -1,6 +1,6 @@
 # Pixel Peek: project notes
 
-Last updated: 7 October 2026. The code in this folder is **v6 (the party edition)**, the version deployed on the user's Netlify site. Read this before changing anything.
+Last updated: 7 October 2026. The code in this folder is **v6 (the party edition)**, the version deployed at https://gamepixelpeek.vercel.app. Read this before changing anything.
 
 ## What the game is
 
@@ -8,7 +8,7 @@ Last updated: 7 October 2026. The code in this folder is **v6 (the party edition
 
 - **Concept:** a hidden picture starts unrecognisable (pixelated, zoomed in, covered in tiles, and so on) and slowly comes into focus. Everyone races to type its name. The sooner you get it, the more points you score.
 - **Genre:** quick multiplayer quiz / party game. It started as a game for the user and their best friend ("duo"), then grew to friend groups.
-- **Hosting:** a static website (no server of its own) deployed by drag-and-drop on **Netlify Drop**. Players connect browser-to-browser with **PeerJS (WebRTC)**.
+- **Hosting:** a static website (no server of its own) hosted on **Vercel** at https://gamepixelpeek.vercel.app. Players connect browser-to-browser with **PeerJS (WebRTC)**.
 
 ### How to play
 

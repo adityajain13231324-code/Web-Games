@@ -43,11 +43,11 @@ Emoji Riddles show 2 to 4 emoji that hint at a movie, show or game title. Type t
 
 Most pictures use Noto Emoji artwork (Apache 2.0, see licenses/noto-emoji.txt). The Indian Food illustrations were drawn for this edition (CC0).
 
-## Put it online (Netlify Drop)
+## Put it online
 
-1. Unzip this folder.
-2. Go to app.netlify.com/drop and drag the whole folder in, or drag it onto your existing site's Deploys page to update it.
-3. Share the link. One person creates a room and the others join with the 4-letter code or the invite link.
+Live at https://gamepixelpeek.vercel.app (hosted on Vercel). To update it, upload this folder to the Vercel project, or connect the project to the GitHub repo with Root Directory `games/pixel-peek` and no build command.
+
+Share the link. One person creates a room and the others join with the 4-letter code or the invite link.
 
 The host's device runs the game and passes everything along, so the host should have the steadiest connection. If someone gets stuck on "Joining room", a strict network (like some college Wi-Fi) may be blocking it: try a phone hotspot.
 

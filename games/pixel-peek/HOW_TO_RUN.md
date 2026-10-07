@@ -21,8 +21,10 @@ Any other static server also works, for example `python -m http.server 4173` or 
 
 ## Put it online
 
-1. Go to **app.netlify.com/drop** and drag this whole folder in. To update the existing site, drag it onto that site's **Deploys** page instead.
-2. Claim the site with a free Netlify account so it doesn't expire.
-3. Share the link. One person creates a room, and the others join with the code or the invite link.
+The game is live at **https://gamepixelpeek.vercel.app**.
+
+To update it, either upload this folder (or a zip of it) to the existing Vercel project, or connect the project to this GitHub repo with **Root Directory** `games/pixel-peek`, **Framework Preset** "Other" and no build command, so every push redeploys it.
+
+Share the link. One person creates a room, and the others join with the code or the invite link.
 
 The extra files (`README*.md`, `credits*`, `licenses/`, `serve.cjs`) are harmless to deploy and keep the credits available on the site.

@@ -29,10 +29,12 @@ This runs the rules-engine checks, including 10,000 random games. It needs Node.
 
 ## Put it online
 
-1. Go to **app.netlify.com/drop** and drag this whole folder in. To update the existing site, drag it onto that site's **Deploys** page instead.
-2. Claim the site with a free Netlify account so it doesn't expire.
-3. Share the link. "Play with friends" creates a room code and a WhatsApp invite.
+The game is live at **https://liarscall.vercel.app**.
 
-Online rooms and the "Install app" button only work from the real `https://` Netlify link, not from a file on your computer.
+To update it, either upload this folder (or a zip of it) to the existing Vercel project, or connect the project to this GitHub repo with **Root Directory** `games/liars-call`, **Framework Preset** "Other" and no build command, so every push redeploys it.
+
+Share the link. "Play with friends" creates a room code and a WhatsApp invite.
+
+Online rooms and the "Install app" button only work from the real `https://` link, not from a file on your computer.
 
 When you deploy changed files, bump `VERSION` in `sw.js`, so installed copies pick up the update.
