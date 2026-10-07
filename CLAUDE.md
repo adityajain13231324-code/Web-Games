@@ -4,5 +4,6 @@
 - Keep each game self-contained. Don't share code between game folders.
 - `pixel-peek` and `liars-call` are static sites hosted on Vercel (https://gamepixelpeek.vercel.app and https://liarscall.vercel.app): no build step, no server, no paid services. Keep them that way.
 - `apartment-07` runs with domain `apartment07.up.railway.app`
+- `hub/` is the static landing page for all games (https://randomwebgames.vercel.app, Vercel with Root Directory `hub`; a copy also deploys to GitHub Pages). Keep the game cards, player counts and screenshots in sync with each game's `NOTES.md`.
 - Use only open-licensed or self-made art and sound. No copyrighted characters or logos beyond what the credits already cover.
 - After changing a game, update its `NOTES.md` (done / planned / known bugs) so the notes stay the source of truth.

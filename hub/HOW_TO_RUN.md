@@ -12,9 +12,9 @@ From `hub/`: `python3 -m http.server 4300`, then open http://localhost:4300.
 
 ## Host it elsewhere (free, pick one)
 
-**GitHub Pages (automatic).** In the repo go to **Settings → Pages → Source: GitHub Actions**. After that, every push to `main` that touches `hub/` runs `.github/workflows/hub-pages.yml` and publishes to https://adityajain13231324-code.github.io/Web-Games/.
+**GitHub Pages (optional backup copy).** In the repo go to **Settings → Pages → Source: GitHub Actions**. After that, every push to `main` that touches `hub/` runs `.github/workflows/hub-pages.yml` and publishes to https://adityajain13231324-code.github.io/Web-Games/.
 
-**Vercel (nicer URL).** New Project → import this repo → **Root Directory `hub`**, Framework "Other", no build command. This is how the live site is set up.
+**Vercel (primary).** New Project → import this repo → **Root Directory `hub`**, Framework "Other", no build command. This is how the live site is set up.
 
 ## Custom domain
 
@@ -22,4 +22,4 @@ Buy a domain (e.g. `webgames.fun`), then add it under Vercel **Settings → Doma
 
 ## Updating screenshots
 
-`img/*.webp` are real screenshots of each game (1280×800). Retake them when a game's look changes. `img/og.png` is the 1200×630 share image; set `og:image` and `og:url` already use the absolute https://randomwebgames.vercel.app URLs; update them if the domain changes.
+`img/*.webp` are real screenshots of each game (1280×800). Retake them when a game's look changes. `img/og.png` is the 1200×630 share image. `og:image`, `og:url` and the canonical link in `index.html` use absolute https://randomwebgames.vercel.app URLs, so update them if the domain changes.

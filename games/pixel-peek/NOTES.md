@@ -37,7 +37,7 @@ Keyboard: type a guess and press Enter. Mouse or touch for everything else. Ther
 - `party.css`, `polish.css`, `improvements.css`: style layers added over versions.
 - `packs/*.json`: 31 picture packs, lazy-loaded when needed. Each item is `{t: title, a: [aliases], s: svg string, b: background hint}`.
 - `credits.html`, `asset-credits.json`, `new-picture-credits.json`, `licenses/`: attribution for every picture source. Noto Emoji (Apache 2.0), Simple Icons, OpenMoji, Tabler, Game-icons, MDI and others. The Indian Food art was drawn for the game (CC0).
-- `README-previous.md`, `credits-previous.html`: leftovers from v3, kept for reference.
+- `credits-previous.html`: attributions for the preceding edition's pictures. It's linked from `credits.html`, so keep it.
 - `serve.cjs`: a tiny local web server, needed because the packs load with `fetch`.
 - Browser storage keys: `pp-name`, `pp-av`, `pp-mute`, `pp-pics` (your custom pics).
 

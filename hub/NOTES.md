@@ -12,6 +12,7 @@ A static landing page linking to Pixel Peek, Liar's Call and Apartment 07. Files
 
 ## Planned / not done
 - No custom domain bought yet (currently randomwebgames.vercel.app).
+- Apartment 07 is desktop-only; the page says so. Revisit if touch controls are added.
 - Add a game card when a fourth game ships.
 
 ## Known issues
