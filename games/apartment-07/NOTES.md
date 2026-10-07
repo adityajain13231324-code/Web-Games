@@ -104,7 +104,7 @@ Last updated: 7 October 2026. Read this before changing anything. It's written s
 
 ## Planned or discussed, not built
 
-- **Hosting for friends over the internet.** The game needs a long-running Node/WebSocket server. Netlify Drop alone is not enough, unlike Pixel Peek and Liar's Call. The `Dockerfile` and README "Hosting" section describe the setup:
+- **Hosting for friends over the internet.** The game needs a long-running Node/WebSocket server. A static host like Vercel alone is not enough, unlike Pixel Peek and Liar's Call. The `Dockerfile` and README "Hosting" section describe the setup:
   - Deploy the server somewhere that supports WebSockets.
   - Set `CLIENT_ORIGIN` on the server.
   - Build the client with `VITE_SERVER_URL=https://your-server`.

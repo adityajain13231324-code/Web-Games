@@ -9,7 +9,7 @@ Last updated: 7 October 2026. Read this before changing anything.
 - **Genre:** bluffing / social deduction card game.
 - **Players:** 2–6. Bots fill empty seats.
 - **Tagline:** "Jhooth bolo. Pakde mat jao. Golgappa khao. 🌶️"
-- **Hosting:** a static site on Netlify Drop, like Pixel Peek. Online play goes browser-to-browser over PeerJS.
+- **Hosting:** a static site on **Vercel** at https://liarscall.vercel.app, like Pixel Peek. Online play goes browser-to-browser over PeerJS.
 
 ### Rules
 
@@ -160,7 +160,7 @@ The deployed site also had `manifest.webmanifest`, `sw.js` and icons, which were
 - **The host can technically cheat.** The host's browser holds every hand, so it can be peeked at with developer tools. Fine among friends; a proper fix needs a real server.
 - **Host leaving ends the game** for everyone.
 - **iPhones** only start sound after the first tap (normal iOS behaviour).
-- **Recreated install files.** `manifest.webmanifest`, `sw.js` and the icons were rebuilt for this repo and may differ slightly from what is currently live on Netlify.
+- **Recreated install files.** `manifest.webmanifest`, `sw.js` and the icons were rebuilt for this repo and may differ slightly from what is currently live on Vercel.
 - **Original build tooling is gone:** `build.py`, `test-bots.js`, the separate source files and the mock-PeerJS multi-tab tests. `tests/test-rules.js` was rewritten for the repo.
 
 ## Decisions and why
