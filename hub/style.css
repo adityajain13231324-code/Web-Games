@@ -25,6 +25,14 @@ h1, h2, h3 { font-family: 'Space Grotesk', system-ui, sans-serif; line-height: 1
 .wrap { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
 :focus-visible { outline: 3px solid var(--acid); outline-offset: 3px; border-radius: 6px; }
 
+/* watermark */
+.watermark {
+  margin: 0; padding: 5px 20px; text-align: center; font: 500 .72rem 'Space Grotesk', sans-serif;
+  letter-spacing: .08em; color: var(--muted); opacity: .75; background: rgba(255, 255, 255, .03);
+  border-bottom: 1px solid var(--line);
+}
+.watermark b { color: var(--acid); font-weight: 500; }
+
 /* header */
 .topbar {
   position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between;
@@ -75,6 +83,16 @@ h1 em { font-style: normal; color: var(--acid); }
 .shot { animation: float 7s ease-in-out infinite; }
 .shot.s2 { animation-delay: -2s; } .shot.s3 { animation-delay: -4s; }
 @keyframes float { 50% { translate: 0 -8px; } }
+
+/* scroll cue */
+.scroll-cue { display: flex; justify-content: center; padding: 8px 0 0; }
+.scroll-cue a {
+  display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
+  border: 1px solid var(--line); background: rgba(255, 255, 255, .04); color: var(--acid);
+  animation: nudge 2s ease-in-out infinite; transition: background .15s, border-color .15s;
+}
+.scroll-cue a:hover { background: rgba(216, 255, 88, .1); border-color: var(--acid); }
+@keyframes nudge { 50% { translate: 0 6px; } }
 
 /* games */
 .games { padding: 70px 0 20px; }
