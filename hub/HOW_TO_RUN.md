@@ -1,25 +1,37 @@
 # How to run and host the Web Games hub
 
-The hub is a static landing page (no build, no server) linking to the three games.
+The hub is a static site: no build step, no server of its own.
 
 ## Run locally
 
-From `hub/`: `python3 -m http.server 4300`, then open http://localhost:4300.
+`main.js` is a JavaScript module, so the page has to be served (double-clicking `index.html` shows no TV). From `hub/`:
+
+```sh
+python -m http.server 8000
+# or: npx serve .
+```
+
+Then open http://localhost:8000. Scroll slowly to see the dive into the TV.
 
 ## Live site
 
-**https://randomwebgames.vercel.app** (Vercel project `randomwebgames`, Root Directory `hub`, no build command). Every merge to `main` redeploys it.
+**https://randomwebgames.vercel.app** (Vercel project with Root Directory `hub`, Framework "Other", no build command). Every merge to `main` redeploys it.
 
-## Host it elsewhere (free, pick one)
-
-**GitHub Pages (optional backup copy).** In the repo go to **Settings → Pages → Source: GitHub Actions**. After that, every push to `main` that touches `hub/` runs `.github/workflows/hub-pages.yml` and publishes to https://adityajain13231324-code.github.io/Web-Games/.
-
-**Vercel (primary).** New Project → import this repo → **Root Directory `hub`**, Framework "Other", no build command. This is how the live site is set up.
+GitHub Pages also publishes a copy from `.github/workflows/hub-pages.yml` (https://adityajain13231324-code.github.io/Web-Games/) once Pages is set to "GitHub Actions" in the repo settings. All paths are relative, so it works under that sub-path too.
 
 ## Custom domain
 
-Buy a domain (e.g. `webgames.fun`), then add it under Vercel **Settings → Domains** (or GitHub **Settings → Pages → Custom domain**) and set the DNS records they show. HTTPS is automatic.
+Buy a domain, add it under Vercel **Settings → Domains**, and set the DNS records Vercel shows. HTTPS is automatic. Then update `og:image`, `og:url` and the canonical link in `index.html`, which use absolute https://randomwebgames.vercel.app URLs.
 
-## Updating screenshots
+## Retaking the gameplay clips
 
-`img/*.webp` are real screenshots of each game (1280×800). Retake them when a game's look changes. `img/og.png` is the 1200×630 share image. `og:image`, `og:url` and the canonical link in `index.html` use absolute https://randomwebgames.vercel.app URLs, so update them if the domain changes.
+Each clip in `media/` is 1280×720 with a poster frame, in two formats:
+
+```sh
+# from a recorded clip.mp4 (H.264):
+ffmpeg -i clip.mp4 -vf "scale=1280:720,format=yuv420p" -c:v libx264 -crf 24 -preset slow -movflags +faststart -an media/xx.mp4
+ffmpeg -i media/xx.mp4 -c:v libvpx-vp9 -b:v 0 -crf 36 -row-mt 1 -an media/xx.webm
+ffmpeg -ss 5 -i media/xx.mp4 -frames:v 1 -q:v 3 media/xx.jpg
+```
+
+Keep clips around 10–15 seconds and under about 1 MB each. Record each game running locally (see its own HOW_TO_RUN.md); a plain screen recording works, and so does a headless browser with its clock slowed down if the machine renders slowly.
