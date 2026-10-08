@@ -156,7 +156,7 @@ The deployed site also had `manifest.webmanifest`, `sw.js` and icons, which were
 
 ## Known bugs and limitations
 
-- **Never tested with real friends over the internet.** All online tests ran browser tabs over a stand-in for PeerJS. Strict college Wi-Fi or mobile data may block connections, leaving people stuck on "Joining room…". Workaround: a phone hotspot.
+- **Never tested with real friends over the internet.** All online tests ran browser tabs over a stand-in for PeerJS. Strict college Wi-Fi or mobile data used to block connections (stuck on "Joining room…"). 8 Oct 2026: `js/net.js` now passes STUN plus free public TURN relays (Open Relay, incl. port 443 TCP/TLS) to PeerJS and the join timeout is 30 s; service worker cache bumped to v3. Still untested on real strict networks. If the free relays stop working, swap another TURN into `ICE` in `js/net.js`. Hotspot is the last resort.
 - **The host can technically cheat.** The host's browser holds every hand, so it can be peeked at with developer tools. Fine among friends; a proper fix needs a real server.
 - **Host leaving ends the game** for everyone.
 - **iPhones** only start sound after the first tap (normal iOS behaviour).

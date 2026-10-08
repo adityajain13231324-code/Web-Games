@@ -1,7 +1,7 @@
 /* Liar's Call service worker: caches the game so it opens offline once installed.
    Online rooms still need an internet connection (PeerJS).
    Bump VERSION whenever you deploy changed files, so phones pick up the new version. */
-var VERSION = 'liars-call-v2';
+var VERSION = 'liars-call-v3';
 var FILES = [
   './', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png',
   'css/fonts.css', 'css/game.css',

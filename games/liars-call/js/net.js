@@ -3,11 +3,18 @@
 window.LC_NET=(function(){
   'use strict';
   var PFX='liarscall-v1-';
+  // STUN finds a direct path; the TURN relays are the fallback for strict networks (school/office Wi-Fi,
+  // some mobile data) that block direct browser-to-browser links. Port 443 over TCP/TLS gets through
+  // firewalls that only allow web traffic. These are the free public Open Relay servers (no paid service).
+  var ICE={iceServers:[
+    {urls:['stun:stun.l.google.com:19302','stun:stun1.l.google.com:19302','stun:global.stun.twilio.com:3478']},
+    {urls:['turn:openrelay.metered.ca:80','turn:openrelay.metered.ca:443','turn:openrelay.metered.ca:443?transport=tcp','turns:openrelay.metered.ca:443?transport=tcp'],username:'openrelayproject',credential:'openrelayproject'}
+  ],iceCandidatePoolSize:4};
   function err(code){ var e=new Error(code); e.code=code; return e }
 
   function host(code,maxGuests){
     return new Promise(function(resolve,reject){
-      var peer=new Peer(PFX+code,{debug:0}), conns=new Map(), done=false, closed=false, banned=new Set();
+      var peer=new Peer(PFX+code,{debug:0,config:ICE}), conns=new Map(), done=false, closed=false, banned=new Set();
       var H={msg:[],join:[],leave:[]};
       var api={
         id:null, isHost:true,
@@ -27,7 +34,7 @@ window.LC_NET=(function(){
         peers:function(){ return Array.from(conns.keys()) },
         leave:function(){ closed=true; conns.forEach(function(c){try{c.close()}catch(e){}}); try{peer.destroy()}catch(e){} }
       };
-      var timer=setTimeout(function(){ if(!done){ done=true; closed=true; try{peer.destroy()}catch(e){} reject(err('timeout')) } },20000);
+      var timer=setTimeout(function(){ if(!done){ done=true; closed=true; try{peer.destroy()}catch(e){} reject(err('timeout')) } },30000);
       peer.on('open',function(id){ if(done)return; done=true; clearTimeout(timer); api.id=id; resolve(api) });
       peer.on('connection',function(c){
         c.on('open',function(){
@@ -51,7 +58,7 @@ window.LC_NET=(function(){
 
   function join(code){
     return new Promise(function(resolve,reject){
-      var peer=new Peer({debug:0}), conn=null, done=false, closed=false, tries=0;
+      var peer=new Peer({debug:0,config:ICE}), conn=null, done=false, closed=false, tries=0;
       var H={msg:[],lost:[],back:[]};
       var api={
         id:null, isHost:false,
@@ -61,7 +68,7 @@ window.LC_NET=(function(){
         leave:function(){ closed=true; try{conn&&conn.close()}catch(e){} try{peer.destroy()}catch(e){} }
       };
       function fail(code){ if(done)return; done=true; closed=true; clearTimeout(timer); try{peer.destroy()}catch(e){} reject(err(code)) }
-      var timer=setTimeout(function(){ fail('timeout') },20000);
+      var timer=setTimeout(function(){ fail('timeout') },30000);
       function retry(ms){ if(!closed&&tries++<60) setTimeout(go,ms) }
       function go(){
         if(closed)return;

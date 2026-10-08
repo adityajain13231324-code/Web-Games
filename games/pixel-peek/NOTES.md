@@ -88,7 +88,7 @@ Ideas Claude suggested on 6 Oct. The user chose not to build most of them:
 
 ## Known bugs and limitations
 
-- **No relay (TURN) server.** Some strict networks, such as college Wi-Fi or some mobile data, can block the browser-to-browser connection, leaving people stuck on "Joining room…". Workaround: a phone hotspot. A real fix is adding a TURN server to the PeerJS config.
+- **Strict networks (fixed 8 Oct 2026, untested on real college Wi-Fi).** `net.js` now passes STUN plus free public TURN relays (Open Relay, incl. port 443 TCP/TLS) to PeerJS, so connections fall back to a relay when direct WebRTC is blocked; join timeout raised to 30 s. Risk: the Open Relay servers are a free shared service with no guarantee; if they stop working, swap in another free TURN in `ICE` at the top of `net.js`. The PeerJS signalling server (0.peerjs.com) could still be blocked on very locked-down networks. Hotspot remains the last resort.
 - **The host's device runs the match.** If the host leaves, the match ends for everyone. The host should have the steadiest connection.
 - **Multiplayer has only been tested with a stand-in.** Claude's tests used a mock PeerJS link between browser tabs, because the real PeerJS service wasn't reachable from the test machine. Real-world use by the user is the actual test.
 - **Famous landmarks are simpler drawings.** No detailed open-licence versions exist.
