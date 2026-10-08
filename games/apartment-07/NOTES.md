@@ -104,28 +104,17 @@ Last updated: 7 October 2026. Read this before changing anything. It's written s
 
 ## Live deployment (7 October 2026)
 
-## Play online
-
-**[Play Apartment 07](https://apartment07.up.railway.app)** — no installation or account required.
-
-1. Click to come inside, customize your explorer and select **New apartment**.
-2. Create a room and share its invitation link or six-letter code with up to three friends.
-3. Friends open the same site and use **Join friends**, or follow the invite link.
-4. The host selects **Begin the story**. Solve the apartment together and have everyone walk through the opened entrance. Solo works too.
-
-The game runs on Railway, so the creator's laptop does not need to stay on. Sessions are held in server memory; a server restart or redeployment ends active games.
-
 - **Public address:** https://apartment07.up.railway.app
 - **Host:** Railway, project Apartment 07, production service apartment-07.
 - **Deployment source:** [adityajain13231324-code/apartment-07](https://github.com/adityajain13231324-code/apartment-07), main branch. This Web-Games folder is a separate snapshot; edits here do not automatically deploy.
 - **Packaging:** one Docker service serves frontend assets, HTTP room endpoints and persistent WebSockets. Railway supplies PORT=8080 and the public domain targets 8080. Single origin; no separate frontend server URL is needed. One replica, health check /api/health and app sleeping disabled.
-- **Verified against the public deployment:** HTTPS page/artwork; four clients joining; shared inventory and mechanism ownership; late joining; disconnect/reconnect; all seven doors and the complete four-player reunion. The deployed source's 22 engine tests also passed. This does not establish first-time human pacing or all-browser testing.
+- **Verified against the public deployment:** HTTPS page/artwork; four clients joining; shared inventory and mechanism ownership; late joining; disconnect/reconnect; all seven doors and the complete four-player reunion. The deployment repo's own copy of the engine tests (22 at the time; this folder's snapshot has 14) also passed. This does not establish first-time human pacing or all-browser testing.
 - **No Mum voice was added.** Audio remains procedural music, rain, thunder and effects.
 
 ## Planned or discussed, not built
 
 - **Checking the overhaul on the user's own laptop.** It was only verified in a headless test browser, which ran at about 3 fps with software rendering. Real feel (speed, light, music) still needs a human check. The music has never been heard by a person.
-- **Mobile / touch controls.** The game is desktop and keyboard only.
+- **Mobile / touch controls.** The game is desktop and keyboard only. The home screen shows a banner saying so (`.device-note` in `src/main.ts` / `src/style.css`); remove it once touch controls exist.
 - **More chapters or maps.** The engine is built around one map (`shared/map.ts`) and one content file. A second chapter needs its own map, content and action handlers.
 
 ## Known bugs and limitations
@@ -135,7 +124,7 @@ The game runs on Railway, so the creator's laptop does not need to stay on. Sess
 - **Winning saves "Home Again" as your track.** `sound.set({ track: 'home' })` on the win screen also stores it as the saved preference.
 - **No Shift sprint in chat.** Movement keys are ignored while any text input is focused. This is deliberate.
 - **Server restarts end rooms.** Restarting the server clears all rooms, and it runs on a single instance only.
-- **Leftover file on the laptop.** There's a stray `zibeP6is` file in the user's local `apartment-07` folder from a failed zip attempt. It's not part of the project and can be deleted.
+- **Changes here don't reach the live game by themselves.** Railway deploys from the separate [apartment-07](https://github.com/adityajain13231324-code/apartment-07) repo, so a change made only in this folder (for example the PC/laptop-only banner) stays invisible on https://apartment07.up.railway.app until the same change is committed to that repo's `main`.
 - **Dev-only test hook.** `window.a07` exposes the scene, state, room and sound for automated tests. It only exists in `vite dev` (`import.meta.env.DEV`) and isn't in production builds.
 
 ## Decisions and why

@@ -2,144 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0914" />
-  <title>Web Games — free browser games to play with friends</title>
-  <meta name="description" content="Free multiplayer browser games by Aditya Jain: Pixel Peek, Liar's Call and Apartment 07. No downloads, no sign-up. Open a tab, send a link, play." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0a0f" />
+  <title>Web Games</title>
+  <meta name="description" content="Free multiplayer browser games by Aditya Jain: Pixel Peek, Liar's Call and Apartment 07. No downloads, no sign-up. Open a tab, share a code, play." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Web Games — free browser games to play with friends" />
-  <meta property="og:description" content="Pixel Peek, Liar's Call and Apartment 07. No downloads, no sign-up. Open a tab, send a link, play." />
-  <meta property="og:image" content="img/og.png" />
+  <meta property="og:title" content="Web Games — tune in to game night" />
+  <meta property="og:description" content="Pixel Peek, Liar's Call and Apartment 07. Free multiplayer games that run in your browser." />
+  <meta property="og:image" content="https://randomwebgames.vercel.app/img/og.jpg" />
+  <meta property="og:url" content="https://randomwebgames.vercel.app/" />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://randomwebgames.vercel.app/" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=VT323&family=Bungee&family=Yatra+One&family=Libre+Caslon+Display&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <p class="watermark">Made by <b>@adityajain1323</b></p>
-  <header class="topbar">
-    <a class="brand" href="#top" aria-label="Web Games home"><span class="logo" aria-hidden="true"><i></i><i></i><i></i></span>WEB<b>GAMES</b></a>
-    <nav aria-label="Primary">
-      <a href="#games">Games</a>
-      <a href="#how">How it works</a>
-      <a class="gh" href="https://github.com/adityajain13231324-code/Web-Games" target="_blank" rel="noopener">GitHub ↗</a>
-    </nav>
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Web Games, back to top"><span class="dot" aria-hidden="true"></span>Web Games</a>
+    <a class="gh" href="https://github.com/adityajain13231324-code/Web-Games" target="_blank" rel="noopener">GitHub ↗</a>
   </header>
 
   <main id="top">
-    <section class="hero wrap">
-      <div class="hero-copy">
-        <p class="kicker"><span class="dot"></span> 3 games live · free · no sign-up</p>
-        <h1>Open a tab.<br /><em>Send a link.</em><br />Play together.</h1>
-        <p class="lead">Small multiplayer games that run right in your browser. No downloads, no accounts. Pick one, share the room code with friends, and you're in.</p>
-        <div class="actions">
-          <a class="btn primary" href="#games">Choose a game ↓</a>
-        </div>
-        <ul class="facts" aria-label="Highlights">
-          <li><b>1–8</b><span>players per game</span></li>
-          <li><b>0</b><span>installs needed</span></li>
-          <li><b>Phone + laptop</b><span>work together</span></li>
-        </ul>
-      </div>
+    <!-- 1 · The TV. Scrolling frames it front-on, then its screen grows into Pixel Peek's full-screen view. -->
+    <section class="hero" id="hero">
+      <div class="stage">
+        <canvas id="tv" aria-hidden="true"></canvas>
+        <div class="fallback" aria-hidden="true"><video id="fallbackVideo" muted loop playsinline poster="media/pp.jpg"></video></div>
 
-      <div class="hero-shots" aria-hidden="true">
-        <figure class="shot s1"><img src="img/liars-call.webp" alt="" width="1280" height="800" fetchpriority="high" /></figure>
-        <figure class="shot s2"><img src="img/pixel-peek.webp" alt="" width="1280" height="800" /></figure>
-        <figure class="shot s3"><img src="img/apartment-07.webp" alt="" width="1280" height="800" /></figure>
+        <div class="copy">
+          <p class="kicker"><span class="rec" aria-hidden="true"></span> Now showing · 3 channels</p>
+          <h1>Tune in to<br /><em>game night.</em></h1>
+          <p class="lead">Free multiplayer games that run in your browser. Open a tab, share a code, play.</p>
+
+          <div class="guide" role="tablist" aria-label="Channels">
+            <button role="tab" class="ch" data-ch="0" aria-selected="true" style="--acc:#ffbe3d">
+              <span class="thumb"><img src="media/pp.jpg" alt="" width="320" height="180" /><video muted loop playsinline preload="none" data-src="media/pp"></video><span class="tag">CH 01</span><span class="air">On air</span></span>
+              <span class="label"><b>Pixel Peek</b><small>2–8 players</small></span>
+            </button>
+            <button role="tab" class="ch" data-ch="1" aria-selected="false" style="--acc:#ff7a52">
+              <span class="thumb"><img src="media/lc.jpg" alt="" width="320" height="180" /><video muted loop playsinline preload="none" data-src="media/lc"></video><span class="tag">CH 02</span><span class="air">On air</span></span>
+              <span class="label"><b>Liar's Call</b><small>2–6 players</small></span>
+            </button>
+            <button role="tab" class="ch" data-ch="2" aria-selected="false" style="--acc:#e3c287">
+              <span class="thumb"><img src="media/a7.jpg" alt="" width="320" height="180" /><video muted loop playsinline preload="none" data-src="media/a7"></video><span class="tag">CH 03</span><span class="air">On air</span></span>
+              <span class="label"><b>Apartment 07</b><small>1–4 players</small></span>
+            </button>
+          </div>
+          <a class="watch" id="watch" href="https://gamepixelpeek.vercel.app" target="_blank" rel="noopener">Play<b id="watchName">Pixel Peek</b><span aria-hidden="true">↗</span></a>
+        </div>
+
+        <!-- the TV screen, grown to full screen: Pixel Peek's panel -->
+        <article class="panel portal" id="pixel-peek" style="--acc:#ffbe3d">
+          <video class="bg" poster="media/pp.jpg" muted loop playsinline preload="auto" aria-hidden="true"><source src="media/pp.webm" type="video/webm" /><source src="media/pp.mp4" type="video/mp4" /></video>
+          <div class="crt" aria-hidden="true"></div>
+          <div class="shade" aria-hidden="true"></div>
+          <div class="content">
+            <p class="chan">CH 01</p>
+            <h2 class="title t-pp">Pixel Peek</h2>
+            <p class="line">A hidden picture slowly comes into focus. Name it before your friends do.</p>
+            <ul class="meta"><li>2–8 players</li><li>Phones &amp; laptops</li><li>Party guessing</li></ul>
+            <a class="play" href="https://gamepixelpeek.vercel.app" target="_blank" rel="noopener">Play Pixel Peek <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <a class="cue" href="#liars-call" aria-label="Scroll to the games"><span>Scroll</span><i aria-hidden="true"></i></a>
       </div>
     </section>
 
-    <div class="scroll-cue wrap">
-      <a href="#games" aria-label="Scroll down to the games">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" /></svg>
-      </a>
-    </div>
-
-    <section id="games" class="wrap games">
-      <div class="head">
-        <p class="kicker">The lineup</p>
-        <h2>Pick a game.</h2>
-      </div>
-
-      <article class="game pp" style="--accent:#ffbe3d">
-        <a class="frame" href="https://gamepixelpeek.vercel.app" target="_blank" rel="noopener" aria-label="Play Pixel Peek">
-          <div class="bar"><i></i><i></i><i></i><span>gamepixelpeek.vercel.app</span></div>
-          <img src="img/pixel-peek.webp" alt="Pixel Peek mid-round: an emoji picture is slowly revealed tile by tile while a player types a guess" width="1280" height="800" loading="lazy" />
-        </a>
-        <div class="info">
-          <p class="tag">Party guessing game · 2–8 players</p>
-          <h3>Pixel Peek</h3>
-          <p>A hidden picture starts out unrecognisable (blurred, zoomed in, covered in tiles) and slowly comes into focus. Everyone races to type what it is. The sooner you guess, the more points you get.</p>
-          <ul class="chips"><li>2,480 pictures</li><li>31 packs</li><li>5 reveal styles</li><li>Practice solo</li></ul>
-          <a class="btn play" href="https://gamepixelpeek.vercel.app" target="_blank" rel="noopener">Play Pixel Peek ↗</a>
+    <!-- 2 · The other channels, each sliding over the last -->
+    <section class="reel" id="reel" aria-label="More games">
+      <article class="panel" id="liars-call" style="--acc:#ff7a52">
+        <video class="bg" poster="media/lc.jpg" muted loop playsinline preload="metadata" aria-hidden="true"><source src="media/lc.webm" type="video/webm" /><source src="media/lc.mp4" type="video/mp4" /></video>
+        <div class="shade" aria-hidden="true"></div>
+        <div class="content">
+          <p class="chan">CH 02</p>
+          <h2 class="title t-lc">Liar's Call</h2>
+          <p class="line">Bluff your way around a wedding card table. Get caught, eat a spicy golgappa.</p>
+          <ul class="meta"><li>2–6 players</li><li>Bots fill seats</li><li>Phones &amp; laptops</li></ul>
+          <a class="play" href="https://liarscall.vercel.app" target="_blank" rel="noopener">Play Liar's Call <span aria-hidden="true">↗</span></a>
         </div>
       </article>
 
-      <article class="game lc flip" style="--accent:#ff6b5a">
-        <a class="frame" href="https://liarscall.vercel.app" target="_blank" rel="noopener" aria-label="Play Liar's Call">
-          <div class="bar"><i></i><i></i><i></i><span>liarscall.vercel.app</span></div>
-          <img src="img/liars-call.webp" alt="Liar's Call: four cartoon uncles and aunties around a red wedding card table with plates of golgappa" width="1280" height="800" loading="lazy" />
-        </a>
-        <div class="info">
-          <p class="tag">Desi bluffing card game · 2–6 players</p>
-          <h3>Liar's Call</h3>
-          <p>Jhooth bolo. Pakde mat jao. Play cards face down, claim they match the table card, or call “LIAR!” on the player before you. The loser eats a golgappa, and two of the six are ghost-pepper hot.</p>
-          <ul class="chips"><li>Bots fill empty seats</li><li>Online rooms</li><li>Installable app</li><li>Works offline vs bots</li></ul>
-          <a class="btn play" href="https://liarscall.vercel.app" target="_blank" rel="noopener">Play Liar's Call ↗</a>
+      <article class="panel" id="apartment-07" style="--acc:#e3c287">
+        <video class="bg" poster="media/a7.jpg" muted loop playsinline preload="metadata" aria-hidden="true"><source src="media/a7.webm" type="video/webm" /><source src="media/a7.mp4" type="video/mp4" /></video>
+        <div class="shade" aria-hidden="true"></div>
+        <div class="content">
+          <p class="chan">CH 03</p>
+          <h2 class="title t-a7">Apartment 07</h2>
+          <p class="line">A stormy night and a locked flat. Solve it together and find your way home.</p>
+          <ul class="meta"><li>1–4 players</li><li>Desktop &amp; keyboard</li><li>Co-op mystery</li></ul>
+          <a class="play" href="https://apartment07.up.railway.app" target="_blank" rel="noopener">Play Apartment 07 <span aria-hidden="true">↗</span></a>
         </div>
       </article>
-
-      <article class="game a7" style="--accent:#e8c98a">
-        <a class="frame" href="https://apartment07.up.railway.app" target="_blank" rel="noopener" aria-label="Play Apartment 07">
-          <div class="bar"><i></i><i></i><i></i><span>apartment07.up.railway.app</span></div>
-          <img src="img/apartment-07.webp" alt="Apartment 07: a top-down view of a cosy bedroom at night with a child explorer standing on a rug" width="1280" height="800" loading="lazy" />
-        </a>
-        <div class="info">
-          <p class="tag">Co-op escape mystery · 1–4 players</p>
-          <h3>Apartment 07</h3>
-          <p>A stormy night, a power cut, and a front door that won't open. Explore the flat room by room, find clues, combine items and solve gentle household puzzles together. No timer, no fail state, about 30–40 minutes.</p>
-          <ul class="chips"><li>Solo or co-op</li><li>Private room codes</li><li>Top-down rooms</li><li>Best with headphones</li></ul>
-          <a class="btn play" href="https://apartment07.up.railway.app" target="_blank" rel="noopener">Play Apartment 07 ↗</a>
-        </div>
-      </article>
-
-      <div class="soon">
-        <span class="spinner" aria-hidden="true"></span>
-        <div><b>More in the workshop.</b> New games land here as they're finished.</div>
-      </div>
     </section>
 
-    <section id="how" class="wrap how">
-      <div class="head">
-        <p class="kicker">How it works</p>
-        <h2>From “let's play” to playing in a minute.</h2>
-      </div>
-      <ol class="steps">
-        <li><span>1</span><h3>Open a game</h3><p>Tap any “Play” button. It runs in your browser on a laptop, tablet or phone.</p></li>
-        <li><span>2</span><h3>Make a room</h3><p>Pick a name and create a room. You get a short code and an invite link.</p></li>
-        <li><span>3</span><h3>Share the code</h3><p>Send it over WhatsApp or anywhere else. Friends join from their own device.</p></li>
-        <li><span>4</span><h3>Play and rematch</h3><p>Nobody installs anything. When it ends, hit rematch and go again.</p></li>
-      </ol>
-    </section>
+    <!-- channel indicator while the games are on screen -->
+    <nav class="rail" aria-label="Jump to a game">
+      <a href="#pixel-peek" data-i="0"><span>01</span>Pixel Peek</a>
+      <a href="#liars-call" data-i="1"><span>02</span>Liar's Call</a>
+      <a href="#apartment-07" data-i="2"><span>03</span>Apartment 07</a>
+    </nav>
 
-    <section class="wrap about">
-      <div>
-        <p class="kicker">About</p>
-        <h2>Small games, made with care.</h2>
-        <p>Web Games is a growing shelf of browser games made by Aditya Jain. They started as experiments for a couple of friends and grew into proper party games. All the art and sound is either self-made or open-licensed, and the source is public.</p>
-      </div>
-      <a class="btn ghost" href="https://github.com/adityajain13231324-code/Web-Games" target="_blank" rel="noopener">Browse the source on GitHub ↗</a>
+    <!-- 3 · Sign-off -->
+    <section class="end">
+      <p class="kicker">That's the lineup</p>
+      <h2>More channels<br /><em>coming soon.</em></h2>
+      <p class="free">Every game is free. No downloads, no accounts.</p>
     </section>
   </main>
 
-  <footer class="wrap foot">
-    <a class="brand" href="#top"><span class="logo" aria-hidden="true"><i></i><i></i><i></i></span>WEB<b>GAMES</b></a>
-    <p>Pixel Peek · Liar's Call · Apartment 07</p>
+  <footer class="foot">
+    <span>Made by <b>@adityajain1323</b></span>
+    <a href="https://github.com/adityajain13231324-code/Web-Games" target="_blank" rel="noopener">Source on GitHub ↗</a>
     <a href="#top">Back to top ↑</a>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="vendor/gsap.min.js" defer></script>
+  <script src="vendor/ScrollTrigger.min.js" defer></script>
+  <script src="vendor/SplitText.min.js" defer></script>
+  <script src="vendor/lenis.min.js" defer></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>
