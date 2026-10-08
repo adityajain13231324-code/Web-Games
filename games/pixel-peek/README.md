@@ -49,7 +49,7 @@ Live at https://gamepixelpeek.vercel.app (hosted on Vercel). To update it, uploa
 
 Share the link. One person creates a room and the others join with the 4-letter code or the invite link.
 
-The host's device runs the game and passes everything along, so the host should have the steadiest connection. If someone gets stuck on "Joining room", a strict network (like some college Wi-Fi) may be blocking it: try a phone hotspot.
+The host's device runs the game and passes everything along, so the host should have the steadiest connection. If someone gets stuck on "Joining room", a very strict network (like some college Wi-Fi) may still be blocking it even with the built-in relay fallback: try a phone hotspot.
 
 ## Play locally
 
