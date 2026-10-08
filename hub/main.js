@@ -54,6 +54,10 @@ function setChannel(i, byUser) {
   watch.href = CHANNELS[i].url; watchName.textContent = CHANNELS[i].name;
   listeners.forEach((f) => f(i));
 }
+document.querySelector('#surprise').addEventListener('click', () => {
+  setChannel((current + 1 + Math.floor(Math.random() * 2)) % 3, true);
+  watch.focus({ preventScroll: true });
+});
 // each card is a link to its game; pointing at it (or focusing it) tunes the TV to that channel
 let hoverTimer;
 cards.forEach((card, k) => {
@@ -66,6 +70,7 @@ cards.forEach((card, k) => {
 });
 addEventListener('keydown', (e) => {
   if (heroProgress > .1 || e.target.closest?.('input, textarea')) return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') e.preventDefault();
   if (e.key === 'ArrowRight') setChannel((current + 1) % 3, true);
   if (e.key === 'ArrowLeft') setChannel((current + 2) % 3, true);
 });

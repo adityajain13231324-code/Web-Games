@@ -30,11 +30,11 @@ export function startTV(ctx) {
     if (dpr <= 1 || reduce) return;
     frames++; if (dt > 1 / 40) slow++;
     if (frames < 60) return;
-    if (slow > 30) { dpr = Math.max(1, dpr - .25); renderer.setPixelRatio(dpr); layout(); }
+    if (slow > 30) { bloom.enabled = false; dpr = Math.max(1, dpr - .25); renderer.setPixelRatio(dpr); layout(); }
     slow = 0; frames = 0;
   }
 
-  const MAX_DPR = Math.min(devicePixelRatio || 1, innerWidth < 860 ? 1.5 : 1.75);
+  const MAX_DPR = Math.min(devicePixelRatio || 1, 1.5);
   let dpr = MAX_DPR;
   renderer.setPixelRatio(dpr);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -116,7 +116,7 @@ export function startTV(ctx) {
         col *= 0.93 + 0.07 * sin(gl_FragCoord.x * 2.2);                   // aperture grille
         float n = hash(uv * vec2(420.0, 320.0) + fract(uTime * 13.0));
         col = mix(col, vec3(n) * vec3(0.92, 0.95, 1.0), clamp(uStatic, 0.0, 1.0)); // channel static
-        col = pow(col, vec3(1.08)) * 1.3 * (0.975 + 0.025 * sin(uTime * 120.0));               // phosphor + flicker
+        col = pow(col, vec3(1.08)) * 1.3 * (0.995 + 0.005 * sin(uTime * 2.0));               // phosphor + flicker
         col *= pow(16.0 * uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y), 0.3); // vignette
         vec4 o = texture2D(uOsd, vUv); col = mix(col, o.rgb * 1.4, o.a * uOsdA);
         float h = smoothstep(0.0, 0.55, uPower), w = smoothstep(0.0, 0.2, uPower);  // power-on line
@@ -180,7 +180,7 @@ export function startTV(ctx) {
   const glow = new THREE.PointLight(CHANNELS[0].glow, 3, 6, 1.8); glow.position.set(SX, SY - .2, D / 2 + 1.1); body.add(glow);
 
   /* — post: bloom so the screen and lamp actually glow — */
-  const target = new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: 4 });
+  const target = new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: 2 });
   const composer = new EffectComposer(renderer, target);
   composer.addPass(new RenderPass(scene, camera));
   const bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), .4, .5, .92);
@@ -224,17 +224,18 @@ export function startTV(ctx) {
 
   /* — channel switching on the set — */
   drawOSD(0);
-  let osdTimer;
+  let osdTimer, tuning;
   const showOSD = () => { gsap.killTweensOf(screenMat.uniforms.uOsdA); screenMat.uniforms.uOsdA.value = 1; clearTimeout(osdTimer); osdTimer = setTimeout(() => gsap.to(screenMat.uniforms.uOsdA, { value: 0, duration: .6 }), 2600); };
   function tune(i) {
     const u = screenMat.uniforms;
-    load(i); videos[i].currentTime = 0; videos[i].play().catch(() => {});
-    gsap.timeline()
-      .to(u.uStatic, { value: 1, duration: .14, ease: 'power2.in', onComplete: () => { u.uTex.value = textures[i]; drawOSD(i); osdTex.needsUpdate = true; showOSD(); videos.forEach((v, k) => k !== i && v.pause()); } })
-      .to(u.uStatic, { value: 0, duration: .5, ease: 'power2.out' });
+    load(i); videos[i].play().catch(() => {});
+    tuning?.kill();
+    tuning = gsap.timeline()
+      .to(u.uStatic, { value: .4, duration: .1, ease: 'power2.in', onComplete: () => { u.uTex.value = textures[i]; drawOSD(i); osdTex.needsUpdate = true; showOSD(); videos.forEach((v, k) => k !== i && v.pause()); } })
+      .to(u.uStatic, { value: 0, duration: .35, ease: 'power2.out' });
     const c = new THREE.Color(CHANNELS[i].glow);
     gsap.to(glow.color, { r: c.r, g: c.g, b: c.b, duration: .6 });
-    gsap.to(knobs[0].rotation, { z: -i * 1.1, duration: .9, ease: 'back.out(2)' });
+    gsap.to(knobs[0].rotation, { z: -i * 1.1, duration: .7, ease: 'power3.out', overwrite: true });
   }
   listeners.push(tune);
 
@@ -265,17 +266,18 @@ export function startTV(ctx) {
   const clock = new THREE.Clock(), look = new THREE.Vector3(), rot = { y: L.rotY, x: 0 };
   renderer.setAnimationLoop(() => {
     const z = clamp(get().heroSmooth / ZOOM_END);
-    if (!visible || z >= GROW[1] + .02) { clock.getDelta(); return; } // the portal covers the set from here on
+    if (!visible || document.hidden || z >= GROW[1] + .02) { clock.getDelta(); return; } // the portal covers the set from here on
     const dt = clock.getDelta(), t = clock.elapsedTime;
     adapt(dt);
     const p = ease(clamp((z - FRAME[0]) / (FRAME[1] - FRAME[0])));
     const k = 1 - p;
-    rot.y += ((L.rotY + ptr.x * .32) * k - rot.y) * .07; rot.x += ((ptr.y * .08) * k - rot.x) * .07;
+    const damping = 1 - Math.exp(-5 * Math.min(dt, .05));
+    rot.y += ((L.rotY + ptr.x * .22) * k - rot.y) * damping; rot.x += ((ptr.y * .06) * k - rot.x) * damping;
     tv.rotation.set(rot.x, rot.y, 0); body.position.y = Math.sin(t * .9) * .025 * k;
     camera.position.lerpVectors(L.camFrom, L.camTo, p); look.lerpVectors(L.lookFrom, L.lookTo, p); camera.lookAt(look);
     if (moved || z >= .05) { moved = false; const was = hovering; hovering = z < .05 && (ray.setFromCamera(ndc, camera), ray.intersectObject(body, true).length > 0); if (was !== hovering) canvas.style.cursor = hovering ? 'pointer' : ''; }
     screenMat.uniforms.uTime.value = t;
-    glow.intensity = (3 + Math.sin(t * 9) * .25 + Math.sin(t * 23) * .2) * screenMat.uniforms.uPower.value;
+    glow.intensity = (3 + Math.sin(t * 2) * .08) * screenMat.uniforms.uPower.value;
     led.material.emissiveIntensity = 3 + Math.sin(t * 3) * 1.5;
     composer.render();
   });

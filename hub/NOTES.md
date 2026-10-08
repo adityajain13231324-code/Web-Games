@@ -44,3 +44,13 @@ The landing page for all three games, live at https://randomwebgames.vercel.app.
 
 - Fonts load from Google Fonts.
 - The game clips are fixed recordings; retake them when a game's look changes (see HOW_TO_RUN.md).
+
+## 9 October 2026: integrated hub improvements
+
+- Preserves the desktop TV-to-screen choreography and the performance pass's lazy media loading. Game code and destinations are unchanged.
+- `boot.js` loads `light.js` on narrow/coarse-pointer, reduced-motion, data-saving and <=4-core devices. This path uses native scrolling, real gameplay stills and a CSS TV; no 3D, animation libraries or video decoding. Rendering mode is selected at page load; reload after changing between desktop and mobile viewport emulation.
+- Desktop DPR is capped at 1.5, MSAA at 2 samples; sustained slow frames disable bloom as well as lowering resolution. TV tilt uses elapsed time; interrupted channel tuning is cancelled. Rendering pauses in hidden tabs.
+- `enhancements.css` adds creator credit, subtle static background detail, larger music target, native-flow mobile cards and a dismissing scroll hint. The nav explicitly restores pointer events for buttons (the original nav only restored anchors).
+- `music.js` contains three original synthesized instrumental loops, silent until a user click. One icon cycles three tracks and off. Audio suspends while hidden. No third-party music or network fetches.
+- `enhancements.js` dismisses the scroll hint after 32px. Pick for me selects a different game without navigating automatically.
+- Phone rendering has been designed for narrow screens; physical-device performance remains to be measured.

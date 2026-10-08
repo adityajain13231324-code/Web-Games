@@ -17,15 +17,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=VT323&family=Bungee&family=Yatra+One&family=Libre+Caslon+Display&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="modulepreload" href="main.js" />
-  <link rel="modulepreload" href="tv.js" />
-  <link rel="modulepreload" href="vendor/three.module.min.js" />
+  <link rel="stylesheet" href="style.css" /><link rel="stylesheet" href="enhancements.css" />
 </head>
 <body>
   <header class="nav">
     <a class="brand" href="#top" aria-label="Web Games, back to top"><span class="dot" aria-hidden="true"></span>Web Games</a>
-    <a class="gh" href="https://github.com/adityajain13231324-code/Web-Games" target="_blank" rel="noopener">GitHub ↗</a>
+    <div class="nav-tools"><span class="creator">Made by <b>@adityajain1323</b></span><a class="gh" href="https://github.com/adityajain13231324-code/Web-Games" target="_blank" rel="noopener">GitHub ↗</a><button id="music" class="music" type="button" aria-label="Play music: Midnight Arcade" title="Click to play music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 18V5l11-2v13M9 8l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="17" cy="16" rx="3" ry="2.5"/></svg></button></div><div id="music-status" class="music-status" role="status" aria-live="polite"></div>
   </header>
 
   <main id="top">
@@ -54,7 +51,7 @@
               <span class="label"><b>Apartment 07</b><small>1–4 players</small></span>
             </a>
           </div>
-          <a class="watch" id="watch" href="https://gamepixelpeek.vercel.app" target="_blank" rel="noopener">Play<b id="watchName">Pixel Peek</b><span aria-hidden="true">↗</span></a>
+          <div class="hero-actions"><a class="watch" id="watch" href="https://gamepixelpeek.vercel.app" target="_blank" rel="noopener">Play<b id="watchName">Pixel Peek</b><span aria-hidden="true">↗</span></a><button class="surprise" id="surprise" type="button">Pick for me ↝</button></div>
         </div>
 
         <!-- the TV screen, grown to full screen: Pixel Peek's panel -->
@@ -71,7 +68,7 @@
           </div>
         </article>
 
-        <a class="cue" href="#liars-call" aria-label="Scroll to the games"><span>Scroll</span><i aria-hidden="true"></i></a>
+        <a class="cue" href="#liars-call" aria-label="Scroll to the games"><span class="scroll-symbol" aria-hidden="true">↓</span><span>Scroll to explore<small>More games below</small></span></a>
       </div>
     </section>
 
@@ -122,11 +119,7 @@
     <a href="https://github.com/adityajain13231324-code/Web-Games" target="_blank" rel="noopener">Source on GitHub ↗</a>
     <a href="#top">Back to top ↑</a>
   </footer>
-
-  <script src="vendor/gsap.min.js" defer></script>
-  <script src="vendor/ScrollTrigger.min.js" defer></script>
-  <script src="vendor/SplitText.min.js" defer></script>
-  <script src="vendor/lenis.min.js" defer></script>
-  <script type="module" src="main.js"></script>
+  <script type="module" src="boot.js"></script>
+<script type="module" src="music.js"></script><script type="module" src="enhancements.js"></script>
 </body>
 </html>
