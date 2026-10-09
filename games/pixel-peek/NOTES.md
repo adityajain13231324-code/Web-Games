@@ -1,6 +1,6 @@
 # Pixel Peek: project notes
 
-Last updated: 7 October 2026. The code in this folder is **v6 (the party edition)**, the version deployed at https://gamepixelpeek.vercel.app. Read this before changing anything.
+Last updated: 9 October 2026. The code in this folder is **v6 (the party edition)**, the version deployed at https://gamepixelpeek.vercel.app. Read this before changing anything.
 
 ## What the game is
 
@@ -63,6 +63,7 @@ Keyboard: type a guess and press Enter. Mouse or touch for everything else. Ther
 - **Connection handling:** heartbeat every 2 s. A closed tab says goodbye and leaves within about 1 s. A frozen or offline player is dropped after about 9–10 s and can rejoin with the code. Joining mid-match drops you into the current round.
 - **No lockout after a wrong guess** (`LOCK_MS=0`). The user asked for "guess time 0" and it was read as removing the 3-second lockout. See open questions.
 - **Fits one screen:** the picture resizes to the window height, plus a full-screen button.
+- **Background music (9 Oct 2026, `music.js`).** Three original loops synthesised live with WebAudio (Pixel Playground, Night Arcade, Lo-fi Focus), no audio files. A note button in the top bar (left of the speaker) cycles track 1, 2, 3, off. Silent until tapped (browser rule); the choice is saved in `pp-music` and resumes on the next tap. The speaker button (`pp-mute`) also silences the music; the music button asks to turn sound on first if it is off. Pauses in hidden tabs. Checked in headless Chromium (levels, mute, cycling, no console errors); **nobody has listened to it yet**, so tempo and volume (`master.gain`) may need tuning. The `pixelpeek` repo's `public/` has the same file.
 - **Arcade look:** dark night-violet "cabinet", amber/teal player colours, Bungee display font, Figtree body text, JetBrains Mono numbers. Synth sound effects with mute, confetti, animations (pack cards bounce, scores count up, screens slide, green/red flashes).
 
 ## Version history (for context)

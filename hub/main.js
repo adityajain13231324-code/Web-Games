@@ -6,6 +6,7 @@ const CHANNELS = [
   { name: 'Pixel Peek', url: 'https://gamepixelpeek.vercel.app', src: 'media/pp', glow: '#ffc35a' },
   { name: "Liar's Call", url: 'https://liarscall.vercel.app', src: 'media/lc', glow: '#ff6a45' },
   { name: 'Apartment 07', url: 'https://apartment07.up.railway.app', src: 'media/a7', glow: '#f0cf8e' },
+  { name: 'Blackjack 21', url: 'https://blackjack21-cardgame.vercel.app', src: 'media/bj', glow: '#5fe0a0' },
 ];
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const EXT = document.createElement('video').canPlayType('video/webm; codecs="vp9"') ? '.webm' : '.mp4';
@@ -55,7 +56,7 @@ function setChannel(i, byUser) {
   listeners.forEach((f) => f(i));
 }
 document.querySelector('#surprise').addEventListener('click', () => {
-  setChannel((current + 1 + Math.floor(Math.random() * 2)) % 3, true);
+  setChannel((current + 1 + Math.floor(Math.random() * (CHANNELS.length - 1))) % CHANNELS.length, true);
   watch.focus({ preventScroll: true });
 });
 // each card is a link to its game; pointing at it (or focusing it) tunes the TV to that channel
@@ -71,12 +72,12 @@ cards.forEach((card, k) => {
 addEventListener('keydown', (e) => {
   if (heroProgress > .1 || e.target.closest?.('input, textarea')) return;
   if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') e.preventDefault();
-  if (e.key === 'ArrowRight') setChannel((current + 1) % 3, true);
-  if (e.key === 'ArrowLeft') setChannel((current + 2) % 3, true);
+  if (e.key === 'ArrowRight') setChannel((current + 1) % CHANNELS.length, true);
+  if (e.key === 'ArrowLeft') setChannel((current + CHANNELS.length - 1) % CHANNELS.length, true);
 });
 function autoCycle() {
   if (reduce) return;
-  setInterval(() => { if (!userPicked && heroProgress < .03 && !document.hidden) setChannel((current + 1) % 3, false); }, 7000);
+  setInterval(() => { if (!userPicked && heroProgress < .03 && !document.hidden) setChannel((current + 1) % CHANNELS.length, false); }, 7000);
 }
 
 /* ───────────── titles split into letters for the reveals ───────────── */

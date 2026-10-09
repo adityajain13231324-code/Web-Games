@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0a0f" />
   <title>Web Games</title>
-  <meta name="description" content="Free multiplayer browser games by Aditya Jain: Pixel Peek, Liar's Call and Apartment 07. No downloads, no sign-up. Open a tab, share a code, play." />
+  <meta name="description" content="Free multiplayer browser games by Aditya Jain: Pixel Peek, Liar's Call, Apartment 07 and Blackjack 21. No downloads, no sign-up. Open a tab, share a code, play." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Web Games — tune in to game night" />
-  <meta property="og:description" content="Pixel Peek, Liar's Call and Apartment 07. Free multiplayer games that run in your browser." />
+  <meta property="og:description" content="Pixel Peek, Liar's Call, Apartment 07 and Blackjack 21. Free multiplayer games that run in your browser." />
   <meta property="og:image" content="https://randomwebgames.vercel.app/img/og.jpg" />
   <meta property="og:url" content="https://randomwebgames.vercel.app/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -33,7 +33,7 @@
         <div class="fallback" aria-hidden="true"><video id="fallbackVideo" muted loop playsinline poster="media/pp.jpg"></video></div>
 
         <div class="copy">
-          <p class="kicker"><span class="rec" aria-hidden="true"></span> Now showing · 3 channels</p>
+          <p class="kicker"><span class="rec" aria-hidden="true"></span> Now showing · 4 channels</p>
           <h1>Tune in to<br /><em>game night.</em></h1>
           <p class="lead">Free multiplayer games that run in your browser. Open a tab, share a code, play.</p>
 
@@ -49,6 +49,10 @@
             <a class="ch" data-ch="2" href="https://apartment07.up.railway.app" target="_blank" rel="noopener" style="--acc:#e3c287" aria-label="Play Apartment 07 (1–4 players)">
               <span class="thumb"><img src="media/a7.jpg" alt="" width="320" height="180" decoding="async" /><span class="tag">CH 03</span><span class="air">On air</span><span class="go">Play <i aria-hidden="true">↗</i></span></span>
               <span class="label"><b>Apartment 07</b><small>1–4 players</small></span>
+            </a>
+            <a class="ch" data-ch="3" href="https://blackjack21-cardgame.vercel.app" target="_blank" rel="noopener" style="--acc:#4fd18b" aria-label="Play Blackjack 21 (1–6 players)">
+              <span class="thumb"><img src="media/bj.jpg" alt="" width="320" height="180" decoding="async" loading="lazy" /><span class="tag">CH 04</span><span class="air">On air</span><span class="go">Play <i aria-hidden="true">↗</i></span></span>
+              <span class="label"><b>Blackjack 21</b><small>1–6 players</small></span>
             </a>
           </div>
           <div class="hero-actions"><a class="watch" id="watch" href="https://gamepixelpeek.vercel.app" target="_blank" rel="noopener">Play<b id="watchName">Pixel Peek</b><span aria-hidden="true">↗</span></a><button class="surprise" id="surprise" type="button">Pick for me ↝</button></div>
@@ -97,6 +101,18 @@
           <a class="play" href="https://apartment07.up.railway.app" target="_blank" rel="noopener">Play Apartment 07 <span aria-hidden="true">↗</span></a>
         </div>
       </article>
+
+      <article class="panel" id="blackjack-21" style="--acc:#4fd18b">
+        <video class="bg" poster="media/bj.jpg" muted loop playsinline preload="none" aria-hidden="true"><source src="media/bj.webm" type="video/webm" /><source src="media/bj.mp4" type="video/mp4" /></video>
+        <div class="shade" aria-hidden="true"></div>
+        <div class="content">
+          <p class="chan">CH 04</p>
+          <h2 class="title t-bj">Blackjack 21</h2>
+          <p class="line">Pull up a chair, beat the dealer and stack the chips. Bots with attitude fill the empty seats.</p>
+          <ul class="meta"><li>1–6 players</li><li>Bots fill seats</li><li>Phones &amp; laptops</li></ul>
+          <a class="play" href="https://blackjack21-cardgame.vercel.app" target="_blank" rel="noopener">Play Blackjack 21 <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
     </section>
 
     <!-- channel indicator while the games are on screen -->
@@ -104,6 +120,7 @@
       <a href="#pixel-peek" data-i="0"><span>01</span>Pixel Peek</a>
       <a href="#liars-call" data-i="1"><span>02</span>Liar's Call</a>
       <a href="#apartment-07" data-i="2"><span>03</span>Apartment 07</a>
+      <a href="#blackjack-21" data-i="3"><span>04</span>Blackjack 21</a>
     </nav>
 
     <!-- 3 · Sign-off -->
