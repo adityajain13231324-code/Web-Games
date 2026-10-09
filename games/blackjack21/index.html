@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050807">
+<title>Blackjack 21</title>
+<meta name="description" content="Classic blackjack for up to 6 players and a dealer. Bet with chips, beat the dealer, play against bots.">
+<meta property="og:title" content="Blackjack 21">
+<meta property="og:description" content="Pull up a chair. Beat the dealer. Stack the chips. Blackjack with bots, a poker-style betting round and its own music.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+
+<!-- HOME -->
+<section id="home" class="screen on">
+  <div class="homebg" aria-hidden="true"><i>♠</i><i>♥</i><i>♣</i><i>♦</i><i>♠</i><i>♦</i></div>
+  <div class="homewrap">
+    <div class="hero">
+      <div class="fan" id="fan"></div>
+      <h1 class="logo">Blackjack</h1>
+      <div class="sub21">21</div>
+      <p class="tag">Pull up a chair. Beat the dealer. Stack the chips.</p>
+      <div class="menu">
+        <button class="btn lg wide stack" id="quick"><span>Quick play</span><small id="quickInfo"></small></button>
+        <button class="btn dark wide" id="goSetup">Table setup</button>
+        <div class="menu3">
+          <button class="btn dark sm" id="goHow">How to play</button>
+          <button class="btn dark sm" id="goSound">Sound</button>
+          <button class="btn dark sm" id="goCredits">Credits</button>
+        </div>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="panel player">
+        <div class="pavatar">
+          <button class="ibtn" id="avPrev" aria-label="Previous avatar" data-icon="left"></button>
+          <div class="pface" id="pface"></div>
+          <button class="ibtn" id="avNext" aria-label="Next avatar" data-icon="right"></button>
+        </div>
+        <label class="row" for="name">Your name</label>
+        <input id="name" type="text" maxlength="14" placeholder="You" autocomplete="off">
+        <div class="stats" id="stats"></div>
+      </div>
+      <div class="panel cast">
+        <h3>Meet the regulars</h3>
+        <div class="castlist" id="castlist"></div>
+      </div>
+    </aside>
+  </div>
+  <p class="note homenote">Play money only. No real money is ever involved.</p>
+</section>
+
+<!-- SETUP -->
+<section id="setup" class="screen">
+  <div class="center wide">
+    <h1 class="logo" style="font-size:1.7rem">Table setup</h1>
+    <p class="tag" style="margin:8px 0 18px">Pick a table, or build your own</p>
+    <div class="presets" id="presets"></div>
+    <div class="panel" id="setupPanel"></div>
+    <div class="stack-v">
+      <button class="btn lg wide" id="start">Take a seat</button>
+      <button class="btn ghost" id="backHome">Back</button>
+    </div>
+  </div>
+</section>
+
+<!-- TABLE -->
+<section id="table" class="screen">
+  <div class="bar">
+    <button class="ibtn" id="btnMenu" title="Menu" aria-label="Menu" data-icon="menu"></button>
+    <div class="grow"><div class="t1" id="barRound">Blackjack 21</div><div class="t2" id="barLimits"></div></div>
+    <button class="ibtn" id="btnSound" title="Sound on or off" aria-label="Sound on or off" data-icon="sound"></button>
+    <button class="ibtn" id="btnLog" title="Round log" aria-label="Round log" data-icon="log"></button>
+    <button class="ibtn" id="btnHelp" title="How to play" aria-label="How to play" data-icon="help"></button>
+  </div>
+  <div class="stagewrap"><div class="stage" id="stage"></div><div class="nowplaying" id="nowplaying"></div></div>
+  <div class="controls" id="controls" aria-live="polite"></div>
+</section>
+
+<!-- GAME OVER -->
+<section id="over" class="screen">
+  <div class="center">
+    <div class="crown" id="crown"></div>
+    <h1 class="logo" style="font-size:1.8rem" id="overTitle">Game over</h1>
+    <p class="tag" style="margin:8px 0 0" id="overSub"></p>
+    <ul class="standings" id="standings"></ul>
+    <div class="mystats" id="mystats"></div>
+    <div class="stack-v">
+      <button class="btn lg wide" id="again">Play again</button>
+      <button class="btn dark wide" id="overSetup">Change table</button>
+      <button class="btn ghost" id="overHome">Home</button>
+    </div>
+  </div>
+</section>
+
+<!-- OVERLAYS -->
+<div class="overlay" id="ovHow"><div class="modal">
+  <h2>How to play</h2>
+  <ul>
+    <li><b>Goal:</b> beat the dealer's hand without going over 21.</li>
+    <li><b>Cards:</b> 2 to 10 are face value, J/Q/K are 10, an Ace is 1 or 11.</li>
+    <li><b>Betting goes round the table.</b> The opener bets anything up to the table maximum. Everyone after must <b>match the highest bet</b>, <b>raise</b>, or <b>fold</b> and sit the round out. If you have less than the bet, you must go <b>all in</b> with what you have, or fold. (This can be switched to free betting in the table setup.)</li>
+    <li><b>Hit</b> takes another card. <b>Stand</b> keeps your hand.</li>
+    <li><b>Double down</b> doubles your bet for exactly one more card.</li>
+    <li><b>Split</b> turns a pair into two hands, each with its own bet.</li>
+    <li><b>Surrender</b> gives up your first two cards for half your bet back (not available after you hit or split).</li>
+    <li><b>Insurance:</b> when the dealer shows an Ace, you may bet half your bet that they have blackjack. It pays 2 to 1.</li>
+    <li>The dealer draws to 16 and <b>stands on all 17s</b>.</li>
+    <li><b>Pays:</b> win 1 to 1, blackjack 3 to 2, a tie returns your bet.</li>
+    <li>Out of chips? Rebuy once. After the last round, the player with the <b>most chips wins</b>.</li>
+    <li><b>Keys:</b> H hit, S stand, D double, P split, R surrender, Enter to confirm a bet.</li>
+  </ul>
+  <div class="ctl-row"><button class="btn" data-close>Got it</button></div>
+</div></div>
+
+<div class="overlay" id="ovLog"><div class="modal">
+  <h2>Round log</h2>
+  <div class="log" id="logBody"></div>
+  <div class="ctl-row"><button class="btn" data-close>Close</button></div>
+</div></div>
+
+<div class="overlay" id="ovMenu"><div class="modal">
+  <h2>Menu</h2>
+  <div class="ctl-row" style="flex-direction:column;align-items:stretch">
+    <button class="btn" data-close>Back to the table</button>
+    <button class="btn dark" id="menuSettings">Sound and display</button>
+    <button class="btn danger" id="quit">Leave the table</button>
+  </div>
+</div></div>
+
+<div class="overlay" id="ovSettings"><div class="modal">
+  <h2>Sound and display</h2>
+  <div id="settingsBody"></div>
+  <div class="ctl-row"><button class="btn" data-close>Done</button></div>
+</div></div>
+
+<div class="overlay" id="ovCredits"><div class="modal">
+  <h2>Credits</h2>
+  <ul>
+    <li><b>Music and sound effects:</b> all synthesised live in your browser by this game. No recordings, nothing to download. Ten original tracks: Green Felt, Smoky Back Room, Shuffle &amp; Deal, High Roller, Chip Stack Bossa, Midnight Vegas, Dealer Stands on 17, All In, Lucky Streak and Last Hand.</li>
+    <li><b>Art:</b> cards, chips, the table and every character are drawn in code for this game. The names and faces of the dealer and the regulars are original.</li>
+    <li><b>Fonts:</b> Cinzel, Playfair Display and Inter, used under the SIL Open Font License 1.1 (licence files are in the <code>fonts</code> folder).</li>
+    <li>Play money only. No real money is ever involved.</li>
+  </ul>
+  <div class="ctl-row"><button class="btn" data-close>Close</button></div>
+</div></div>
+
+<div id="flight"></div>
+
+<script src="js/rules.js"></script>
+<script src="js/bots.js"></script>
+<script src="js/art.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

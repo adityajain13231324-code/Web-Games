@@ -246,7 +246,7 @@ export function startTV(ctx) {
     const r = canvas.getBoundingClientRect(); ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
     moved = true;
   }, { passive: true });
-  canvas.addEventListener('click', () => { if (hovering) setChannel((get().current + 1) % 3, true); });
+  canvas.addEventListener('click', () => { if (hovering) setChannel((get().current + 1) % CHANNELS.length, true); });
 
   /* — start: wait for the first frame, then switch the set on — */
   let started = false;

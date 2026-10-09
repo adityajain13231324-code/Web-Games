@@ -1,7 +1,7 @@
 // Native-scrolling alternative: no WebGL, video decoding or animation libraries.
 const cards = [...document.querySelectorAll('.ch')];
-const names = ['Pixel Peek', "Liar's Call", 'Apartment 07'];
-const posters = ['pp','lc','a7'];
+const names = ['Pixel Peek', "Liar's Call", 'Apartment 07', 'Blackjack 21'];
+const posters = ['pp','lc','a7','bj'];
 const frame = document.querySelector('.fallback');
 const screen = document.createElement('img');
 screen.src = 'media/pp.jpg'; screen.alt = 'Pixel Peek gameplay'; screen.width = 1280; screen.height = 720;
@@ -18,7 +18,7 @@ cards.forEach((card,i) => {
   card.addEventListener('pointerenter', e => { if (e.pointerType !== 'touch') tune(i); });
 });
 document.querySelector('#surprise').addEventListener('click', () => {
-  tune((current + 1 + Math.floor(Math.random()*2)) % 3);
+  tune((current + 1 + Math.floor(Math.random()*(names.length - 1))) % names.length);
   document.querySelector('#watch').focus({preventScroll:true});
 });
 document.querySelectorAll('.panel video').forEach(video => {

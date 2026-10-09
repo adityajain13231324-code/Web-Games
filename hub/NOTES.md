@@ -4,11 +4,11 @@ Last updated: 8 October 2026 (performance pass).
 
 ## What it is
 
-The landing page for all three games, live at https://randomwebgames.vercel.app. It's a static site (no build step) with a "channel guide" idea:
+The landing page for all four games, live at https://randomwebgames.vercel.app. It's a static site (no build step) with a "channel guide" idea:
 
-1. **The TV (hero).** A 3D retro TV built in three.js plays real gameplay of each game on a curved CRT screen (scanlines, colour fringing, static between channels, a green on-screen channel number). Beside it: the headline, and three game cards with the game's picture, name and player count. Each card is a link to its game. Hovering a card lifts it, zooms its still picture, shows a "Play" label and tunes the TV to that game (only the TV plays video). Clicking the TV or pressing ← / → changes channel too; it cycles on its own until someone picks.
+1. **The TV (hero).** A 3D retro TV built in three.js plays real gameplay of each game on a curved CRT screen (scanlines, colour fringing, static between channels, a green on-screen channel number). Beside it: the headline, and four game cards with the game's picture, name and player count. Each card is a link to its game. Hovering a card lifts it, zooms its still picture, shows a "Play" label and tunes the TV to that game (only the TV plays video). Clicking the TV or pressing ← / → changes channel too; it cycles on its own until someone picks.
 2. **Scroll.** The text fades, the camera moves to a front-on view of the whole set, then the TV's screen grows into Pixel Peek's full-screen panel (its outline follows the 3D screen, so the screen literally becomes the page).
-3. **The reel.** Liar's Call, then Apartment 07, rise as cards over the previous game, which sinks back (scales down, dims) like a stack. Titles reveal letter by letter (GSAP SplitText), the gameplay video drifts (parallax), and a channel indicator on the right shows where you are.
+3. **The reel.** Liar's Call, then Apartment 07, then Blackjack 21, rise as cards over the previous game, which sinks back (scales down, dims) like a stack. Titles reveal letter by letter (GSAP SplitText), the gameplay video drifts (parallax), and a channel indicator on the right shows where you are.
 4. **Ending.** "More channels coming soon", then the footer with the "Made by @adityajain1323" credit.
 
 ## Files
@@ -38,7 +38,7 @@ The landing page for all three games, live at https://randomwebgames.vercel.app.
 
 - No custom domain yet.
 - Not measured on a real phone. If the 3D is still slow on weak phones, skip the bloom pass on small screens in `tv.js`.
-- Add a channel (card, panel and clip) when a fourth game ships.
+- Add a channel (card, panel and clip) when a fifth game ships. Channel count is no longer hard-coded: `main.js` and `light.js` use `CHANNELS.length` / `names.length`; the card grid in `style.css` (`.guide`) is 4 columns, so a fifth card needs a new layout.
 
 ## Known issues
 
@@ -54,3 +54,10 @@ The landing page for all three games, live at https://randomwebgames.vercel.app.
 - `music.js` contains three original synthesized instrumental loops, silent until a user click. One icon cycles three tracks and off. Audio suspends while hidden. No third-party music or network fetches.
 - `enhancements.js` dismisses the scroll hint after 32px. Pick for me selects a different game without navigating automatically.
 - Phone rendering has been designed for narrow screens; physical-device performance remains to be measured.
+
+## 9 October 2026: Blackjack 21 (channel 4)
+
+- New channel: card, reel panel, rail entry, TV clip (`media/bj.webm/.mp4/.jpg`, recorded from the game in headless Chromium, 14 s, about 0.3 MB per format) and the lightweight-mode poster. Links to https://blackjack21-cardgame.vercel.app.
+- The channel arithmetic (arrow keys, TV click, Pick for me, auto-cycle) now uses the channel count instead of a hard-coded 3.
+- Hero cards are 4 columns on desktop. Checked at 1440x810 (3D path) and 390x844 (light path); not checked on a real phone.
+- The game's code is copied to `games/blackjack21` (standalone repo: `blackjack21`).

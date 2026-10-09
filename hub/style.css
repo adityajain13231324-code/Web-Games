@@ -60,7 +60,7 @@ h1 em { color: var(--phos); text-shadow: 0 0 40px rgba(255, 182, 72, .35); }
 @keyframes up { to { opacity: 1; translate: 0 0; } }
 
 /* channel cards */
-.guide { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.guide { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .ch { display: grid; gap: 10px; min-width: 0; color: var(--soft); transition: color .4s; }
 .thumb { position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden; background: #000;
   box-shadow: 0 0 0 1px var(--line), 0 18px 34px -22px #000;
@@ -104,6 +104,7 @@ h1 em { color: var(--phos); text-shadow: 0 0 40px rgba(255, 182, 72, .35); }
 .title { margin: 0; line-height: .95; letter-spacing: -.01em; font-weight: 400; padding-bottom: .06em; }
 .t-pp { font-family: 'Bungee', var(--sans); font-size: clamp(3rem, 10vw, 9.5rem); color: var(--acc); }
 .t-lc { font-family: 'Yatra One', var(--sans); font-size: clamp(3.4rem, 11vw, 10.5rem); color: #ffd36b; text-shadow: 0 0 60px rgba(255, 140, 70, .45); }
+.t-bj { font-family: 'Bungee', var(--sans); font-size: clamp(2.4rem, 7.2vw, 6.8rem); color: #f4e3a8; text-shadow: 0 0 60px rgba(79, 209, 139, .4); }
 .t-a7 { font-family: 'Libre Caslon Display', var(--serif); font-size: clamp(3.2rem, 10vw, 9.5rem); color: #f1e6cf; }
 .line { margin: 18px 0 22px; max-width: 34rem; font-size: clamp(1.02rem, 1.4vw, 1.2rem); color: rgba(244, 239, 230, .82); }
 .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; padding: 0; list-style: none; }
