@@ -161,6 +161,9 @@ async function main() {
     ok(await page.$eval('.cell[data-b="0"][data-c="0"]', (e) => e.classList.contains('shake')), 'cell shakes');
     ok(await page.$eval('.sb[data-b="4"]', (e) => e.classList.contains('flash')), 'legal board flashes');
     await cell(page, 4, 4);
+    await page.waitForTimeout(1200);
+    const resting = (sel) => page.$eval(sel, (e) => getComputedStyle(e, '::after').opacity);
+    eq(await resting('.sb[data-b="4"]'), '0', 'the flash overlay fades away and does not stay as a solid block');
     eq(await toastText(page), 'Cell already taken');
     eq((await game(page)).moves.length, 1, 'no move was made');
     eq(await page.$$eval('#toast', (n) => n.length), 1, 'a single toast element');
@@ -191,6 +194,9 @@ async function main() {
     await page.click('#btnHint');
     await page.waitForSelector('.cell.hint', { timeout: 4000 });
     eq(await page.textContent('#btnHint .badge'), '2');
+    const hintDot = () => page.$eval('.cell.hint', (e) => Number(getComputedStyle(e, '::before').opacity));
+    await page.evaluate(() => UTTT.settings.set('anim', false));
+    ok((await hintDot()) < 0.7, 'with animations off the hint is a soft dot, not a solid disc');
     noErrors(page); await page.context().close();
   });
 
@@ -265,6 +271,41 @@ async function main() {
     eq((await game(page)).moves.length, 2, 'redo puts both back');
     await page.waitForTimeout(1200);
     eq((await game(page)).moves.length, 2, 'the computer does not move twice');
+    noErrors(page); await page.context().close();
+  });
+
+  await test('interruptions: pausing, settings and the tutorial mid-game never let the computer move early or twice', async () => {
+    const page = await open();
+    await page.evaluate(() => UTTT.settings.set('level', 'easy'));
+    await page.click('[data-act=ai]'); await page.click('#setupGo'); await page.waitForSelector('#game.on');
+    const moves = async () => (await game(page)).moves.length;
+    await cell(page, 4, 4);                                   // the computer is now thinking
+    await page.click('#btnMenu');                             // pause straight away
+    await page.waitForTimeout(1600);
+    eq(await moves(), 1, 'no computer move while paused');
+    await page.click('#pHow');                                // tutorial from the pause menu
+    ok(await page.isVisible('#tut'));
+    await page.keyboard.press('Escape');
+    await page.waitForSelector('#dlgPause[open]');
+    await page.waitForTimeout(1200);
+    eq(await moves(), 1, 'still paused after the tutorial');
+    await page.keyboard.press('Escape');                      // close the pause dialog: resume
+    await page.waitForFunction(() => UTTT.Game.state.moves.length === 2, null, { timeout: 5000 });
+    await page.waitForTimeout(1500);
+    eq(await moves(), 2, 'exactly one computer move after resuming');
+    await cell(page, (await game(page)).next, 4);             // our turn again; open settings while it thinks
+    await page.click('#btnSettings');
+    await page.waitForTimeout(1500);
+    eq(await moves(), 3, 'settings dialog pauses the computer too');
+    await page.keyboard.press('Escape');
+    await page.waitForFunction(() => UTTT.Game.state.moves.length === 4, null, { timeout: 5000 });
+    await page.click('#btnUndo');                             // undo while it is our turn, then again straight after a move
+    eq(await moves(), 2);
+    await cell(page, (await game(page)).next, 4);
+    await page.click('#btnUndo');                             // undo while the computer is thinking
+    await page.waitForTimeout(1800);
+    eq(await moves(), 2, 'the computer does not answer a move that was undone');
+    ok(await page.$eval('#players', (e) => e.dataset.active !== '0'), 'game is still live');
     noErrors(page); await page.context().close();
   });
 

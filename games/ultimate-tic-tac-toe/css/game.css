@@ -220,13 +220,13 @@ body[data-mode="online"] .toolbar { grid-template-columns: 1fr; }
 @keyframes shake { 0%, 100% { transform: translateX(0); } 18% { transform: translateX(-5px); } 36% { transform: translateX(5px); } 54% { transform: translateX(-4px); } 72% { transform: translateX(3px); } }
 .cell.last::after { content: ""; position: absolute; inset: 7%; border: 2px solid currentColor; border-radius: calc(var(--sb-r) * .5); opacity: .5; pointer-events: none; animation: lastIn .4s ease-out; }
 @keyframes lastIn { from { transform: scale(1.4); opacity: 0; } to { transform: scale(1); opacity: .5; } }
-.cell.hint::before { content: ""; position: absolute; inset: 8%; border-radius: 50%; background: var(--accent); pointer-events: none; animation: hint 1s ease-in-out infinite; }
+.cell.hint::before { content: ""; position: absolute; inset: 8%; border-radius: 50%; background: var(--accent); opacity: .45; pointer-events: none; animation: hint 1s ease-in-out infinite; }
 @keyframes hint { 0%, 100% { transform: scale(.55); opacity: .2; } 50% { transform: scale(1); opacity: .6; } }
 
 /* the board(s) you may play in breathe softly */
 .sb.legal::before { content: ""; position: absolute; inset: -3px; z-index: 3; pointer-events: none; border-radius: inherit; border: 2px solid var(--accent); box-shadow: 0 0 16px var(--glow), inset 0 0 14px var(--glow); animation: breathe 2.4s ease-in-out infinite; }
 @keyframes breathe { 0%, 100% { opacity: .5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.018); } }
-.sb.flash::after { content: ""; position: absolute; inset: -3px; z-index: 3; pointer-events: none; border-radius: inherit; background: var(--accent); animation: flash .8s ease-out; }
+.sb.flash::after { content: ""; position: absolute; inset: -3px; z-index: 3; pointer-events: none; border-radius: inherit; background: var(--accent); opacity: 0; animation: flash .8s ease-out; }
 @keyframes flash { 0% { opacity: 0; } 25% { opacity: .28; } 100% { opacity: 0; } }
 .board.locked .sb.legal::before { animation: none; opacity: 0; }
 
