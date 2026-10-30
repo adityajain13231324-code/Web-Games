@@ -116,7 +116,7 @@
       $('tutSkip').addEventListener('click', () => close('skipped'));
       $('tutReplay').addEventListener('click', () => { audio.play('click'); show(idx); });
     }
-    inertEls = ['menu', 'game'].map($).filter(Boolean);
+    inertEls = ['menu', 'game', 'analysis'].map($).filter(Boolean);
     inertEls.forEach((e) => { e.inert = true; });
     root.addEventListener('keydown', onKey, true);
     root.addEventListener('resize', onResize);

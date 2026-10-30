@@ -1,5 +1,5 @@
 /* Runs the computer player off the main thread so the UI never freezes while it thinks. */
-importScripts('rules.js', 'ai.js');
+importScripts('rules.js', 'engine.js', 'ai.js');
 
 self.onmessage = function (e) {
   const { id, state, level, opts } = e.data;

@@ -13,6 +13,7 @@
   function show(screen) {
     $('menu').classList.toggle('on', screen === 'menu');
     $('game').classList.toggle('on', screen === 'game');
+    $('analysis').classList.toggle('on', screen === 'analysis');
     document.body.dataset.screen = screen;
     if (screen === 'menu') root.scrollTo(0, 0);
   }
@@ -209,6 +210,22 @@
   });
   $('resReplay').addEventListener('click', () => { audio.play('click'); closeDlg('dlgResult'); Game.startReplay(); });
   $('resMenu').addEventListener('click', () => { closeDlg('dlgResult'); toMenu(); });
+  $('resAnalyse').addEventListener('click', () => {
+    audio.play('click');
+    const played = Game.moves.map((m) => ({ p: m.p, b: m.b, c: m.c }));
+    closeDlg('dlgResult');
+    if (online) leaveOnline();
+    Game.leave();
+    openAnalysis(played, true);
+  });
+
+  /* The analysis board: a fresh one from the menu, or a finished game that is reviewed straight away. */
+  function openAnalysis(moves, review) {
+    show('analysis');
+    U.Analysis.open({ moves, review });
+  }
+  $('anBack').addEventListener('click', () => { audio.play('click'); U.Analysis.close(); show('menu'); });
+  $('anSettings').addEventListener('click', () => { audio.play('click'); syncControls(); openDlg('dlgSettings'); });
 
   function toMenu() {
     if (online) leaveOnline();
@@ -253,6 +270,7 @@
   $('rpClose').addEventListener('click', () => Game.stopReplay());
 
   root.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.dataset.screen === 'analysis' && !document.querySelector('dialog[open]') && $('tut').hidden) { $('anBack').click(); return; }
     if (e.key !== 'Escape' || !Game.active || document.querySelector('dialog[open]') || !$('tut').hidden) return;
     if (Game.replaying) { Game.stopReplay(); return; }
     if ($('history').classList.contains('open')) { Game.setHistory(false); return; }
@@ -265,6 +283,7 @@
     const act = b.dataset.act;
     if (act === 'local' || act === 'ai') openSetup(act);
     else if (act === 'online') openOnline();
+    else if (act === 'analysis') { audio.play('click'); openAnalysis([], false); }
     else if (act === 'how') { audio.play('click'); U.Tutorial.start(); }
     else if (act === 'stats') { audio.play('click'); openStats(); }
     else if (act === 'settings') { audio.play('click'); syncControls(); openDlg('dlgSettings'); }

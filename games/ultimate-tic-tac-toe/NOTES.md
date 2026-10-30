@@ -27,8 +27,11 @@ No framework, no modules: classic scripts in a fixed order that share one `windo
 | File | Job | Pure / testable |
 | --- | --- | --- |
 | `js/rules.js` | State, legality and reasons, win / draw detection, make / unmake move, replay from a move list | yes (Node) |
-| `js/ai.js` | Easy = random. Medium = one-move lookahead (win game, win board, block, don't hand over a free move or a winning reply). Hard = negamax with alpha-beta, move ordering, iterative deepening on a time budget (reaches depth 8–9 in about 0.9 s), evaluation on board ownership (centre > corner > edge), open-board line potential, big-board lines and who has a free move | yes (Node) |
-| `js/ai-worker.js` | Runs the AI off the main thread so the UI never freezes; `game.js` falls back to the main thread (shorter budget) if workers are unavailable, e.g. from `file://` | |
+| `js/engine.js` | The analysis engine: negamax alpha-beta, iterative deepening, a transposition table (Zobrist hashing), move ordering, several principal variations (MultiPV), mate detection, and the evaluation (board ownership centre > corner > edge, open-board line potential, big-board lines, who has a free move). Also `winProb`, the logistic map from a score to "chance X wins" used by the bar | yes (Node) |
+| `js/ai.js` | Easy = random. Medium = one-move lookahead (win game, win board, block, don't hand over a free move or a winning reply). Hard = the engine on a time budget (depth 9 in a few hundred ms) | yes (Node) |
+| `js/engine-worker.js` | Runs the engine for the analysis board: live analysis of one position (a result after every finished depth) and a review of a whole game | |
+| `js/analysis.js` | The analysis board: eval bar, best lines, graph, game review, move classification and accuracy | |
+| `js/ai-worker.js` | Runs the computer player off the main thread so the UI never freezes; `game.js` falls back to the main thread (shorter budget) if workers are unavailable, e.g. from `file://` | |
 | `js/tutorial-script.js` | The seven lessons as data plus a state builder | yes (Node) |
 | `js/board.js` | The board DOM and every board animation; knows nothing about rules | |
 | `js/game.js` | One match: turns, computer turns, timer, undo / redo, hints, pause, history, replay, scoreboard, results | |
@@ -41,6 +44,17 @@ No framework, no modules: classic scripts in a fixed order that share one `windo
 | `css/themes.css`, `css/game.css`, `css/fonts.css` | Tokens per theme, layout and components, local fonts | |
 
 Saved in localStorage (prefix `uttt.`): `settings`, `sound`, `score` (per mode), `stats`, `tutorial` (`done` or `skipped`).
+
+## Analysis board
+
+Opened from the menu (a fresh board, play both sides) or from the results screen (**Analyse**: the finished game is loaded and reviewed at once).
+
+- **Engine choice.** No hosted analysis API exists for this game, and the site has no server, so the engine runs in the browser. The closest public reference I found is the Rust crate `ai-ultimate-tictactoe` (alpha-beta with iterative deepening, a transposition table, tactical move ordering); the design here follows that, written from scratch in JavaScript (no code copied, so no licence to carry). MCTS was not used: alpha-beta gives exact, repeatable scores that suit an evaluation bar and per-move review.
+- **Eval bar.** Shows the chance that X wins (`winProb`: logistic, one small board up is about 65%, forced wins are 0 or 100%). Vertical beside the board on wide screens, horizontal above it on phones. It animates with a transform (`scaleY` / `scaleX`), uses the theme's X and O colours, and has small per-theme touches (neon glow, pencil hatching, stepped fill in arcade). `--x-ink` / `--o-ink` in `themes.css` keep its numbers readable.
+- **Live analysis** searches the position on the board up to depth 20 or 6 s with the 3 best lines, reporting after every finished depth, so the bar and lines settle as it thinks. Moving to another position terminates the worker (the only way to stop a synchronous search) and starts a new one.
+- **Review** searches every position of the game for about 0.28 s each (a 40-move game takes about 12 s), sharing one transposition table. A move is graded by how much the mover's winning chance dropped compared with the engine's best: under 1.5 points or the engine's top move is Best, under 5 Good, under 10 Inaccuracy, under 20 Mistake, otherwise Blunder. Accuracy per player is `103.17 * exp(-0.04354 * average loss) - 3.17` (the usual chess formula), a rough guide, not a rating.
+- **Without Web Workers** (for example opened from a file) the engine runs on the main thread with a shorter budget.
+- Playing a different move in the middle of a game replaces the rest of the line; there are no variation trees.
 
 ## Decisions worth remembering
 
@@ -62,19 +76,21 @@ Saved in localStorage (prefix `uttt.`): `settings`, `sound`, `score` (per mode),
 - [x] All requested animations, illegal-move feedback (shake, sound, one non-stacking toast, flash of the legal boards), hover ghost, last-move marker, timer bar.
 - [x] Interactive tutorial with spotlight, scripted demos and Skip on every step (remembered); "How to Play" replays it.
 - [x] Undo / redo (local and vs computer), hints (3 per game), move history, full replay with step / scrub, turn timer (15 s / 30 s), scoreboard, stats and 8 achievements, custom names, X/O side, emoji symbols (presets or your own), pause / quit / restart with confirm, keyboard play and screen-reader labels, responsive layouts (phone portrait and landscape, tablet, desktop).
-- [x] Tests: `test-rules.js` (15), `test-ai.js` (6), `test-tutorial.js` (6), `ui-smoke.js` (21 browser checks).
+- [x] Analysis board with engine, themed eval bar, best lines, graph, game review and accuracy.
+- [x] Tests: `test-rules.js` (15), `test-engine.js` (9), `test-ai.js` (6), `test-tutorial.js` (6), `ui-smoke.js` (26 browser checks).
 
 ## Known issues / not done
 
 - **Online play:** tested with a mocked PeerJS in the browser test and once for real (two tabs, real PeerJS broker, real WebRTC). Not tested across two different networks or on real phones. No reconnect after a dropped connection (the other player is told their friend left), no chat, no spectators. It relies on PeerJS's free public broker and the free Open Relay TURN servers (best effort).
 - **Sound was not listened to by ear.** The tests check that every sound plays in every theme and that the packs use different waveforms; whether they sound good needs a person with speakers.
 - **Not tried on a real phone or iOS Safari.** Layouts were checked in emulated phones, a tablet and landscape. Needs a modern browser (uses `color-mix`, `inert`, `<dialog>`): roughly Chrome / Edge 111+, Safari 16.4+, Firefox 113+. Cells are about 38 px on a 390 px-wide phone (nine cells across), above the 24 px WCAG minimum but small.
-- Hard is strong for a casual game, not unbeatable: depth-limited, no opening book, no transposition table.
+- Hard and the analysis engine are depth-limited with a hand-written evaluation (no opening book, no learning). Treat the evaluation bar and the move grades as a guide: a position the engine rates "equal" may not be equal to a stronger engine, and review uses short searches.
 - Undo / redo and hints are off in online games. The "Speed run" achievement counts both players' moves. Abandoned games are not counted in stats.
 - The hub clip (`hub/media/ut.*`) is a scripted 36-move game recorded in the neon theme; retake it when the look changes.
 
 ## Ideas
 
+- Analysis: variation trees, deeper review option, analysis of an online game as it is played (an optional eval bar in normal games), a PGN-like move text to copy and paste.
 - Installable app (manifest + service worker) like Blackjack 21.
 - Reconnect, emotes or quick chat online; share a replay as a link.
 - More computer personalities; a daily puzzle ("win in 3 from this position").

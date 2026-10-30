@@ -240,6 +240,12 @@
       if (b != null) cellAt(b, c).classList.add('hint');
     }
 
+    /* The engine's suggested moves, best first (analysis board). */
+    function setEngine(list) {
+      board.querySelectorAll('.cell.eng').forEach((n) => n.classList.remove('eng', 'eng1', 'eng2', 'eng3'));
+      (list || []).slice(0, 3).forEach((m, i) => cellAt(m.b, m.c).classList.add('eng', 'eng' + (i + 1)));
+    }
+
     function shake(b, c) {
       const cell = cellAt(b, c);
       cell.classList.remove('shake');
@@ -333,7 +339,7 @@
 
     return Object.assign(view, {
       cell: cellAt, sb: (b) => view.sbEls[b], markHTML: (p) => markHTML(p, false),
-      render, place, setLegal, setLast, setHint, shake, flash, focusBest, cancelTimers,
+      render, place, setLegal, setLast, setHint, setEngine, shake, flash, focusBest, cancelTimers,
       setStyle(s, glow) { view.style = SHAPES[s] ? s : 'clean'; view.glow = !!glow; },
       setAnim(on) { view.anim = !!on; board.classList.toggle('no-anim', !on); },
       setInteractive(on) { view.interactive = !!on; board.classList.toggle('locked', !on); applyLegal(); if (!on) hideGhost(); },

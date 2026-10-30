@@ -469,6 +469,92 @@ async function main() {
     noErrors(a); noErrors(b); await ctx.close();
   });
 
+  await test('analysis board: engine lines, eval bar, playing and stepping through moves', async () => {
+    const page = await open();
+    await page.click('[data-act=analysis]');
+    await page.waitForSelector('#analysis.on');
+    await page.waitForFunction(() => document.querySelectorAll('#anLines .an-line').length === 3, null, { timeout: 8000 });
+    const sum = await page.evaluate(() => Number(document.getElementById('ebX').textContent) + Number(document.getElementById('ebO').textContent));
+    eq(sum, 100, 'the two bar numbers add up to 100');
+    ok(await page.$$eval('.cell.eng', (n) => n.length) >= 3, 'the three best moves are marked on the board');
+    ok(/depth \d+/.test(await page.textContent('#anMeta')), 'search depth shown');
+    await cell(page, 4, 4);                                                   // play a move for X
+    await page.waitForFunction(() => UTTT.Analysis && document.querySelectorAll('#anHist li[data-i]').length === 1);
+    await cell(page, 4, 0);
+    await page.waitForFunction(() => document.querySelectorAll('#anLines .an-line').length === 3, null, { timeout: 8000 });
+    await cell(page, 5, 5);                                                   // O's move sent X to board 1: board 6 is wrong, explained, not played
+    eq(await toastText(page), 'You must play in the glowing board');
+    eq(await page.$$eval('#anHist li[data-i]', (n) => n.length), 2);
+    await page.keyboard.press('PageUp');                                      // step back (plain arrows move around the board while it has focus)
+    eq(await page.$$eval('#anHist li.cur', (n) => n.length), 1);
+    eq(await page.getAttribute('#anHist li.cur', 'data-i'), '1');
+    await page.click('#anFirst');
+    eq(await page.$$eval('#anStage .cell.x, #anStage .cell.o', (n) => n.length), 0, 'back at the start');
+    await page.click('#anLast');
+    eq(await page.$$eval('#anStage .cell.x, #anStage .cell.o', (n) => n.length), 2);
+    await page.click('#anEngine', { force: true });
+    ok(await page.isVisible('.an-none'), 'with the engine off there are no lines');
+    eq(await page.$$eval('.cell.eng', (n) => n.length), 0);
+    await page.click('#anBack');
+    ok(await page.isVisible('#menu'));
+    noErrors(page); await page.context().close();
+  });
+
+  await test('analysis board: a finished game is reviewed with accuracy, move marks and a graph', async () => {
+    const page = await open();
+    await startLocal(page);
+    for (let i = 0; i < 90; i++) {
+      const m = await page.evaluate(() => { const s = UTTT.Game.state; if (s.winner) return null; const l = UTTT.rules.legalMoves(s); return l[Math.floor(Math.random() * l.length)]; });
+      if (!m) break;
+      await cell(page, m.b, m.c);
+    }
+    await page.waitForSelector('#dlgResult[open]', { timeout: 8000 });
+    await page.click('#resAnalyse');
+    await page.waitForSelector('#analysis.on');
+    await page.waitForFunction(() => /again/.test(document.getElementById('anReview').textContent), null, { timeout: 60000 });
+    ok(await page.$$eval('#anAcc .acc .accn', (n) => n.length) === 2, 'accuracy for both players');
+    ok(await page.$$eval('#anHist .q', (n) => n.length) > 10, 'moves are marked');
+    ok(await page.$('#anGraph .g-line'), 'evaluation graph drawn');
+    const n = await page.$$eval('#anHist li[data-i]', (e) => e.length);
+    eq(await page.getAttribute('#anHist li.cur', 'data-i'), String(n), 'opens at the end of the game');
+    await page.evaluate(() => { const g = document.getElementById('anGraph'), r = g.getBoundingClientRect(); g.dispatchEvent(new MouseEvent('click', { bubbles: true, clientX: r.left + 5, clientY: r.top + 30 })); });
+    ok((await page.$$eval('#anStage .cell.x, #anStage .cell.o', (c) => c.length)) < 3, 'clicking the left edge of the graph jumps back to the start');
+    noErrors(page); await page.context().close();
+  });
+
+  await test('analysis board: the eval bar uses each theme\'s colours and fits a phone', async () => {
+    const page = await open({ viewport: { width: 375, height: 667 }, touch: true });
+    await page.click('[data-act=analysis]');
+    await page.waitForSelector('#analysis.on');
+    for (const id of ['neon', 'paper', 'dark', 'arcade', 'ocean', 'forest', 'light']) {
+      await page.evaluate((t) => UTTT.settings.setTheme(t, true), id);
+      const same = await page.evaluate(() => {
+        const probe = document.createElement('i'); probe.style.background = 'var(--x)'; document.body.appendChild(probe);
+        const want = getComputedStyle(probe).backgroundColor; probe.remove();
+        return getComputedStyle(document.querySelector('.eb-fill')).backgroundColor === want;
+      });
+      ok(same, 'bar fill follows --x in ' + id);
+    }
+    const m = await page.evaluate(() => { const r = (q) => document.querySelector(q).getBoundingClientRect(); return { bar: r('#evalbar'), board: r('.board'), vw: innerWidth, sw: document.documentElement.scrollWidth }; });
+    ok(m.bar.width > 300 && m.bar.height < 50, 'the bar is horizontal on a phone');
+    ok(m.board.left >= 0 && m.board.right <= m.vw && m.sw <= m.vw, 'board fits, no sideways scroll');
+    noErrors(page); await page.context().close();
+  });
+
+  await test('analysis board still works when Web Workers are unavailable (e.g. opened from a file)', async () => {
+    const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+    await ctx.addInitScript(() => { localStorage.setItem('uttt.tutorial', '"skipped"'); window.Worker = function () { throw new Error('no workers here'); }; });
+    const page = await ctx.newPage();
+    const errs = []; page.on('pageerror', (e) => errs.push(e.message));
+    await page.goto(base + '/index.html');
+    await page.click('[data-act=analysis]');
+    await page.waitForFunction(() => document.querySelectorAll('#anLines .an-line').length === 3, null, { timeout: 8000 });
+    await cell(page, 4, 4);
+    await page.waitForFunction(() => document.querySelectorAll('#anLines .an-line').length === 3 && document.querySelectorAll('#anHist li[data-i]').length === 1, null, { timeout: 8000 });
+    eq(errs, []);
+    await ctx.close();
+  });
+
   await test('stats and achievements are recorded and shown', async () => {
     const page = await open();
     await page.evaluate(() => UTTT.stats.record({ mode: 'ai', level: 'hard', result: 'win', moves: 25, mine: 3, theirs: 0, deficit: 0 }));

@@ -21,13 +21,14 @@ Needs Node 16+. From this folder:
 
 ```sh
 node tests/test-rules.js      # the rules: free move, wins, drawn boards, a full drawn game, 3,000 random games
+node tests/test-engine.js     # the analysis engine: exact vs plain minimax, mates, MultiPV, time budget, depth beats shallow
 node tests/test-ai.js         # the computer player: legal moves, wins, blocks, strength per level, time budget
 node tests/test-tutorial.js   # every scripted tutorial move is legal and shows what its text says
 ```
 
 Each prints `N passed, 0 failed`.
 
-The browser test plays the real page in headless Chromium (tutorial and skip, illegal-move feedback, a full game, replay, rematch, undo/redo, hints, timer, keyboard, all themes, sound packs, phone/tablet/landscape layouts, and online play with a mocked PeerJS). It serves the game itself:
+The browser test plays the real page in headless Chromium (tutorial and skip, illegal-move feedback, a full game, replay, rematch, undo/redo, hints, timer, keyboard, all themes, sound packs, the analysis board with a full game review, phone/tablet/landscape layouts, and online play with a mocked PeerJS). It serves the game itself:
 
 ```sh
 npm i playwright          # once, anywhere; or use a global install
