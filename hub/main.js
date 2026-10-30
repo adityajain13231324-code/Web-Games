@@ -4,7 +4,7 @@
 
 const CHANNELS = [
   { name: 'Pixel Peek', url: 'https://gamepixelpeek.vercel.app', src: 'media/pp', glow: '#ffc35a' },
-  { name: 'Ultimate Tic Tac Toe', url: 'https://ultimate-tictactoe-game.vercel.app', src: 'media/ut', glow: '#5fe9ff' },
+  { name: 'Ultimate Tic Tac Toe', url: 'https://bettertictactoe.vercel.app', src: 'media/ut', glow: '#5fe9ff' },
   { name: "Liar's Call", url: 'https://liarscall.vercel.app', src: 'media/lc', glow: '#ff6a45' },
   { name: 'Apartment 07', url: 'https://apartment07.up.railway.app', src: 'media/a7', glow: '#f0cf8e' },
   { name: 'Blackjack 21', url: 'https://blackjack21-cardgame.vercel.app', src: 'media/bj', glow: '#5fe0a0' },

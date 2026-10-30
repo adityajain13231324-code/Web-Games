@@ -7,7 +7,7 @@ Last updated: 30 October 2026 (first version, built and added to the hub as chan
 Ultimate Tic Tac Toe in the browser: a 3×3 grid of small 3×3 boards. The cell you play inside a small board decides which small board your opponent must play in next. Win three small boards in a row to win the game.
 
 - **Genre:** two-player abstract strategy. **Players:** 2 (same device, vs computer, or online with a friend).
-- **Hosting:** static site, no build step, no server, no paid services. Meant for Vercel with Root Directory `games/ultimate-tic-tac-toe` (see HOW_TO_RUN.md). The hub links to https://ultimate-tictactoe-game.vercel.app (**that project has to be created; see Known issues**).
+- **Hosting:** static site, no build step, no server, no paid services. Meant for Vercel with Root Directory `games/ultimate-tic-tac-toe` (see HOW_TO_RUN.md). The hub links to https://bettertictactoe.vercel.app (deployed from the standalone repo `adityajain13231324-code/ultimate-tic-tac-toe`).
 - **In the hub:** channel 2, shown as one of the two featured cards beside Pixel Peek.
 
 ## The rules (as implemented in `js/rules.js`)
@@ -65,7 +65,6 @@ Saved in localStorage (prefix `uttt.`): `settings`, `sound`, `score` (per mode),
 
 ## Known issues / not done
 
-- **The hub link is an assumption.** `ultimate-tic-tac-toe.vercel.app` and `ultimate-tictactoe.vercel.app` already belong to someone else, so the hub points at `ultimate-tictactoe-game.vercel.app` (it was unclaimed when checked). The Vercel project must be created with that name, or the links in `hub/index.html` and `hub/main.js` changed.
 - **Online play:** tested with a mocked PeerJS in the browser test and once for real (two tabs, real PeerJS broker, real WebRTC). Not tested across two different networks or on real phones. No reconnect after a dropped connection (the other player is told their friend left), no chat, no spectators. It relies on PeerJS's free public broker and the free Open Relay TURN servers (best effort).
 - **Sound was not listened to by ear.** The tests check that every sound plays in every theme and that the packs use different waveforms; whether they sound good needs a person with speakers.
 - **Not tried on a real phone or iOS Safari.** Layouts were checked in emulated phones, a tablet and landscape. Needs a modern browser (uses `color-mix`, `inert`, `<dialog>`): roughly Chrome / Edge 111+, Safari 16.4+, Firefox 113+. Cells are about 38 px on a 390 px-wide phone (nine cells across), above the 24 px WCAG minimum but small.

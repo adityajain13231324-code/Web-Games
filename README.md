@@ -8,7 +8,7 @@ Browser games I'm building. Each one lives in its own folder under `games/`, wit
 | Game | What it is | Tech | Hosting | Play it |
 | --- | --- | --- | --- | --- |
 | [`games/pixel-peek`](games/pixel-peek) | 2–8 player picture-guessing party game | Static site, PeerJS | Vercel | [gamepixelpeek.vercel.app](https://gamepixelpeek.vercel.app) |
-| [`games/ultimate-tic-tac-toe`](games/ultimate-tic-tac-toe) | Ultimate Tic Tac Toe: nine small boards, one big win. Local, vs computer (3 levels) or online by room code; 7 themes, tutorial, hints, replay | Static site, PeerJS | Vercel | [ultimate-tictactoe-game.vercel.app](https://ultimate-tictactoe-game.vercel.app) (project to be created, see its NOTES.md) |
+| [`games/ultimate-tic-tac-toe`](games/ultimate-tic-tac-toe) | Ultimate Tic Tac Toe: nine small boards, one big win. Local, vs computer (3 levels) or online by room code; 7 themes, tutorial, hints, replay | Static site, PeerJS | Vercel | [bettertictactoe.vercel.app](https://bettertictactoe.vercel.app) (project to be created, see its NOTES.md) |
 | [`games/liars-call`](games/liars-call) | Desi cartoon bluffing card game (Liar's Table style), 2–6 players + bots | Static site, PeerJS, PWA | Vercel | [liarscall.vercel.app](https://liarscall.vercel.app) |
 | [`games/blackjack21`](games/blackjack21) | Classic casino blackjack, 1–6 players + dealer, bots with personalities, matching-bets rule | Static site, PWA | Vercel | [blackjack21-cardgame.vercel.app](https://blackjack21-cardgame.vercel.app) |
 | [`games/apartment-07`](games/apartment-07) | 1–4 player co-op escape mystery | Vite + TypeScript + Phaser, Node + Colyseus server | Railway (Node + WebSockets) | [apartment07.up.railway.app](https://apartment07.up.railway.app) |

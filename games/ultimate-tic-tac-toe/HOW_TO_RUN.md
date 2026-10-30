@@ -42,7 +42,7 @@ Vercel (same as the other games):
 
 1. Vercel → **Add New → Project** → import this repo.
 2. **Root Directory:** `games/ultimate-tic-tac-toe`. **Framework Preset:** Other. No build command.
-3. Name the project **ultimate-tictactoe-game** so it deploys to https://ultimate-tictactoe-game.vercel.app, the address the hub links to. If you pick another name, update the link in `hub/index.html` (the card and the reel panel) and `hub/main.js` (`CHANNELS`).
+3. The live game is https://bettertictactoe.vercel.app, deployed from the standalone repo `adityajain13231324-code/ultimate-tic-tac-toe`. The hub links to it from `hub/index.html` (card and reel panel) and `hub/main.js` (`CHANNELS`); change those if the address changes.
 
 `vercel.json` already says there is no framework and no build step. Netlify, GitHub Pages or any static host work the same way; every path in the game is relative.
 
