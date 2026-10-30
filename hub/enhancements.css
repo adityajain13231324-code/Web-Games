@@ -45,9 +45,14 @@ h1 em { color:#eabd7d; text-shadow:0 0 50px #ffb64822; }
 .light-mode h1 { font-size:clamp(3rem,11vw,4.5rem); line-height:.96; }
 .light-mode .lead { display:block; font-size:14px; line-height:1.7; margin:22px 0; }
 .light-mode .guide { grid-template-columns:1fr; gap:10px; margin:0; }
+.light-mode .ch, .light-mode .ch.featured { grid-column:auto; }
 .light-mode .ch { display:grid; grid-template-columns:96px 1fr; align-items:center; gap:15px; padding:10px; border:1px solid #ffffff18; border-radius:12px; background:#ffffff04; }
 .light-mode .ch.on { border-color:#e0ba744d; background:#e0ba7407; }
-.light-mode .thumb { box-shadow:none!important; transform:none!important; aspect-ratio:16/10; border-radius:8px; }
+.light-mode .thumb, .light-mode .ch.featured .thumb { box-shadow:none!important; transform:none!important; aspect-ratio:16/10; border-radius:8px; }
+.light-mode .pill { display:none; }
+.light-mode .label.has-mini b { font-size:19px; }
+.light-mode .desc { font-size:12px; }
+.light-mode .mini { width:30px; height:30px; }
 .light-mode .label b { font-size:22px; }
 .light-mode .label small { font-size:12px; }
 .light-mode .air,.light-mode .go { display:none; }

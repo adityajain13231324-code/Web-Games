@@ -1,7 +1,7 @@
 // Native-scrolling alternative: no WebGL, video decoding or animation libraries.
 const cards = [...document.querySelectorAll('.ch')];
-const names = ['Pixel Peek', "Liar's Call", 'Apartment 07', 'Blackjack 21'];
-const posters = ['pp','lc','a7','bj'];
+const names = ['Pixel Peek', 'Ultimate Tic Tac Toe', "Liar's Call", 'Apartment 07', 'Blackjack 21'];
+const posters = ['pp','ut','lc','a7','bj'];
 const frame = document.querySelector('.fallback');
 const screen = document.createElement('img');
 screen.src = 'media/pp.jpg'; screen.alt = 'Pixel Peek gameplay'; screen.width = 1280; screen.height = 720;
