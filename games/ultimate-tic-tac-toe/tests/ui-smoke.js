@@ -25,12 +25,17 @@ const MOCK_PEER = `(function () {
     close() { if (this.open) { this.open = false; bc.postMessage({ t: 'close', to: this.peer, cid: this.id }); this.emit('close'); } }
   }
   class Peer {
-    constructor(id) { this.id = typeof id === 'string' ? id : 'anon' + Math.random().toString(36).slice(2, 8); this.h = {}; this.conns = {}; peers[this.id] = this; setTimeout(() => this.emit('open', this.id), 20); }
+    constructor(id) { this.id = typeof id === 'string' ? id : 'anon' + Math.random().toString(36).slice(2, 8); this.h = {}; this.conns = {}; peers[this.id] = this; if (!(window.__mock && window.__mock.brokerDown)) setTimeout(() => this.emit('open', this.id), 20); }
     on(e, f) { (this.h[e] = this.h[e] || []).push(f); return this; }
     emit(e, a) { (this.h[e] || []).forEach((f) => f(a)); }
     connect(to) {
       const cid = Math.random().toString(36).slice(2), c = new Conn(this, to, cid);
       this.conns[cid] = c;
+      if (window.__mock && window.__mock.iceFail) {           // the two networks cannot reach each other: ICE reports 'failed'
+        c.peerConnection = { iceConnectionState: 'checking', addEventListener() {} };
+        setTimeout(() => { c.peerConnection.iceConnectionState = 'failed'; }, 500);
+        return c;
+      }
       bc.postMessage({ t: 'connect', to, from: this.id, cid });
       setTimeout(() => { if (!c.open) this.emit('error', { type: 'peer-unavailable' }); }, 700);
       return c;
@@ -43,7 +48,10 @@ const MOCK_PEER = `(function () {
     if (!p) return;
     if (d.t === 'connect') { const c = new Conn(p, d.from, d.cid); c.open = true; p.conns[d.cid] = c; bc.postMessage({ t: 'accept', to: d.from, cid: d.cid }); p.emit('connection', c); setTimeout(() => c.emit('open'), 0); }
     else if (d.t === 'accept') { const c = p.conns[d.cid]; if (c) { c.open = true; c.emit('open'); } }
-    else if (d.t === 'data') { const c = p.conns[d.cid]; if (c) c.emit('data', d.m); }
+    else if (d.t === 'data') {
+      if (window.__mock && window.__mock.dropHi > 0 && d.m && d.m.t === 'hi') { window.__mock.dropHi--; return; }   // lose the first hello(s)
+      const c = p.conns[d.cid]; if (c) c.emit('data', d.m);
+    }
     else if (d.t === 'close') { const c = p.conns[d.cid]; if (c && c.open) { c.open = false; c.emit('close'); } }
   };
   window.Peer = Peer;
@@ -67,6 +75,7 @@ async function open(opts) {
   const ctx = await browser.newContext({ viewport: opts.viewport || { width: 1280, height: 800 }, reducedMotion: opts.reducedMotion, hasTouch: opts.touch });
   if (!opts.tutorial) await ctx.addInitScript(() => { try { if (!localStorage.getItem('uttt.tutorial')) localStorage.setItem('uttt.tutorial', '"skipped"'); } catch (e) { /* ignore */ } });
   if (opts.settings) await ctx.addInitScript((s) => { try { if (!localStorage.getItem('uttt.settings')) localStorage.setItem('uttt.settings', JSON.stringify(s)); } catch (e) { /* ignore */ } }, opts.settings);
+  if (opts.mockPeer) await ctx.addInitScript((m) => { window.__mock = m; }, opts.mockState || {});
   if (opts.mockPeer) await ctx.route('**/peerjs.min.js', (r) => r.fulfill({ contentType: 'text/javascript', body: MOCK_PEER }));
   const page = await ctx.newPage();
   const errs = [];
@@ -553,6 +562,40 @@ async function main() {
     await page.waitForFunction(() => document.querySelectorAll('#anLines .an-line').length === 3 && document.querySelectorAll('#anHist li[data-i]').length === 1, null, { timeout: 8000 });
     eq(errs, []);
     await ctx.close();
+  });
+
+  await test('online: a lost hello is retried, so both sides still start', async () => {
+    const a = await open({ mockPeer: true, mockState: { dropHi: 2 } });
+    const ctx = a.context();
+    const b = await ctx.newPage(); errorsOf.set(b, []);
+    await b.goto(base + '/index.html');
+    await a.click('[data-act=online]'); await a.click('#onHost');
+    await a.waitForFunction(() => document.getElementById('onShow').textContent.length === 4);
+    const code = await a.textContent('#onShow');
+    await b.click('[data-act=online]'); await b.fill('#onCode', code); await b.click('#onJoin');
+    await a.waitForSelector('#game.on', { timeout: 10000 }); await b.waitForSelector('#game.on', { timeout: 10000 });
+    await ctx.close();
+  });
+
+  await test('online: each failure says what went wrong (wrong code, no matchmaking server, blocked link)', async () => {
+    let page = await open({ mockPeer: true });
+    await page.click('[data-act=online]'); await page.fill('#onCode', 'ZZZZ'); await page.click('#onJoin');
+    await page.waitForFunction(() => /No room with that code/.test(document.getElementById('onStatus').textContent), null, { timeout: 5000 });
+    ok(await page.$eval('#onJoin', (b) => !b.disabled), 'can try again');
+    await page.context().close();
+
+    page = await open({ mockPeer: true, mockState: { brokerDown: true } });
+    await page.evaluate(() => { UTTT.net.timeouts.broker = 1200; });
+    await page.click('[data-act=online]'); await page.click('#onHost');
+    await page.waitForFunction(() => /matchmaking server/.test(document.getElementById('onStatus').textContent), null, { timeout: 5000 });
+    ok(!/internet/i.test(await page.textContent('#onStatus')), 'no vague "check your internet"');
+    await page.context().close();
+
+    page = await open({ mockPeer: true, mockState: { iceFail: true } });
+    await page.click('[data-act=online]'); await page.fill('#onCode', 'ABCD'); await page.click('#onJoin');
+    await page.waitForFunction(() => /could not open a direct link/.test(document.getElementById('onStatus').textContent), null, { timeout: 8000 });
+    ok(/hotspot|same Wi-Fi/.test(await page.textContent('#onStatus')), 'tells the player what to try');
+    await page.context().close();
   });
 
   await test('stats and achievements are recorded and shown', async () => {

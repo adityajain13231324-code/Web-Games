@@ -47,6 +47,18 @@ Vercel (same as the other games):
 
 `vercel.json` already says there is no framework and no build step. Netlify, GitHub Pages or any static host work the same way; every path in the game is relative.
 
+## Online play: when two players cannot connect
+
+Online play is a direct browser-to-browser link (WebRTC through PeerJS). The two players' networks have to be able to reach each other; the game says which step failed:
+
+- **"Could not reach the matchmaking server"**: a VPN, ad-blocker, or a school or work network blocks PeerJS's free broker. Try another network or switch the blocker off.
+- **"Found the room, but your two networks could not open a direct link"**: the usual case when one player is on mobile data or a strict Wi-Fi. Same Wi-Fi, or one player's phone hotspot, almost always works. If it says the network "blocks the helper servers", that network allows no direct links at all.
+- **"No room with that code"**: wrong letters, or the host closed the room.
+
+For reliable play between different networks the game needs a TURN relay. The built-in one is a free shared server that can be slow or down. To add your own (free tiers exist at [metered.ca](https://www.metered.ca/tools/openrelay/) and Cloudflare Calls), create an account, copy its TURN host, username and credential into `js/ice-config.js`, and redeploy. Those values are visible to every visitor (normal for browser WebRTC), so use a free-tier account.
+
+The browser console shows `[online] ...` lines (stages and ICE state) to help debug.
+
 ## Settings you might want to change
 
 - Hints per game: `HINTS` at the top of `js/game.js`.

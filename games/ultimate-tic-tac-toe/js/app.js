@@ -307,7 +307,17 @@
   /* ───────── online: room code over PeerJS ───────── */
   let online = null;   // { link, host, xHost, oppName, rematchMine, rematchTheirs, closeRoom }
   const status = (msg, kind) => { const n = $('onStatus'); n.textContent = msg || ''; n.className = 'net-status' + (kind ? ' ' + kind : ''); };
-  const NET_ERRORS = { no_room: 'No room with that code. Check the letters and try again.', timeout: 'Could not connect. Check your internet and try again.', network: 'Could not reach the connection service. Try again in a moment.', 'unavailable-id': 'That room is busy. Try again.' };
+  /* What went wrong, in words that say what to try (see net.js for the causes). */
+  function netError(e) {
+    if (e.code === 'no_room') return 'No room with that code. Check the letters, and that your friend still has the room open.';
+    if (e.code === 'ice') {
+      const blocked = e.detail === 'no-public-address';
+      return 'Found the room, but your two networks could not open a direct link' + (blocked ? ' (this network blocks the helper servers)' : '') + '. This is common on mobile data and strict Wi-Fi. Try the same Wi-Fi, or a phone hotspot, and turn off any VPN.';
+    }
+    return 'Could not reach the matchmaking server. A VPN, ad-blocker or a school or work network may be blocking it. Try another network, or turn the blocker off.';
+  }
+  const JOIN_STAGES = { broker: 'Contacting the matchmaking server…', found: 'Found the room. Opening a direct link…', slow: 'Still trying. Some networks need a relay, which can take up to 25 seconds…' };
+  const HOST_STAGES = { 'friend-connecting': 'Your friend is connecting…', 'friend-failed': 'Your friend\'s link did not open. Ask them to try again; the same Wi-Fi or a phone hotspot helps.' };
 
   function openOnline() {
     audio.play('click');
@@ -338,15 +348,15 @@
     status('Creating your room…');
     try {
       const room = await U.net.host((link) => {
-        online = { link, host: true, xHost: Math.random() < .5, oppName: 'Friend', rematchMine: false, rematchTheirs: false, closeRoom: room.close, name };
+        online = { link, host: true, xHost: Math.random() < .5, oppName: 'Friend', rematchMine: false, rematchTheirs: false, closeRoom: room.close, name, gameNo: 0 };
         wire(link);
-      });
+      }, (st) => { if (!online || !online.started) status(HOST_STAGES[st] || '', st === 'friend-failed' ? 'bad' : ''); });
       $('onChoose').hidden = true; $('onHosting').hidden = false;
       $('onShow').textContent = room.code;
       status('Waiting for your friend to join…');
       online = { pending: true, closeRoom: room.close };
     } catch (e) {
-      status(NET_ERRORS[e.code] || NET_ERRORS.network, 'bad');
+      status(netError(e), 'bad');
       $('onHost').disabled = $('onJoin').disabled = false;
     }
   });
@@ -359,13 +369,16 @@
     $('onHost').disabled = $('onJoin').disabled = true;
     status('Joining…');
     try {
-      const link = await U.net.join(code);
-      online = { link, host: false, oppName: 'Friend', rematchMine: false, rematchTheirs: false, name };
+      const link = await U.net.join(code, (st) => status(JOIN_STAGES[st] || ''));
+      online = { link, host: false, oppName: 'Friend', rematchMine: false, rematchTheirs: false, name, lastN: 0 };
       wire(link);
-      link.send({ t: 'hi', name });
+      // say hello until the host answers: a single message could be lost as the link opens
+      let hellos = 0;
+      const hello = () => { if (!online || online.link !== link || online.started) return; link.send({ t: 'hi', name }); if (++hellos === 6) status('Connected, but the host has not answered yet. Ask them to keep the room open.', 'bad'); else setTimeout(hello, 1500); };
       status('Connected! Waiting for the host to start…', 'good');
+      hello();
     } catch (e) {
-      status(NET_ERRORS[e.code] || NET_ERRORS.network, 'bad');
+      status(netError(e), 'bad');
       $('onHost').disabled = $('onJoin').disabled = false;
     }
   });
@@ -378,11 +391,13 @@
   function onNetMessage(link, m) {
     if (!online || online.link !== link || !m) return;
     switch (m.t) {
-      case 'hi':                                       // host: the guest introduced themselves
+      case 'hi':                                       // host: the guest introduced themselves (they repeat it until we answer)
         online.oppName = cleanName(m.name, 'Friend');
-        startOnline(online.xHost);
+        if (online.started) link.send(online.lastStart); else startOnline(online.xHost);
         break;
-      case 'start':                                    // guest: the host says go
+      case 'start':                                    // guest: the host says go; a repeat of the same game number is ignored
+        if (m.n <= online.lastN) break;
+        online.lastN = m.n;
         online.oppName = cleanName(m.hostName, 'Friend');
         online.settings = { timer: m.timer, timeout: m.timeout };
         online.xHost = !!m.xHost;
@@ -400,7 +415,7 @@
 
   function startOnline(xHost) {
     const host = online.host;
-    if (host) online.link.send({ t: 'start', hostName: online.name, xHost, timer: D.timer, timeout: D.timeout });
+    if (host) { online.lastStart = { t: 'start', n: ++online.gameNo, hostName: online.name, xHost, timer: D.timer, timeout: D.timeout }; online.link.send(online.lastStart); }
     online.rematchMine = online.rematchTheirs = false;
     online.started = true;
     const link = online.link, s = online.settings || { timer: D.timer, timeout: D.timeout };

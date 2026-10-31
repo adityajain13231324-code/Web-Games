@@ -37,7 +37,7 @@ No framework, no modules: classic scripts in a fixed order that share one `windo
 | `js/game.js` | One match: turns, computer turns, timer, undo / redo, hints, pause, history, replay, scoreboard, results | |
 | `js/app.js` | Menu, dialogs, settings controls, online room flow, first-visit tutorial | |
 | `js/tutorial.js` | Spotlight overlay, guide box, scripted demo boards | |
-| `js/net.js` | PeerJS transport only (host a room, join by code, JSON messages); the protocol is in `app.js` | |
+| `js/net.js` | PeerJS transport only (host a room, join by code, JSON messages); tells failures apart (`broker`, `no_room`, `ice`) and watches ICE; the protocol is in `app.js`. `js/ice-config.js` holds optional TURN credentials | |
 | `js/audio.js` | Web Audio sound engine and the seven sound packs | |
 | `js/fx.js` | Particle canvas (sparks, confetti, bubbles, leaves, pixels...) | |
 | `js/themes.js`, `js/settings.js`, `js/stats.js`, `js/store.js` | Theme list, saved settings and theme switching, stats and achievements, localStorage wrapper | |
@@ -77,10 +77,11 @@ Opened from the menu (a fresh board, play both sides) or from the results screen
 - [x] Interactive tutorial with spotlight, scripted demos and Skip on every step (remembered); "How to Play" replays it.
 - [x] Undo / redo (local and vs computer), hints (3 per game), move history, full replay with step / scrub, turn timer (15 s / 30 s), scoreboard, stats and 8 achievements, custom names, X/O side, emoji symbols (presets or your own), pause / quit / restart with confirm, keyboard play and screen-reader labels, responsive layouts (phone portrait and landscape, tablet, desktop).
 - [x] Analysis board with engine, themed eval bar, best lines, graph, game review and accuracy.
-- [x] Tests: `test-rules.js` (15), `test-engine.js` (9), `test-ai.js` (6), `test-tutorial.js` (6), `ui-smoke.js` (26 browser checks).
+- [x] Tests: `test-rules.js` (15), `test-engine.js` (9), `test-ai.js` (6), `test-tutorial.js` (6), `ui-smoke.js` (28 browser checks).
 
 ## Known issues / not done
 
+- **Online play across networks:** 31 Oct 2026, a player reported joining hanging and then failing with a vague "check your internet". Fixed what could be fixed from the code: the guest's hello could be lost as the link opened (listeners now attach at once, the guest repeats its hello, the host re-sends `start`, game numbers make repeats harmless), errors now say which step failed, ICE failure is detected early, and more STUN servers are used. What cannot be fixed in code: two networks that need a TURN relay. The built-in free Open Relay servers could not be verified from the build environment and may be unreliable; add your own free TURN account in `js/ice-config.js` (see HOW_TO_RUN.md).
 - **Online play:** tested with a mocked PeerJS in the browser test and once for real (two tabs, real PeerJS broker, real WebRTC). Not tested across two different networks or on real phones. No reconnect after a dropped connection (the other player is told their friend left), no chat, no spectators. It relies on PeerJS's free public broker and the free Open Relay TURN servers (best effort).
 - **Sound was not listened to by ear.** The tests check that every sound plays in every theme and that the packs use different waveforms; whether they sound good needs a person with speakers.
 - **Not tried on a real phone or iOS Safari.** Layouts were checked in emulated phones, a tablet and landscape. Needs a modern browser (uses `color-mix`, `inert`, `<dialog>`): roughly Chrome / Edge 111+, Safari 16.4+, Firefox 113+. Cells are about 38 px on a 390 px-wide phone (nine cells across), above the 24 px WCAG minimum but small.
