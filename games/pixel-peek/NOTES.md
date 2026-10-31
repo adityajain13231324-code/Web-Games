@@ -1,6 +1,21 @@
 # Pixel Peek: project notes
 
-Last updated: 9 October 2026. The code in this folder is **v6 (the party edition)**, the version deployed at https://gamepixelpeek.vercel.app. Read this before changing anything.
+Last updated: 31 October 2026. This folder contains v6 plus the local photo-library update. The existing production site is https://gamepixelpeek.vercel.app; this update has not been deployed.
+
+## Local photo library update, 31 October 2026
+
+This local revision adds **1,183 reviewed images**, bringing the game to **3,663 pictures in 38 packs**. It has not been deployed to Vercel.
+
+- The seven new photo packs are selected by default. Photo party is a quick preset using the existing reveal styles.
+- Actor photos accept their names and recognizable characters they played. Examples: Bryan Cranston / Walter White / Heisenberg; Robert Downey Jr. / Tony Stark / Iron Man; David Tennant / The Doctor.
+- Custom photos also use the character-name registry when the supplied answer is a known actor's full name. Your own custom pictures remain online-match content, as before.
+- `collection.html` provides search, seven categories, franchise/topic, mood, orientation, favorites, and recommended/newest/title/favorites sorting. Favorites stay in this browser under `pp-library-favorites`.
+- `collection/catalog.csv` contains image metadata and accepted answers. `catalog.json` is the gallery catalog; `provenance.json` retains complete source metadata and sourced character-role references. `answer-aliases.js` is the runtime registry.
+- New pack entries use `{t, a, d, b, id}` with `d` pointing to a local WebP. The renderer preserves the full frame with letterboxing.
+- Every selected image was visually reviewed. Source mistakes, ambiguous subjects, weak images and duplicates were held out. There are no generated images or personal friend photos in this update.
+- Photographs include clearly labeled fan cosplay. They are not described as official stills. Image license, author, source page and any source restrictions are retained per file.
+
+See `COLLECTION-REVIEW.md` for counts, assumptions, source details and validation.
 
 ## What the game is
 
@@ -93,7 +108,7 @@ Ideas Claude suggested on 6 Oct. The user chose not to build most of them:
 - **The host's device runs the match.** If the host leaves, the match ends for everyone. The host should have the steadiest connection.
 - **Multiplayer has only been tested with a stand-in.** Claude's tests used a mock PeerJS link between browser tabs, because the real PeerJS service wasn't reachable from the test machine. Real-world use by the user is the actual test.
 - **Famous landmarks are simpler drawings.** No detailed open-licence versions exist.
-- **Copyrighted characters can't be included** (Mario, Pikachu, Steve and so on). Use the custom pics feature for those.
+- **Character images:** the new collection uses credited fan cosplay and source-verified assets, with per-file licenses and source restrictions. Do not label fan material as official artwork.
 - **Opening `index.html` directly from disk doesn't load the packs.** Use `serve.cjs` or any web server.
 
 ## Decisions and why

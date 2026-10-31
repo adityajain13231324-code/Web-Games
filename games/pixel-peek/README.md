@@ -23,7 +23,21 @@ Pixels, Zoom, Tiles, Spotlight (a wandering beam of light that slowly widens) an
 
 ## Pictures
 
-2,480 pictures in 31 packs:
+3,663 pictures in 38 packs. The new photo collection has 1,183 images:
+
+| Photo pack | Images |
+|---|---:|
+| For Us | 135 |
+| Gaming | 166 |
+| Movies | 213 |
+| Series | 152 |
+| Anime | 124 |
+| Memes & Relatable | 116 |
+| Music & Other Interests | 277 |
+
+Browse `collection.html` to search, filter, favorite, inspect credits and see accepted character names. Actor photos accept famous roles as alternate answers. All new photos are stored locally and load when needed. This local update has not been deployed.
+
+The original 2,480 pictures in 31 packs remain available:
 
 **Logos:** Tech & Code (248), Apps & Websites (329), Movies, TV & Music (62), Cars & Brands (156), Indian Brands (21)
 

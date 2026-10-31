@@ -14,6 +14,10 @@ Then open **http://localhost:4173** in your browser.
 
 Any other static server also works, for example `python -m http.server 4173` or `npx serve .`.
 
+The photo library is at **http://localhost:4173/collection.html**. The game opens with the seven new photo packs selected. Choose **Photo party** for a 15-round preset.
+
+For actor pictures, their famous character names work too. For example, Heisenberg counts for Bryan Cranston. A character-name list is available in gallery image details.
+
 ## Try it
 
 - **Practice solo:** works fully offline (apart from the Google Fonts).
@@ -21,7 +25,7 @@ Any other static server also works, for example `python -m http.server 4173` or 
 
 ## Put it online
 
-The game is live at **https://gamepixelpeek.vercel.app**.
+The existing game is live at **https://gamepixelpeek.vercel.app**. The 31 October photo-library update is local only and still needs deployment.
 
 To update it, either upload this folder (or a zip of it) to the existing Vercel project, or connect the project to this GitHub repo with **Root Directory** `games/pixel-peek`, **Framework Preset** "Other" and no build command, so every push redeploys it.
 

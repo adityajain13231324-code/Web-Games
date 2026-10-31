@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#14111f"><title>The picture library · Pixel Peek</title>
+  <link rel="stylesheet" href="collection/library.css"><script src="collection/library.js" defer></script>
+</head>
+<body>
+  <header class="top"><a class="brand" href="index.html"><span class="mark" aria-hidden="true">▦</span> Pixel <b>Peek</b></a><a class="back" href="index.html">Back to the game ↗</a></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">THE GOOD STUFF, ALL IN ONE PLACE</p><h1>One more round.<br><span>One more reference.</span></h1><p class="lede">Squad nights, familiar faces, gaming legends and the occasional very relatable animal. Find your next great guess.</p></div><aside><span class="count" id="total">…</span><span>pictures to argue about</span><p>Full frames. Real source credits.<br>Favorites that stay yours.</p></aside></section>
+    <div class="library-head"><h2>The picture library</h2><p id="summary" role="status" aria-live="polite">Loading the collection…</p></div>
+    <form id="filters" class="filters" role="search" aria-label="Filter picture library">
+      <div class="search-row"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="A character, game, person, or oddly specific mood…" aria-label="Search titles, franchises, people and tags"></label><button type="button" class="favorite-filter" id="favorites" aria-label="Show favorites" aria-pressed="false">♡ <span>Favorites</span><b id="fav-count">0</b></button></div>
+      <div class="categories" id="categories" aria-label="Primary category"></div>
+      <div class="select-row">
+        <label>Franchise / topic group<select id="franchise"><option value="">Every franchise & topic</option></select></label>
+        <label>Mood<select id="mood"><option value="">Every mood</option></select></label>
+        <label>Orientation<select id="orientation"><option value="">Every shape</option><option value="landscape">Landscape</option><option value="portrait">Portrait</option><option value="square">Square</option></select></label>
+        <label class="sort-label">Sort by<select id="sort"><option value="recommended">Recommended</option><option value="newest">Newest added</option><option value="title">Title, A to Z</option><option value="favorites">Favorites first</option></select></label>
+        <button type="button" id="clear-filters" class="reset">Reset filters</button>
+      </div>
+    </form>
+    <div id="notice" class="notice" hidden></div>
+    <section id="grid" class="grid" aria-label="Images"></section>
+    <div id="empty" class="empty" hidden><span aria-hidden="true">⌕</span><h3>No pictures in this mix yet.</h3><p>Try a broader search or reset the filters.</p><button type="button" id="empty-reset">Reset filters</button></div>
+    <div class="more"><button type="button" id="more" hidden>Show 48 more pictures ↓</button><span id="page-count"></span></div>
+    <footer><p>These are reference images, not photos of your friend group. Fan cosplay is labeled separately from official assets and generated art.</p><p>Image licenses and authors are recorded per file. Character, likeness and other restrictions remain as noted by each source.</p><a href="collection/catalog.json" download>Download the catalog ↗</a><a href="credits.html">Game credits ↗</a></footer>
+  </main>
+  <dialog id="detail" aria-labelledby="detail-title"><button type="button" class="close" id="close" aria-label="Close image details">✕</button><div class="detail-image"><img id="detail-img" alt=""></div><div class="detail-copy"><div class="detail-category" id="detail-category"></div><h2 id="detail-title"></h2><p id="detail-topic"></p><div class="tags" id="detail-tags"></div><p id="detail-relevance"></p><details id="detail-answers"><summary>Accepted character names</summary><p id="detail-answers-text"></p></details><dl id="detail-facts"></dl><p class="credit" id="detail-credit"></p><div class="detail-actions"><button type="button" id="detail-favorite">♡ Add to favorites</button><a id="detail-source" target="_blank" rel="noopener noreferrer">View the source ↗</a><a id="detail-license" target="_blank" rel="noopener noreferrer">License ↗</a></div></div></dialog>
+</body></html>
