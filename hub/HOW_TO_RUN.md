@@ -34,7 +34,7 @@ ffmpeg -i media/xx.mp4 -c:v libvpx-vp9 -b:v 0 -crf 36 -row-mt 1 -an media/xx.web
 ffmpeg -ss 5 -i media/xx.mp4 -frames:v 1 -q:v 3 media/xx.jpg
 ```
 
-Keep clips around 10–15 seconds and under about 1 MB each. Record each game running locally (see its own HOW_TO_RUN.md); a plain screen recording works, and so does a headless browser with its clock slowed down if the machine renders slowly.
+Keep clips around 10–15 seconds and under about 1 MB each. (The Ultimate Tic Tac Toe clip came from a scripted game played in the real page with Playwright's video recorder, trimmed to 15 s, `-crf 31` for the MP4 and `-crf 42` for the WebM.) Record each game running locally (see its own HOW_TO_RUN.md); a plain screen recording works, and so does a headless browser with its clock slowed down if the machine renders slowly.
 
 ## Checking responsive modes and music
 

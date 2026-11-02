@@ -1,0 +1,14 @@
+Fonts (Latin subset, as served by Google Fonts), all under the SIL Open Font License 1.1
+(https://openfontlicense.org):
+
+  Orbitron        Matt McInerney
+  Patrick Hand    Patrick Wagesreiter
+  Inter           Rasmus Andersson
+  Press Start 2P  CodeMan38
+  Quicksand       Andrew Paglinawan
+  Lora            Cyreal
+
+js/peerjs.min.js is PeerJS (MIT licence, https://github.com/peers/peerjs), the same copy used by Pixel Peek.
+
+Everything else (the game, the marks, all sounds, the app icon) is original: sounds are synthesised in the browser,
+marks are drawn as SVG paths.

@@ -1,0 +1,122 @@
+/* One block of design tokens per theme. game.css only reads these variables, so a theme can change
+   colours, type, board style and mark style without touching any layout rule.
+
+   --bg          page background          --panel / --panel-ink   cards, dialogs
+   --sb          small-board surface      --cell-line             lines inside a small board
+   --big-line    colour of the gaps between small boards (the big grid)
+   --gap         width of those gaps      --sb-r / --board-r      corner radii
+   --x / --o     player colours (--x-ink / --o-ink: text on them)          --accent / --glow       legal-board highlight
+   --sw / --cap / --join   mark stroke width (of 100), line cap and join
+   --font / --font-head / --fs   type  (themes.js decides the mark drawing style and whether marks glow) */
+
+:root, :root[data-theme="neon"] {
+  --bg: radial-gradient(900px 600px at 80% -10%, #3b0f66aa, transparent 70%), radial-gradient(700px 500px at 0% 100%, #00b7ff22, transparent 70%), #07060f;
+  --ink: #e8f6ff; --muted: #8f8cc0;
+  --panel: #120f26; --panel-ink: #e8f6ff; --panel-line: #2d2a62;
+  --sb: #0b0a1c; --cell-line: #2f2c6a; --big-line: #19f3ff55; --gap: 7px; --line-w: 2px;
+  --sb-r: 6px; --board-r: 12px; --r: 12px;
+  --x: #19f3ff; --o: #ff3df2; --accent: #ffe14a; --glow: #ffe14a99; --good: #5dffb0; --bad: #ff5577;
+  --x-ink: #04121a; --o-ink: #1a0418;
+  --btn: #1a1640; --btn-ink: #e8f6ff; --btn-hot: #19f3ff; --btn-hot-ink: #04121a;
+  --sw: 9; --cap: round; --join: round;
+  --font: 'Orbitron', system-ui, sans-serif; --font-head: 'Orbitron', system-ui, sans-serif; --fs: .92rem;
+  --shadow: 0 10px 40px -12px #000, 0 0 0 1px #2d2a62;
+  --board-shadow: 0 0 40px -6px #19f3ff44, 0 0 0 1px #19f3ff33;
+  --scan: 0; --ls: .04em;
+}
+
+:root[data-theme="paper"] {
+  --bg: repeating-linear-gradient(180deg, transparent 0 31px, #8fb0d655 31px 32px), linear-gradient(90deg, transparent 56px, #e0707066 56px 58px, transparent 58px), #f6efdc;
+  --ink: #3a3328; --muted: #857a63;
+  --panel: #fcf8ea; --panel-ink: #3a3328; --panel-line: #cdbf9b;
+  --sb: #fdfaf0; --cell-line: #6b6250; --big-line: #3a3328; --gap: 5px; --line-w: 2px;
+  --sb-r: 3px 7px 4px 6px; --board-r: 6px; --r: 8px;
+  --x: #35343a; --o: #2556b3; --accent: #d1432e; --glow: #d1432e88; --good: #3a8a4b; --bad: #c0392b;
+  --x-ink: #fff8ea; --o-ink: #ffffff;
+  --btn: #efe6cb; --btn-ink: #3a3328; --btn-hot: #d1432e; --btn-hot-ink: #fff8ea;
+  --sw: 7; --cap: round; --join: round;
+  --font: 'Patrick Hand', 'Segoe Print', cursive; --font-head: 'Patrick Hand', 'Segoe Print', cursive; --fs: 1.12rem;
+  --shadow: 3px 4px 0 #3a332833, 0 0 0 1.5px #3a3328;
+  --board-shadow: 4px 6px 0 #3a332822;
+  --scan: 0; --ls: 0;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0d0e11;
+  --ink: #e9ecf1; --muted: #8b919e;
+  --panel: #15171c; --panel-ink: #e9ecf1; --panel-line: #262932;
+  --sb: #171a20; --cell-line: #292d36; --big-line: #0d0e11; --gap: 10px; --line-w: 1px;
+  --sb-r: 10px; --board-r: 14px; --r: 12px;
+  --x: #e9ecf1; --o: #5ec4b6; --accent: #8ab4ff; --glow: #8ab4ff77; --good: #5ec4b6; --bad: #ff7a7a;
+  --x-ink: #0d0e11; --o-ink: #0d0e11;
+  --btn: #1d2027; --btn-ink: #e9ecf1; --btn-hot: #e9ecf1; --btn-hot-ink: #0d0e11;
+  --sw: 6; --cap: round; --join: round;
+  --font: 'Inter', system-ui, sans-serif; --font-head: 'Inter', system-ui, sans-serif; --fs: .95rem;
+  --shadow: 0 12px 36px -14px #000, 0 0 0 1px #262932;
+  --board-shadow: none;
+  --scan: 0; --ls: 0;
+}
+
+:root[data-theme="arcade"] {
+  --bg: linear-gradient(#0a0a1e, #140a2a);
+  --ink: #f4f4ff; --muted: #8a8ac8;
+  --panel: #0a0a22; --panel-ink: #f4f4ff; --panel-line: #ffd400;
+  --sb: #000; --cell-line: #3d3d8f; --big-line: #ffd400; --gap: 6px; --line-w: 2px;
+  --sb-r: 0; --board-r: 0; --r: 0;
+  --x: #ff4d4d; --o: #35e0ff; --accent: #39ff14; --glow: #39ff1499; --good: #39ff14; --bad: #ff4d4d;
+  --x-ink: #ffffff; --o-ink: #04121a;
+  --btn: #1c1c58; --btn-ink: #fff; --btn-hot: #ffd400; --btn-hot-ink: #1a1400;
+  --sw: 12; --cap: butt; --join: miter;
+  --font: 'Press Start 2P', ui-monospace, monospace; --font-head: 'Press Start 2P', ui-monospace, monospace; --fs: .62rem;
+  --shadow: 0 0 0 3px #ffd400, 6px 6px 0 3px #000;
+  --board-shadow: 0 0 0 3px #ffd400;
+  --scan: 1; --ls: 0;
+}
+
+:root[data-theme="ocean"] {
+  --bg: radial-gradient(900px 500px at 50% -10%, #3ec3ff44, transparent 70%), linear-gradient(#0b4a73, #082e4d 60%, #061e35);
+  --ink: #eafaff; --muted: #8ec6e0;
+  --panel: #0c3a5e; --panel-ink: #eafaff; --panel-line: #2b7aa6;
+  --sb: #0e4a74; --cell-line: #4ca7d455; --big-line: #7fdcff22; --gap: 9px; --line-w: 2px;
+  --sb-r: 18px; --board-r: 26px; --r: 18px;
+  --x: #ff9a76; --o: #d9f6ff; --accent: #6fe3ff; --glow: #6fe3ffaa; --good: #7dffc9; --bad: #ff8a8a;
+  --x-ink: #3a1308; --o-ink: #04324d;
+  --btn: #135783; --btn-ink: #eafaff; --btn-hot: #6fe3ff; --btn-hot-ink: #04324d;
+  --sw: 8; --cap: round; --join: round;
+  --font: 'Quicksand', system-ui, sans-serif; --font-head: 'Quicksand', system-ui, sans-serif; --fs: 1rem;
+  --shadow: 0 16px 40px -14px #02121f, 0 0 0 1px #2b7aa6;
+  --board-shadow: 0 20px 50px -20px #02121f;
+  --scan: 0; --ls: 0;
+}
+
+:root[data-theme="forest"] {
+  --bg: radial-gradient(800px 500px at 20% 0%, #2f6b3a55, transparent 70%), linear-gradient(#10261a, #0a170f);
+  --ink: #eaf3de; --muted: #96b08a;
+  --panel: #173223; --panel-ink: #eaf3de; --panel-line: #386a46;
+  --sb: #1a3a27; --cell-line: #3b6b49; --big-line: #0a170f; --gap: 8px; --line-w: 2px;
+  --sb-r: 14px 6px 14px 6px; --board-r: 18px; --r: 14px;
+  --x: #f2b24c; --o: #8be28b; --accent: #d7f26b; --glow: #d7f26b88; --good: #8be28b; --bad: #ff9c7a;
+  --x-ink: #261800; --o-ink: #0b1a12;
+  --btn: #214430; --btn-ink: #eaf3de; --btn-hot: #f2b24c; --btn-hot-ink: #261800;
+  --sw: 9; --cap: round; --join: round;
+  --font: 'Lora', Georgia, serif; --font-head: 'Lora', Georgia, serif; --fs: .98rem;
+  --shadow: 0 14px 36px -14px #000, 0 0 0 1px #386a46;
+  --board-shadow: 0 18px 40px -18px #000;
+  --scan: 0; --ls: 0;
+}
+
+:root[data-theme="light"] {
+  --bg: linear-gradient(#f7f9fe, #eaeef8);
+  --ink: #1b2233; --muted: #6a7389;
+  --panel: #ffffff; --panel-ink: #1b2233; --panel-line: #dde3f0;
+  --sb: #ffffff; --cell-line: #d9dfec; --big-line: #c5cde2; --gap: 6px; --line-w: 1.5px;
+  --sb-r: 8px; --board-r: 12px; --r: 12px;
+  --x: #2b6cff; --o: #ff7a1a; --accent: #2b6cff; --glow: #2b6cff66; --good: #1f9d55; --bad: #d64545;
+  --x-ink: #ffffff; --o-ink: #ffffff;
+  --btn: #eef1f9; --btn-ink: #1b2233; --btn-hot: #2b6cff; --btn-hot-ink: #fff;
+  --sw: 8; --cap: round; --join: round;
+  --font: 'Inter', system-ui, sans-serif; --font-head: 'Inter', system-ui, sans-serif; --fs: .95rem;
+  --shadow: 0 10px 30px -14px #1b223355, 0 0 0 1px #dde3f0;
+  --board-shadow: 0 16px 40px -20px #1b223366;
+  --scan: 0; --ls: 0;
+}

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en" data-theme="neon">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07060f">
+<title>Ultimate Tic Tac Toe</title>
+<meta name="description" content="Ultimate Tic Tac Toe: nine small boards, one big win. Play a friend on one device or online, or take on the computer. Seven themes, hints, replay and a tutorial.">
+<meta property="og:title" content="Ultimate Tic Tac Toe">
+<meta property="og:description" content="Win small boards. Win the big one. Local, vs computer or online with a room code.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/game.css">
+<noscript><style>.need-js{display:none}</style></noscript>
+</head>
+<body>
+
+<!-- MENU -->
+<main id="menu" class="screen on">
+  <div class="menu-card">
+    <div class="logo" id="logo" aria-hidden="true"></div>
+    <h1><span>Ultimate</span><br>Tic <em>Tac</em> Toe</h1>
+    <p class="tag">Win small boards. Win the big one.</p>
+    <div class="menu-btns need-js">
+      <button class="btn hot" data-act="local" type="button">Local 2-Player <small>same device</small></button>
+      <button class="btn" data-act="ai" type="button">Vs Computer <small>3 levels</small></button>
+      <button class="btn" data-act="online" type="button">Play Online <small>room code</small></button>
+      <button class="btn" data-act="analysis" type="button">Analysis <small>engine &amp; eval bar</small></button>
+      <div class="row3">
+        <button class="btn" data-act="how" type="button">How to Play</button>
+        <button class="btn" data-act="stats" type="button">Stats</button>
+        <button class="btn" data-act="settings" type="button">Settings</button>
+      </div>
+    </div>
+    <noscript><p>This game needs JavaScript.</p></noscript>
+    <div class="theme-dots" id="themeDots" role="group" aria-label="Theme"></div>
+  </div>
+</main>
+
+<!-- GAME -->
+<section id="game" class="screen" aria-label="Game">
+  <div class="topbar">
+    <button class="btn" id="btnMenu" type="button" aria-label="Pause and menu">☰</button>
+    <div class="mode"><b id="modeTitle"></b><small id="modeSub"></small></div>
+    <button class="btn" id="btnSettings" type="button" aria-label="Settings">⚙</button>
+  </div>
+
+  <div class="col-left">
+    <div class="players" id="players" data-seat="0" data-active="1">
+      <div class="slider" aria-hidden="true"></div>
+      <div class="pcard" id="pc0"><span class="pmark" aria-hidden="true"></span><span class="pinfo"><span class="pname"></span><span class="psub"></span><span class="think" aria-hidden="true"><span class="hmm">hmm</span><i></i><i></i><i></i></span></span><span class="pscore" aria-label="wins"></span></div>
+      <div class="pcard" id="pc1"><span class="pmark" aria-hidden="true"></span><span class="pinfo"><span class="pname"></span><span class="psub"></span><span class="think" aria-hidden="true"><span class="hmm">hmm</span><i></i><i></i><i></i></span></span><span class="pscore" aria-label="wins"></span></div>
+    </div>
+    <div class="timer" id="timer" aria-hidden="true"><i></i></div>
+    <div class="status" id="status"></div>
+  </div>
+
+  <div class="stagebox" id="stage"></div>
+
+  <div class="col-right">
+    <div class="toolbar">
+      <button class="btn tbtn" id="btnUndo" type="button" aria-disabled="true"><span class="ic" aria-hidden="true">↶</span><span>Undo</span></button>
+      <button class="btn tbtn" id="btnRedo" type="button" aria-disabled="true"><span class="ic" aria-hidden="true">↷</span><span>Redo</span></button>
+      <button class="btn tbtn" id="btnHint" type="button" aria-label="Hint"><span class="ic" aria-hidden="true">💡</span><span>Hint</span><span class="badge" aria-label="hints left"></span></button>
+      <button class="btn tbtn" id="btnHist" type="button" aria-label="Move history"><span class="ic" aria-hidden="true">📜</span><span>Moves</span></button>
+      <button class="btn tbtn" id="btnRestart" type="button" aria-label="Restart"><span class="ic" aria-hidden="true">↻</span><span>Restart</span></button>
+    </div>
+    <div class="replaybar" id="replaybar">
+      <button class="btn" id="rpFirst" type="button" aria-label="Back to start">⏮</button>
+      <button class="btn" id="rpPrev" type="button" aria-label="Previous move">◀</button>
+      <button class="btn hot" id="rpPlay" type="button" aria-label="Pause replay">⏸</button>
+      <button class="btn" id="rpNext" type="button" aria-label="Next move">▶</button>
+      <input id="rpRange" type="range" min="0" max="0" value="0" aria-label="Replay position">
+      <button class="btn" id="rpClose" type="button">Done</button>
+    </div>
+    <aside class="history" id="history" aria-label="Move history">
+      <header><h3>Moves</h3><button class="btn btn-close" id="histClose" type="button" aria-label="Close history">✕</button></header>
+      <ol class="hist" id="hist" style="list-style:none"></ol>
+    </aside>
+  </div>
+</section>
+
+<!-- ANALYSIS -->
+<section id="analysis" class="screen" aria-label="Analysis board">
+  <div class="topbar">
+    <button class="btn" id="anBack" type="button" aria-label="Back to the menu">←</button>
+    <div class="mode"><b>Analysis</b><small id="anSub">Play moves for both sides</small></div>
+    <button class="btn" id="anSettings" type="button" aria-label="Settings">⚙</button>
+  </div>
+  <div class="an-board">
+    <div class="evalbar" id="evalbar" role="img" aria-label="Evaluation bar: even">
+      <div class="eb-track"><div class="eb-fill"></div><i class="eb-mid"></i></div>
+      <span class="eb-lbl eb-o" id="ebO">50</span>
+      <span class="eb-lbl eb-x" id="ebX">50</span>
+    </div>
+    <div class="stagebox" id="anStage"></div>
+  </div>
+  <div class="an-side">
+    <div class="an-head">
+      <div><div class="an-big" id="anBig">50%</div><div class="an-word" id="anWord">Equal</div></div>
+      <div class="an-eng">
+        <label class="switch"><span>Engine</span><input type="checkbox" id="anEngine" checked></label>
+        <small id="anMeta">&nbsp;</small>
+      </div>
+    </div>
+    <div class="an-lines" id="anLines" aria-label="Best moves found by the engine"></div>
+    <div class="an-nav">
+      <button class="btn" id="anFirst" type="button" aria-label="First position">⏮</button>
+      <button class="btn" id="anPrev" type="button" aria-label="Previous move">◀</button>
+      <button class="btn" id="anNext" type="button" aria-label="Next move">▶</button>
+      <button class="btn" id="anLast" type="button" aria-label="Last position">⏭</button>
+    </div>
+    <svg class="an-graph" id="anGraph" viewBox="0 0 100 40" preserveAspectRatio="none" role="img" aria-label="Evaluation over the game"></svg>
+    <div class="an-review">
+      <button class="btn hot" id="anReview" type="button">Review game</button>
+      <div class="an-acc" id="anAcc" aria-live="polite"></div>
+    </div>
+    <ol class="hist an-hist" id="anHist" aria-label="Moves"></ol>
+  </div>
+</section>
+
+<!-- DIALOGS -->
+<dialog id="dlgSetup" aria-labelledby="setupTitle">
+  <div class="dlg-head"><h2 id="setupTitle">New game</h2></div>
+  <div class="dlg-body">
+    <div class="field two" id="setupNames">
+      <div><span class="lbl" id="lblA">Player 1</span><input type="text" id="nameA" maxlength="14" autocomplete="off" aria-labelledby="lblA"></div>
+      <div id="nameBWrap"><span class="lbl" id="lblB">Player 2</span><input type="text" id="nameB" maxlength="14" autocomplete="off" aria-labelledby="lblB"></div>
+    </div>
+    <div class="field" data-modes="ai"><span class="lbl">Difficulty</span><div data-ctl="level"></div></div>
+    <div class="field" data-modes="ai"><span class="lbl">You play</span><div data-ctl="playAs"></div></div>
+    <div class="field"><span class="lbl">Turn timer</span><div data-ctl="timer"></div></div>
+    <div class="field timeoutField"><span class="lbl">When time runs out</span><div data-ctl="timeout"></div></div>
+    <div class="field"><span class="lbl">Symbols</span><div data-ctl="symbols"></div></div>
+  </div>
+  <div class="dlg-foot"><button class="btn" type="button" data-close>Cancel</button><button class="btn hot" id="setupGo" type="button">Start game</button></div>
+</dialog>
+
+<dialog id="dlgSettings" aria-labelledby="setTitle">
+  <div class="dlg-head"><h2 id="setTitle">Settings</h2><button class="btn" type="button" data-close aria-label="Close settings">✕</button></div>
+  <div class="dlg-body">
+    <div class="field"><span class="lbl">Theme</span><div class="themes" id="themeGrid" role="group" aria-label="Theme"></div></div>
+    <div class="field">
+      <label class="switch"><span>Sound</span><input type="checkbox" id="optSound"></label>
+      <input type="range" id="optVol" min="0" max="100" aria-label="Volume">
+    </div>
+    <div class="field"><label class="switch"><span>Animations</span><input type="checkbox" id="optAnim"></label></div>
+    <div class="field"><span class="lbl">Default difficulty</span><div data-ctl="level"></div></div>
+    <div class="field"><span class="lbl">Turn timer</span><div data-ctl="timer"></div></div>
+    <div class="field timeoutField"><span class="lbl">When time runs out</span><div data-ctl="timeout"></div></div>
+    <div class="field"><span class="lbl">Symbols</span><div data-ctl="symbols"></div></div>
+  </div>
+  <div class="dlg-foot"><button class="btn hot" type="button" data-close>Done</button></div>
+</dialog>
+
+<dialog id="dlgPause" aria-labelledby="pauseTitle">
+  <div class="dlg-head"><h2 id="pauseTitle">Paused</h2></div>
+  <div class="dlg-body">
+    <div class="menu-btns">
+      <button class="btn hot" type="button" data-close>Resume</button>
+      <button class="btn" type="button" id="pRestart">Restart game</button>
+      <button class="btn" type="button" id="pHow">How to play</button>
+      <button class="btn" type="button" id="pScore">Reset scoreboard</button>
+      <button class="btn" type="button" id="pQuit">Quit to menu</button>
+    </div>
+  </div>
+  <div class="dlg-foot"></div>
+</dialog>
+
+<dialog id="dlgConfirm" aria-labelledby="cfTitle">
+  <div class="dlg-head"><h2 id="cfTitle"></h2></div>
+  <div class="dlg-body"><p id="cfText" style="margin:0 0 6px"></p></div>
+  <div class="dlg-foot"><button class="btn" type="button" id="cfNo">Cancel</button><button class="btn hot" type="button" id="cfYes">OK</button></div>
+</dialog>
+
+<dialog id="dlgResult" aria-labelledby="resTitle">
+  <div class="result">
+    <div class="big" id="resEmoji" aria-hidden="true"></div>
+    <h2 id="resTitle"></h2>
+    <p id="resSub"></p>
+    <div class="tally" id="resTally"></div>
+    <div class="ach-new" id="resAch" hidden></div>
+  </div>
+  <div class="dlg-foot">
+    <button class="btn hot" type="button" id="resRematch">Rematch</button>
+    <button class="btn" type="button" id="resReplay">Replay</button>
+    <button class="btn" type="button" id="resAnalyse">Analyse</button>
+    <button class="btn" type="button" id="resMenu">Menu</button>
+  </div>
+</dialog>
+
+<dialog id="dlgStats" aria-labelledby="statsTitle">
+  <div class="dlg-head"><h2 id="statsTitle">Stats &amp; achievements</h2><button class="btn" type="button" data-close aria-label="Close">✕</button></div>
+  <div class="dlg-body">
+    <div class="stats" id="statsGrid"></div>
+    <ul class="achs" id="achList"></ul>
+  </div>
+  <div class="dlg-foot"><button class="btn" type="button" id="statsReset">Reset stats</button><button class="btn hot" type="button" data-close>Close</button></div>
+</dialog>
+
+<dialog id="dlgOnline" aria-labelledby="onTitle">
+  <div class="dlg-head"><h2 id="onTitle">Play online</h2><button class="btn" type="button" data-close aria-label="Close">✕</button></div>
+  <div class="dlg-body">
+    <div class="field"><span class="lbl" id="lblOn">Your name</span><input type="text" id="nameOn" maxlength="14" autocomplete="off" aria-labelledby="lblOn"></div>
+    <div id="onChoose" class="menu-btns">
+      <button class="btn hot" type="button" id="onHost">Create a room</button>
+      <div class="field two" style="margin:0"><input type="text" id="onCode" maxlength="4" placeholder="CODE" autocomplete="off" autocapitalize="characters" aria-label="Room code" style="text-transform:uppercase;text-align:center;letter-spacing:.3em"><button class="btn" type="button" id="onJoin">Join</button></div>
+    </div>
+    <div id="onHosting" hidden>
+      <p style="margin:0 0 8px;color:var(--muted)">Send this code to your friend:</p>
+      <div class="code" id="onShow"></div>
+    </div>
+    <p class="net-status" id="onStatus" role="status"></p>
+  </div>
+  <div class="dlg-foot"><button class="btn" type="button" id="onCancel">Cancel</button></div>
+</dialog>
+
+<!-- TUTORIAL -->
+<div class="tut" id="tut" role="dialog" aria-modal="true" aria-labelledby="tutTitle" hidden>
+  <div class="tut-spot" id="tutSpot" aria-hidden="true"></div>
+  <div class="tut-board" id="tutBoard" aria-hidden="true"></div>
+  <div class="tut-guide">
+    <div class="tut-dots" id="tutDots" aria-hidden="true"></div>
+    <p class="step" id="tutStep"></p>
+    <h3 id="tutTitle"></h3>
+    <p class="txt" id="tutText" aria-live="polite"></p>
+    <div class="tut-nav">
+      <button class="btn ghost" type="button" id="tutSkip">Skip tutorial</button>
+      <span class="grow"></span>
+      <button class="btn ghost" type="button" id="tutReplay" aria-label="Replay this demo">↻</button>
+      <button class="btn" type="button" id="tutBack">Back</button>
+      <button class="btn hot" type="button" id="tutNext">Next</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="live" class="sr" role="status" aria-live="polite"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<script src="js/peerjs.min.js"></script>
+<script src="js/rules.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/store.js"></script>
+<script src="js/themes.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/board.js"></script>
+<script src="js/tutorial-script.js"></script>
+<script src="js/tutorial.js"></script>
+<script src="js/game.js"></script>
+<script src="js/analysis.js"></script>
+<script src="js/ice-config.js"></script>
+<script src="js/net.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
