@@ -1,0 +1,99 @@
+/* Friendly awards (Gartic Sounds). Uses the shared theme tokens. */
+.awards-stage {
+  max-width: 760px;
+  margin-inline: auto;
+}
+.award-group {
+  border: 0;
+  padding: 0;
+  margin: 26px 0 0;
+  text-align: left;
+}
+.award-group legend {
+  font-family: var(--display);
+  font-size: 18px;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.award-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+}
+.award-option {
+  text-align: left;
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition:
+    translate 0.3s var(--ease),
+    border-color 0.3s var(--ease),
+    background-color 0.3s var(--ease);
+}
+.award-option small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.award-option:hover:not(:disabled) {
+  translate: 0 -2px;
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+}
+.award-option.chosen,
+.award-sound.chosen {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+}
+.award-sounds {
+  display: grid;
+  gap: 8px;
+}
+.award-sound {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px 6px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  transition:
+    border-color 0.3s var(--ease),
+    background-color 0.3s var(--ease);
+}
+.award-sound .audio-player {
+  flex: 1;
+  margin: 0;
+  max-width: none;
+}
+.award-sound .player-ui {
+  border: 0;
+  background: none;
+}
+.award-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  max-width: 760px;
+  margin: 28px auto 8px;
+  text-align: left;
+}
+.award-card {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  animation: rise 0.6s var(--ease) both;
+}
+.award-card small {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.award-card .audio-player {
+  margin: 6px 0 0;
+}

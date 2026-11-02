@@ -1,0 +1,82 @@
+/* Dev-only styleguide layout. Each panel scopes its own theme through [data-theme]. */
+.styleguide {
+  padding: var(--s-5) var(--gutter);
+}
+.styleguide header {
+  max-width: var(--stage-max);
+  margin: 0 auto var(--s-5);
+}
+.sg-grid {
+  display: grid;
+  gap: var(--s-5);
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+.sg-panel {
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+  padding: var(--s-5);
+  color: var(--text);
+  background: var(--bg);
+  border: var(--border-w) solid var(--card-border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+.sg-panel h2 {
+  margin: 0;
+}
+.sg-panel h3 {
+  margin: var(--s-3) 0 0;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sg-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  align-items: center;
+}
+.sg-stack {
+  display: grid;
+  gap: var(--s-3);
+}
+.sg-panel .flip-card {
+  margin: 0;
+}
+.sg-panel .podium-who strong {
+  font-size: var(--fs-sm);
+}
+.sg-panel > * {
+  min-width: 0;
+  max-width: 100%;
+}
+.sg-panel .ticket-code b {
+  width: 36px;
+  height: 50px;
+  font-size: 1.5rem;
+}
+.sg-panel .ticket {
+  padding-inline: var(--s-3);
+}
+
+.sg-faces h3 {
+  margin: 16px 0 6px;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+.sg-faces > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+.sg-faces figure {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  margin: 0;
+  width: 86px;
+  font-size: var(--fs-xs);
+  text-align: center;
+}

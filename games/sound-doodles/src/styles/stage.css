@@ -1,0 +1,241 @@
+/* The stage: a fixed backdrop that makes each theme a different place.
+   Only transform and opacity animate. Everything pauses when the tab is hidden. */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  transition:
+    background-color var(--t4) var(--ease-inout),
+    color var(--t3) var(--ease-inout);
+}
+body::before {
+  display: none; /* legacy ambient glow replaced by the stage */
+}
+.stage-bg {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-stage);
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+.stage-bg > * {
+  position: absolute;
+  display: none;
+}
+[data-hidden] .stage-bg *,
+[data-hidden] .stage-bg *::before,
+[data-hidden] .stage-bg *::after {
+  animation-play-state: paused !important;
+}
+
+/* ----- Midnight: spotlight cone, soft grain ----- */
+[data-theme="midnight"] .stage-bg .spot,
+:root:not([data-theme]) .stage-bg .spot,
+[data-theme="midnight"] .stage-bg .grain {
+  display: block;
+}
+.stage-bg .spot {
+  left: 50%;
+  top: -12%;
+  width: min(1100px, 130vw);
+  height: 90vh;
+  margin-left: calc(min(1100px, 130vw) / -2);
+  background: conic-gradient(
+    from 180deg at 50% 0%,
+    transparent 158deg,
+    color-mix(in srgb, var(--accent) 22%, transparent) 180deg,
+    transparent 202deg
+  );
+  filter: blur(26px);
+  opacity: 0.85;
+  transform-origin: 50% 0;
+  animation: spot-sway 14s ease-in-out infinite alternate;
+}
+@keyframes spot-sway {
+  to {
+    transform: rotate(4deg);
+    opacity: 0.6;
+  }
+}
+.stage-bg .grain {
+  inset: -50%;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 1.2s steps(4) infinite;
+}
+@keyframes grain-shift {
+  25% {
+    transform: translate(-3%, 2%);
+  }
+  50% {
+    transform: translate(2%, -3%);
+  }
+  75% {
+    transform: translate(-2%, -1%);
+  }
+}
+
+/* ----- Neon: perspective grid floor + scanlines ----- */
+[data-theme="neon"] .stage-bg .floor,
+[data-theme="neon"] .stage-bg .scan,
+[data-theme="neon"] .stage-bg .horizon {
+  display: block;
+}
+.stage-bg .horizon {
+  left: 0;
+  right: 0;
+  bottom: 32%;
+  height: 40vh;
+  background: radial-gradient(
+    60% 100% at 50% 100%,
+    color-mix(in srgb, var(--coral) 28%, transparent),
+    transparent 70%
+  );
+}
+.stage-bg .floor {
+  left: -50%;
+  right: -50%;
+  bottom: 0;
+  height: 38vh;
+  perspective: 420px;
+  perspective-origin: 50% 0;
+  mask-image: linear-gradient(to top, #000 10%, transparent 95%);
+  -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 95%);
+}
+.stage-bg .floor::before {
+  content: "";
+  position: absolute;
+  inset: -100% 0 0;
+  transform: rotateX(62deg);
+  transform-origin: 50% 100%;
+  background-image:
+    linear-gradient(var(--violet) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--violet) 1.5px, transparent 1.5px);
+  background-size: 64px 64px;
+  opacity: 0.45;
+  animation: floor-run 2.4s linear infinite;
+}
+@keyframes floor-run {
+  to {
+    transform: rotateX(62deg) translateY(64px);
+  }
+}
+.stage-bg .scan {
+  inset: 0;
+  opacity: 0.06;
+  background: repeating-linear-gradient(0deg, #fff 0 1px, transparent 1px 4px);
+}
+
+/* ----- Paper: dotted cream, taped paper shapes ----- */
+[data-theme="paper"] .stage-bg .dots,
+[data-theme="paper"] .stage-bg .tape-a,
+[data-theme="paper"] .stage-bg .tape-b {
+  display: block;
+}
+.stage-bg .dots {
+  inset: 0;
+  background: radial-gradient(#25222b1c 1.2px, transparent 1.6px) 0 0 / 22px
+    22px;
+}
+.stage-bg .tape-a,
+.stage-bg .tape-b {
+  width: 190px;
+  height: 46px;
+  background: color-mix(in srgb, var(--coral) 55%, transparent);
+  opacity: 0.55;
+  border-radius: 3px;
+  animation: tape-bob 7s ease-in-out infinite alternate;
+}
+.stage-bg .tape-a {
+  top: 12%;
+  left: -40px;
+  rotate: -28deg;
+}
+.stage-bg .tape-b {
+  bottom: 14%;
+  right: -50px;
+  rotate: 24deg;
+  background: color-mix(in srgb, var(--violet) 50%, transparent);
+  animation-delay: -3s;
+}
+@keyframes tape-bob {
+  to {
+    transform: translateY(10px);
+  }
+}
+
+/* ----- Sunset: gradient sky, big blurred sun, drifting clouds ----- */
+[data-theme="sunset"] .stage-bg .sky,
+[data-theme="sunset"] .stage-bg .sun,
+[data-theme="sunset"] .stage-bg .cloud-a,
+[data-theme="sunset"] .stage-bg .cloud-b {
+  display: block;
+}
+.stage-bg .sky {
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #2a1238 0%,
+    #4a2457 38%,
+    #8a3f66 68%,
+    #e0785f 100%
+  );
+}
+.stage-bg .sun {
+  left: 50%;
+  bottom: -26vmin;
+  width: 70vmin;
+  height: 70vmin;
+  margin-left: -35vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd2a0 0%, #ffa27a 45%, transparent 70%);
+  filter: blur(14px);
+  opacity: 0.85;
+  animation: sun-breathe 12s ease-in-out infinite alternate;
+}
+@keyframes sun-breathe {
+  to {
+    transform: scale(1.08);
+    opacity: 0.7;
+  }
+}
+.stage-bg .cloud-a,
+.stage-bg .cloud-b {
+  width: 46vmax;
+  height: 18vmax;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, #ffffff22, transparent);
+  filter: blur(8px);
+  animation: cloud-drift 70s linear infinite;
+}
+.stage-bg .cloud-a {
+  top: 14%;
+  left: -50vmax;
+}
+.stage-bg .cloud-b {
+  top: 46%;
+  left: -50vmax;
+  animation-duration: 110s;
+  animation-delay: -40s;
+  opacity: 0.7;
+}
+@keyframes cloud-drift {
+  to {
+    transform: translateX(160vmax);
+  }
+}
+
+/* The page chrome sits above the stage. */
+#root {
+  position: relative;
+  z-index: var(--z-base);
+}
+
+/* Theme switch crossfade (View Transitions API when available). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 420ms;
+  animation-timing-function: var(--ease-inout);
+}

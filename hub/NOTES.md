@@ -4,7 +4,7 @@ Last updated: 8 October 2026 (performance pass).
 
 ## What it is
 
-The landing page for all four games, live at https://randomwebgames.vercel.app. It's a static site (no build step) with a "channel guide" idea:
+The landing page for all five games, live at https://randomwebgames.vercel.app. It's a static site (no build step) with a "channel guide" idea:
 
 1. **The TV (hero).** A 3D retro TV built in three.js plays real gameplay of each game on a curved CRT screen (scanlines, colour fringing, static between channels, a green on-screen channel number). Beside it: the headline, and four game cards with the game's picture, name and player count. Each card is a link to its game. Hovering a card lifts it, zooms its still picture, shows a "Play" label and tunes the TV to that game (only the TV plays video). Clicking the TV or pressing ← / → changes channel too; it cycles on its own until someone picks.
 2. **Scroll.** The text fades, the camera moves to a front-on view of the whole set, then the TV's screen grows into Pixel Peek's full-screen panel (its outline follows the 3D screen, so the screen literally becomes the page).
@@ -61,3 +61,11 @@ The landing page for all four games, live at https://randomwebgames.vercel.app. 
 - The channel arithmetic (arrow keys, TV click, Pick for me, auto-cycle) now uses the channel count instead of a hard-coded 3.
 - Hero cards are 4 columns on desktop. Checked at 1440x810 (3D path) and 390x844 (light path); not checked on a real phone.
 - The game's code is copied to `games/blackjack21` (standalone repo: `blackjack21`).
+
+## 3 November 2026: Sound Doodles (channel 5)
+
+- New channel: card, reel panel, rail entry, TV clip (`media/sd.webm`, 21 s, 0.6 MB, recorded from the game in desktop Chrome with four players and fake microphones) and poster `media/sd.jpg`. Links to https://sound-doodles.onrender.com.
+- No `sd.mp4`: no H.264 encoder was available when recording, so the panel and TV use the VP9 WebM only. Browsers without VP9 get the poster in the panel; the lightweight (phone) path only uses posters. Add an MP4 if that matters.
+- Five cards no longer fit in one row of four: `.guide` is a 6-column grid (three cards on the first row, two wider cards below). The light-mode override keeps one column on phones.
+- The clip is a light UI, so `#sound-doodles .bg` is dimmed in `enhancements.css` to keep the title readable. Title font is Fraunces 700 (the game's own headline serif), added to the Google Fonts link.
+- The game's code is copied to `games/sound-doodles` (standalone repo: `SOUND-DOODLES`, branch `main`).

@@ -7,6 +7,7 @@ const CHANNELS = [
   { name: "Liar's Call", url: 'https://liarscall.vercel.app', src: 'media/lc', glow: '#ff6a45' },
   { name: 'Apartment 07', url: 'https://apartment07.up.railway.app', src: 'media/a7', glow: '#f0cf8e' },
   { name: 'Blackjack 21', url: 'https://blackjack21-cardgame.vercel.app', src: 'media/bj', glow: '#5fe0a0' },
+  { name: 'Sound Doodles', url: 'https://sound-doodles.onrender.com', src: 'media/sd', glow: '#b59cff' },
 ];
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const EXT = document.createElement('video').canPlayType('video/webm; codecs="vp9"') ? '.webm' : '.mp4';

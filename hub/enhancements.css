@@ -69,3 +69,6 @@ h1 em { color:#eabd7d; text-shadow:0 0 50px #ffb64822; }
 .light-mode .foot { font-size:12px; padding:24px 22px; }
 @media(max-width:360px) { .light-mode .nav-tools { gap:10px; } .light-mode .brand { font-size:21px; } .light-mode .ch { grid-template-columns:78px 1fr; } .light-mode .label b { font-size:20px; } }
 @media(prefers-reduced-motion:reduce) { .light-mode { scroll-behavior:auto; } }
+
+.light-mode .guide .ch:nth-child(n) { grid-column:auto; }
+#sound-doodles .bg { filter: brightness(.42) saturate(.9); }

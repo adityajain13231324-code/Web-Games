@@ -1,0 +1,193 @@
+/* Cloud Nine (sky) and Bubblegum Pop (pop): the two light, colourful themes.
+   Tokens live in tokens.css; this file holds their backdrops and a little personality. */
+
+/* ---------- Light themes need light text on mint and coral fills ---------- */
+:is([data-theme="sky"], [data-theme="pop"])
+  :is(.btn-mint, .button.mint, .btn-danger, .button.danger) {
+  --btn-fg: #fff;
+}
+:is([data-theme="sky"], [data-theme="pop"])
+  :is(
+    .ready-pop,
+    .cast-check,
+    .badge-mint,
+    .word-count.ok,
+    .badge-coral,
+    .diff b
+  ) {
+  color: #fff;
+}
+:is([data-theme="sky"], [data-theme="pop"]) .diff-medium b {
+  color: #25222b;
+}
+
+/* ---------- Cloud Nine: sky gradient, a pale sun, drifting clouds ---------- */
+[data-theme="sky"] .stage-bg :is(.sky, .sun, .cloud-a, .cloud-b) {
+  display: block;
+}
+[data-theme="sky"] .stage-bg .sky {
+  background: linear-gradient(180deg, #a9d9ff 0%, #cfeaff 42%, #eef8ff 100%);
+}
+[data-theme="sky"] .stage-bg .sun {
+  top: -22vmin;
+  right: -16vmin;
+  bottom: auto;
+  left: auto;
+  width: 64vmin;
+  height: 64vmin;
+  margin: 0;
+  background: radial-gradient(circle, #fffbe0 0%, #fff3b8 38%, transparent 70%);
+  opacity: 0.95;
+}
+[data-theme="sky"] .stage-bg :is(.cloud-a, .cloud-b) {
+  background: radial-gradient(closest-side, #ffffffee, #ffffff00);
+  filter: blur(10px);
+  opacity: 1;
+}
+[data-theme="sky"] .stage-bg .cloud-a {
+  top: 10%;
+  animation-duration: 90s;
+}
+[data-theme="sky"] .stage-bg .cloud-b {
+  top: 58%;
+  opacity: 0.85;
+  animation-duration: 130s;
+}
+[data-theme="sky"] .btn,
+[data-theme="sky"] .button {
+  border-radius: 999px;
+  padding-inline: 26px;
+  --btn-bd: color-mix(in srgb, var(--accent) 22%, var(--line));
+}
+[data-theme="sky"] .btn-icon,
+[data-theme="sky"] .icon-button {
+  border-radius: 50%;
+}
+[data-theme="sky"] .btn:hover:not(:disabled) {
+  box-shadow: 0 10px 24px -10px
+    color-mix(in srgb, var(--accent) 55%, transparent);
+}
+[data-theme="sky"] h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* ---------- Bubblegum Pop: pink sky, polka dots, rising hearts ---------- */
+[data-theme="pop"] .stage-bg :is(.sky, .dots, .hearts) {
+  display: block;
+}
+[data-theme="pop"] .stage-bg .sky {
+  background: linear-gradient(180deg, #ffc6de 0%, #ffe3ef 45%, #fff1f7 100%);
+}
+[data-theme="pop"] .stage-bg .dots {
+  background: radial-gradient(#e0539a30 2px, transparent 2.6px) 0 0 / 28px 28px;
+}
+.stage-bg .hearts {
+  inset: 0;
+  --heart-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.8-8 11-8 11z'/%3E%3C/svg%3E");
+}
+.stage-bg .hearts i {
+  position: absolute;
+  left: var(--x);
+  bottom: -60px;
+  width: var(--s);
+  height: var(--s);
+  background: var(--heart, var(--accent));
+  opacity: 0;
+  -webkit-mask: var(--heart-shape) center / contain no-repeat;
+  mask: var(--heart-shape) center / contain no-repeat;
+  animation: heart-rise var(--d) ease-in infinite;
+  animation-delay: var(--dl);
+}
+.stage-bg .hearts i:nth-child(3n + 1) {
+  --heart: var(--accent);
+}
+.stage-bg .hearts i:nth-child(3n + 2) {
+  --heart: #ff7fb2;
+}
+.stage-bg .hearts i:nth-child(3n) {
+  --heart: var(--violet);
+}
+@keyframes heart-rise {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-8deg);
+  }
+  12% {
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(18px, -55vh) rotate(8deg);
+  }
+  88% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-14px, -112vh) rotate(-6deg);
+  }
+}
+[data-theme="pop"] .btn,
+[data-theme="pop"] .button {
+  --btn-bd: color-mix(in srgb, var(--accent) 45%, var(--line));
+  border-radius: 999px;
+  padding-inline: 26px;
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--accent) 24%, var(--surface-3));
+}
+[data-theme="pop"] .btn-primary,
+[data-theme="pop"] .button.primary {
+  --btn-bd: color-mix(in srgb, var(--accent) 70%, #000);
+  box-shadow: 0 5px 0 #8a1257;
+}
+[data-theme="pop"] .btn-ghost,
+[data-theme="pop"] .button.subtle {
+  --btn-bd: transparent;
+  box-shadow: none;
+}
+[data-theme="pop"] .btn:hover:not(:disabled),
+[data-theme="pop"] .button:hover:not(:disabled) {
+  translate: 0 -2px;
+  filter: none;
+}
+[data-theme="pop"] .btn:active:not(:disabled),
+[data-theme="pop"] .button:active:not(:disabled) {
+  translate: 0 4px;
+  scale: 1;
+  box-shadow: 0 0 0 transparent;
+}
+[data-theme="pop"] .btn-icon,
+[data-theme="pop"] .icon-button {
+  border-radius: 50%;
+}
+[data-theme="pop"] .badge {
+  border: 2px solid color-mix(in srgb, var(--accent) 60%, #000);
+  rotate: -2deg;
+}
+[data-theme="pop"] .phase-chip {
+  border: 2px solid color-mix(in srgb, var(--accent) 60%, #000);
+  rotate: -1.5deg;
+}
+[data-theme="pop"] .start-cta {
+  box-shadow: 0 6px 0 #8a1257;
+}
+[data-theme="pop"] .start-cta:active:not(:disabled) {
+  translate: 0 5px;
+  box-shadow: 0 0 0 transparent;
+}
+[data-theme="pop"] .theme-button {
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--accent) 24%, var(--surface-3));
+}
+[data-theme="pop"] h1 em {
+  font-style: normal;
+  color: inherit;
+  background: linear-gradient(
+    transparent 58%,
+    color-mix(in srgb, var(--accent) 28%, transparent) 58%
+  );
+  padding: 0 0.1em;
+}
+
+/* Lite effects: no moving backdrop */
+[data-fx="lite"] .stage-bg .hearts {
+  display: none !important;
+}

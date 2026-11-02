@@ -1,0 +1,381 @@
+/* Motion layer: subtle, springy, never decorative noise. Uses individual
+   transform properties (translate/scale) so existing rotate() poses stay intact. */
+:root {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Theme changes glide instead of snapping. */
+body,
+.button,
+.lobby-mode,
+.extra-mode-grid button,
+.player-row,
+.timer,
+.icon-button,
+dialog,
+input,
+select {
+  transition:
+    background-color 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    color 0.35s var(--ease),
+    box-shadow 0.35s var(--ease),
+    translate 0.3s var(--ease),
+    scale 0.3s var(--ease),
+    filter 0.2s;
+}
+
+/* Slow ambient light behind everything. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    40% 35% at 20% 20%,
+    color-mix(in srgb, var(--accent) 9%, transparent),
+    transparent 70%
+  );
+  animation: ambient 38s ease-in-out infinite alternate;
+}
+@keyframes ambient {
+  to {
+    transform: translate(32%, 24%) scale(1.25);
+  }
+}
+
+/* Phase changes: stage rises in, children follow in a short cascade. */
+.game-stage {
+  animation: stage-in 0.55s var(--ease) both;
+}
+.game-stage > * {
+  animation: rise 0.6s var(--ease) both;
+}
+.game-stage > *:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.game-stage > *:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.game-stage > *:nth-child(4) {
+  animation-delay: 0.15s;
+}
+.game-stage > *:nth-child(5) {
+  animation-delay: 0.2s;
+}
+.game-stage > *:nth-child(n + 6) {
+  animation-delay: 0.25s;
+}
+@keyframes stage-in {
+  from {
+    opacity: 0;
+    scale: 0.985;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* Lobby and landing entrances. */
+.hero-copy > * {
+  animation: rise 0.7s var(--ease) both;
+}
+.hero-copy > *:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.hero-copy > *:nth-child(3) {
+  animation-delay: 0.16s;
+}
+.hero-copy > *:nth-child(4) {
+  animation-delay: 0.24s;
+}
+.hero-copy > *:nth-child(n + 5) {
+  animation-delay: 0.32s;
+}
+.player-row {
+  animation: rise 0.5s var(--ease) both;
+}
+.lobby-mode,
+.extra-mode-grid button {
+  animation: rise 0.6s var(--ease) both;
+}
+.lobby-mode:nth-of-type(2) {
+  animation-delay: 0.07s;
+}
+
+/* Hero: characters breathe at different tempos. */
+.hero-art .main-character {
+  animation: float 7s ease-in-out infinite;
+}
+.hero-art .mini-character {
+  animation: float 9s ease-in-out -3s infinite;
+}
+.hero-art .sound-ring.ring-one {
+  animation: ring 11s linear infinite;
+}
+.hero-art .sound-ring.ring-two {
+  animation: ring 17s linear infinite reverse;
+}
+.hero-art .spark {
+  animation: twinkle 4.5s ease-in-out infinite;
+}
+.hero-art .spark-two {
+  animation-delay: -2s;
+}
+.hero-art .scribble {
+  animation: float 6s ease-in-out -1s infinite;
+}
+@keyframes float {
+  50% {
+    translate: 0 -9px;
+  }
+}
+@keyframes ring {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes twinkle {
+  50% {
+    opacity: 0.35;
+    scale: 0.82;
+  }
+}
+
+/* Tactile controls. */
+.button:hover:not(:disabled),
+.icon-button:hover:not(:disabled) {
+  translate: 0 -1px;
+}
+.button:active:not(:disabled),
+.icon-button:active:not(:disabled) {
+  translate: 0 1px;
+  scale: 0.985;
+  transform: none;
+}
+.primary:hover:not(:disabled) {
+  box-shadow: 0 8px 26px -8px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.lobby-mode:hover:not(:disabled),
+.extra-mode-grid button:hover:not(:disabled) {
+  translate: 0 -3px;
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  box-shadow: var(--shadow);
+}
+.lobby-mode:active:not(:disabled),
+.extra-mode-grid button:active:not(:disabled) {
+  translate: 0 0;
+  scale: 0.99;
+}
+.lobby-mode > span svg {
+  animation: pop 0.45s var(--spring) both;
+}
+@keyframes pop {
+  from {
+    scale: 0;
+    rotate: -30deg;
+  }
+}
+
+/* Dialogs ease in; the backdrop fades. */
+dialog[open] {
+  animation: dialog-in 0.4s var(--ease) both;
+}
+dialog[open]::backdrop {
+  animation: fade 0.35s ease both;
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+    scale: 0.97;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Time pressure: a calm breathing pulse, never a flash. */
+.timer.urgent {
+  animation: breathe 1s ease-in-out infinite;
+}
+@keyframes breathe {
+  50% {
+    scale: 1.06;
+  }
+}
+
+/* Toasts and reactions glide. */
+.toast {
+  animation: rise 0.45s var(--spring) both;
+}
+
+/* Voice meter bars follow the voice smoothly. */
+.wave i {
+  transition: height 0.09s var(--ease);
+}
+
+/* Chain reveal nodes arrive one by one. */
+.chain-node {
+  animation: rise 0.7s var(--ease) both;
+}
+.scoreboard > div {
+  animation: rise 0.55s var(--ease) both;
+}
+.scoreboard > div:nth-child(2) {
+  animation-delay: 0.07s;
+}
+.scoreboard > div:nth-child(3) {
+  animation-delay: 0.14s;
+}
+.scoreboard > div:nth-child(n + 4) {
+  animation-delay: 0.21s;
+}
+
+/* Time bar: drains smoothly under the round header. */
+.time-track {
+  height: 3px;
+  margin: -1px 0 0;
+  background: var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.time-track i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  transition:
+    transform 1s linear,
+    background-color 0.4s;
+}
+.time-track i.urgent {
+  background: var(--coral);
+}
+
+/* Performer character swells with the real voice level (--voice, 0 to 1). */
+.performer-avatars .self {
+  position: relative;
+}
+.performer-avatars .self > svg,
+.performer-avatars .self > .avatar {
+  scale: calc(1 + var(--voice, 0) * 0.2);
+  rotate: calc(var(--voice, 0) * -3deg);
+  transition:
+    scale 0.06s linear,
+    rotate 0.06s linear;
+}
+.performer-avatars .self::before,
+.performer-avatars .self::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 55px;
+  width: 140px;
+  height: 140px;
+  margin: -70px 0 0 -70px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  pointer-events: none;
+  opacity: calc(var(--voice, 0) * 0.55);
+  scale: calc(1 + var(--voice, 0) * 0.55);
+  transition:
+    opacity 0.12s linear,
+    scale 0.12s linear;
+}
+.performer-avatars .self::after {
+  border-color: var(--mint);
+  opacity: calc(var(--voice, 0) * 0.3);
+  scale: calc(1.2 + var(--voice, 0) * 0.95);
+}
+
+/* Custom audio player. The real <audio> stays in the DOM but is visually quiet. */
+.sr-audio {
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.player-ui {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px 10px 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.play-button {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  transition:
+    scale 0.25s var(--spring),
+    box-shadow 0.3s var(--ease);
+}
+.play-button:hover {
+  scale: 1.06;
+}
+.play-button:active {
+  scale: 0.94;
+}
+.player-ui.playing .play-button {
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.player-bars {
+  flex: 1;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.player-bars i {
+  flex: 1;
+  height: var(--h);
+  border-radius: 3px;
+  background: var(--line);
+  transition: background-color 0.25s;
+}
+.player-bars i.done {
+  background: var(--accent);
+}
+.player-ui.playing .player-bars i {
+  animation: bar-dance 0.9s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -70ms);
+}
+@keyframes bar-dance {
+  50% {
+    scale: 1 0.62;
+  }
+}
+.player-time {
+  min-width: 42px;
+  text-align: right;
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}

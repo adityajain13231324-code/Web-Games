@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#f5eddb" />
+    <meta
+      name="description"
+      content="A very unserious game for your very best voices. Make sounds, guess your friends, and see where the story goes."
+    />
+    <title>Sound Doodles • Make some noise.</title>
+    <script>
+      // Apply the saved theme and motion preference before first paint so nothing flashes.
+      try {
+        var d = document.documentElement;
+        var t = localStorage.getItem("sd-theme");
+        d.dataset.theme = t || "paper";
+        if (localStorage.getItem("sd-reduce-motion") === "1")
+          d.dataset.motion = "reduce";
+        // Older or low-memory touch devices start in Lite effects (blurs and moving backdrops off).
+        var fx = localStorage.getItem("sd-fx");
+        var weak =
+          (navigator.hardwareConcurrency || 8) <= 4 ||
+          (navigator.deviceMemory || 8) <= 4;
+        var touch =
+          window.matchMedia && matchMedia("(pointer: coarse)").matches;
+        if (fx === "lite" || (!fx && weak && touch)) d.dataset.fx = "lite";
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

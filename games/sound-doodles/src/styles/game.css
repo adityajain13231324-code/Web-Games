@@ -1,0 +1,255 @@
+/* Game screens: phase header, flip card, mic stage, podium. */
+
+.game-topline {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-2) 0 var(--s-3);
+  border-bottom: 0;
+}
+.game-topline > .eyebrow {
+  margin-right: auto;
+}
+.phase-chip {
+  padding: 6px 14px;
+  font: 800 var(--fs-xs) / 1 var(--body);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-accent);
+  background: var(--accent);
+  border-radius: 999px;
+  animation: pop-in var(--t3) var(--ease-spring) both;
+}
+[data-theme="paper"] .phase-chip {
+  border: 2px solid var(--ink);
+  rotate: -1.5deg;
+}
+[data-theme="neon"] .phase-chip {
+  border-radius: 2px;
+  box-shadow: var(--glow);
+}
+.time-track {
+  height: 6px;
+  border-radius: 6px;
+  margin-bottom: var(--s-4);
+}
+.time-track i.urgent {
+  animation: bar-flash 0.8s ease-in-out infinite alternate;
+}
+@keyframes bar-flash {
+  to {
+    opacity: 0.55;
+  }
+}
+
+/* The stage for one screen */
+.game-stage {
+  padding: var(--s-5) 0 var(--s-6);
+}
+.game-stage h1 {
+  font-size: var(--fs-2xl);
+  line-height: 1.04;
+}
+.game-stage > .eyebrow {
+  font-size: var(--fs-xs);
+}
+
+/* Secret prompt card with a flip */
+.flip-card {
+  display: block;
+  width: min(460px, 100%);
+  height: 190px;
+  margin: var(--s-4) auto;
+  padding: 0;
+  color: var(--text);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  perspective: 900px;
+}
+.flip-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform var(--t4) var(--ease-spring);
+}
+.flip-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--s-2);
+  padding: var(--s-4);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: var(--border-w) solid var(--card-border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-card);
+}
+.flip-front {
+  color: var(--on-accent);
+  background: var(--accent);
+}
+.flip-back {
+  transform: rotateY(180deg);
+  background: var(--surface);
+}
+.flip-back h1 {
+  margin: 0;
+  font-size: var(--fs-xl);
+}
+.flip-back small {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+}
+.flip-front small {
+  opacity: 0.8;
+}
+
+/* Performer mic stage */
+.performer-avatars {
+  gap: var(--s-6);
+}
+.performer-avatars .perf .avatar {
+  animation: perf-sway 0.9s ease-in-out infinite alternate;
+}
+@keyframes perf-sway {
+  to {
+    rotate: 5deg;
+    translate: 0 -5px;
+  }
+}
+.mic-stage {
+  display: grid;
+  place-items: center;
+  width: min(520px, 100%);
+  margin: var(--s-4) auto;
+  padding: var(--s-3) var(--s-5);
+  background: var(--card-bg);
+  border: var(--border-w) solid var(--card-border);
+  border-radius: 999px;
+}
+.mic-stage .eq {
+  width: 100%;
+  height: 72px;
+}
+.mic-stage .eq i {
+  flex: 1;
+  max-width: 8px;
+}
+
+/* Results */
+.results-stage {
+  position: relative;
+  text-align: center;
+  padding: var(--s-5) 0 var(--s-7);
+}
+.results-stage h1 {
+  font-size: var(--fs-2xl);
+}
+.podium-wrap {
+  display: grid;
+  gap: var(--s-5);
+  margin: var(--s-6) auto;
+  max-width: 640px;
+}
+.podium {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.podium .step {
+  flex: 1;
+  display: grid;
+  justify-items: center;
+  gap: var(--s-2);
+  max-width: 190px;
+  animation: podium-rise 0.9s var(--ease-spring) both;
+  animation-delay: calc((4 - var(--place)) * 260ms);
+}
+@keyframes podium-rise {
+  from {
+    opacity: 0;
+    translate: 0 60px;
+  }
+}
+.podium-who {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.podium-who strong {
+  font: 700 var(--fs-md) var(--display);
+  text-transform: none;
+}
+.podium-block {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 2px;
+  width: 100%;
+  padding: var(--s-3) var(--s-2);
+  color: var(--on-accent);
+  background: var(--accent);
+  border: var(--border-w) solid var(--card-border);
+  border-radius: var(--r-md) var(--r-md) 0 0;
+}
+.rank-1 .podium-block {
+  min-height: 150px;
+  background: var(--gold);
+  color: #3a2a00;
+}
+.rank-2 .podium-block {
+  min-height: 110px;
+}
+.rank-3 .podium-block {
+  min-height: 80px;
+  background: var(--accent-2);
+}
+.podium-rank {
+  font: 800 2.2rem / 1 var(--display);
+}
+.podium-score {
+  font: 700 var(--fs-md) var(--body);
+  font-variant-numeric: tabular-nums;
+}
+.scoreboard.rest {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-2);
+}
+.scoreboard.rest li {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-2) var(--s-4);
+  background: var(--card-bg);
+  border: var(--border-w) solid var(--card-border);
+  border-radius: var(--r-md);
+  animation: rise var(--t4) var(--ease-out) both;
+}
+.scoreboard.rest li > span {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+.confetti.fixed {
+  position: fixed;
+  inset: 0;
+  width: auto;
+  height: auto;
+}

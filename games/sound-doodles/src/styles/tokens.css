@@ -1,0 +1,318 @@
+/* Design tokens. Every theme is a different PLACE: colour, shape, motion personality and stage props.
+   Selectors use [data-theme] (not :root only) so live previews can scope a theme to any element. */
+
+:root,
+[data-theme] {
+  /* spacing, 8px grid */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --stage-max: 1200px;
+
+  /* layers */
+  --z-stage: -1;
+  --z-base: 1;
+  --z-sticky: 20;
+  --z-popover: 60;
+  --z-drawer: 70;
+  --z-modal: 80;
+  --z-toast: 90;
+
+  /* fluid type */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  --fs-xl: clamp(1.5rem, 1.1rem + 1.8vw, 2.25rem);
+  --fs-2xl: clamp(2rem, 1.2rem + 3.6vw, 3.5rem);
+  --fs-hero: clamp(2.75rem, 1.4rem + 7vw, 6rem);
+
+  /* motion: durations scale with the theme's personality */
+  --speed: 1;
+  --t1: calc(120ms * var(--speed));
+  --t2: calc(200ms * var(--speed));
+  --t3: calc(320ms * var(--speed));
+  --t4: calc(520ms * var(--speed));
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-ui: var(--ease-out);
+  --ease: var(--ease-out);
+  --spring: var(--ease-spring);
+  --stagger: 50ms;
+}
+
+/* ---------- MIDNIGHT STUDIO (default): after-hours recording studio ---------- */
+:root,
+[data-theme="midnight"] {
+  color-scheme: dark;
+  --bg: #0e0e1b;
+  --surface: #181829;
+  --surface-2: #222238;
+  --surface-3: #2d2d4a;
+  --text: #f4efe6;
+  --muted: #b6b3cc;
+  --line: #36365a;
+  --ink: #f4efe6;
+  --violet: #bba6ff;
+  --mint: #9ff0c4;
+  --coral: #ff9d92;
+  --gold: #ffd98a;
+  --blue: #9fd0ff;
+  --on-accent: #1a1530;
+  --accent: var(--violet);
+  --accent-2: var(--mint);
+  --glow: 0 10px 36px -10px color-mix(in srgb, var(--accent) 65%, transparent);
+  --shadow: 0 18px 60px #0005;
+  --shadow-card: 0 1px 0 #ffffff0d inset, 0 18px 40px -22px #000a;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 30px;
+  --radius: var(--r-lg);
+  --border-w: 1px;
+  --card-border: var(--line);
+  --card-bg: color-mix(in srgb, var(--surface) 82%, transparent);
+  --blur: blur(14px);
+  --display: "Space Grotesk Variable", "Space Grotesk", sans-serif;
+  --body: "DM Sans Variable", "DM Sans", sans-serif;
+  --heading-case: none;
+  --heading-track: -0.02em;
+  --tilt: 0deg;
+  --speed: 1;
+  --meta-color: #0e0e1b;
+}
+
+/* ---------- NEON ARCADE: electric, sharp, fast ---------- */
+[data-theme="neon"] {
+  color-scheme: dark;
+  --bg: #060a1c;
+  --surface: #0c1530;
+  --surface-2: #121f44;
+  --surface-3: #1a2c5c;
+  --text: #eefaff;
+  --muted: #a9c3e6;
+  --line: #27417f;
+  --ink: #eefaff;
+  --violet: #2de8ff;
+  --mint: #55ffc0;
+  --coral: #ff5c80;
+  --gold: #ffe14d;
+  --blue: #6aa2ff;
+  --on-accent: #12040a;
+  --accent: var(--coral);
+  --accent-2: var(--violet);
+  --glow:
+    0 0 22px color-mix(in srgb, var(--accent) 60%, transparent),
+    0 0 2px var(--accent);
+  --shadow: 0 0 40px #2de8ff1f;
+  --shadow-card:
+    0 0 0 1px color-mix(in srgb, var(--violet) 35%, transparent),
+    0 0 26px -6px color-mix(in srgb, var(--violet) 40%, transparent);
+  --r-sm: 2px;
+  --r-md: 3px 12px 3px 12px;
+  --r-lg: 4px 18px 4px 18px;
+  --r-xl: 6px 26px 6px 26px;
+  --radius: var(--r-lg);
+  --border-w: 2px;
+  --card-border: color-mix(in srgb, var(--violet) 70%, var(--line));
+  --card-bg: color-mix(in srgb, var(--surface) 88%, transparent);
+  --blur: none;
+  --display: "Space Grotesk Variable", "Space Grotesk", sans-serif;
+  --heading-case: uppercase;
+  --heading-track: 0.01em;
+  --tilt: 0deg;
+  --speed: 0.7;
+  --ease-ui: cubic-bezier(0.2, 0.9, 0.1, 1);
+  --ease: var(--ease-ui);
+  --meta-color: #060a1c;
+}
+
+/* ---------- PAPER PLAYGROUND: cut-paper, ink, stickers ---------- */
+[data-theme="paper"] {
+  color-scheme: light;
+  --bg: #f5eddb;
+  --surface: #fffaf0;
+  --surface-2: #f0e6cd;
+  --surface-3: #e5d7b5;
+  --text: #25222b;
+  --muted: #5b5460;
+  --line: #bfb292;
+  --ink: #25222b;
+  --violet: #7650c2;
+  --mint: #1c7650;
+  --coral: #b23d2b;
+  --gold: #e0a420;
+  --blue: #3c7fb0;
+  --on-accent: #fffdf7;
+  --accent: var(--violet);
+  --accent-2: var(--coral);
+  --glow: 4px 4px 0 var(--ink);
+  --shadow: 6px 7px 0 #25222b1f;
+  --shadow-card: 5px 6px 0 var(--ink);
+  --r-sm: 8px 10px 7px 11px;
+  --r-md: 12px 16px 11px 17px / 15px 11px 17px 12px;
+  --r-lg: 18px 24px 16px 26px / 24px 16px 26px 18px;
+  --r-xl: 24px 32px 22px 34px / 30px 22px 34px 24px;
+  --radius: var(--r-lg);
+  --border-w: 2.5px;
+  --card-border: var(--ink);
+  --card-bg: var(--surface);
+  --blur: none;
+  --display: "Fraunces Variable", "Fraunces", Georgia, serif;
+  --heading-case: none;
+  --heading-track: -0.015em;
+  --tilt: -1.2deg;
+  --speed: 1.1;
+  --ease-ui: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease: var(--ease-ui);
+  --stagger: 70ms;
+  --meta-color: #f5eddb;
+}
+
+/* ---------- SUNSET LOUNGE: slow, warm, dreamy ---------- */
+[data-theme="sunset"] {
+  color-scheme: dark;
+  --bg: #2a1238;
+  --surface: #3c1f4d;
+  --surface-2: #4d2b5f;
+  --surface-3: #603870;
+  --text: #fff1e0;
+  --muted: #e6c8da;
+  --line: #7f5590;
+  --ink: #fff1e0;
+  --violet: #d4b8f7;
+  --mint: #cde9b6;
+  --coral: #ff9a82;
+  --gold: #ffd49c;
+  --blue: #d4c0f7;
+  --on-accent: #381424;
+  --accent: #ffb48c;
+  --accent-2: var(--coral);
+  --glow: 0 14px 44px -10px color-mix(in srgb, var(--accent) 70%, transparent);
+  --shadow: 0 22px 70px #1a0a2466;
+  --shadow-card:
+    0 20px 50px -24px #12051b99,
+    0 0 0 1px color-mix(in srgb, var(--accent) 14%, transparent);
+  --r-sm: 16px;
+  --r-md: 22px;
+  --r-lg: 30px;
+  --r-xl: 42px;
+  --radius: var(--r-lg);
+  --border-w: 1px;
+  --card-border: color-mix(in srgb, var(--accent) 24%, var(--line));
+  --card-bg: color-mix(in srgb, var(--surface) 78%, transparent);
+  --blur: blur(18px);
+  --display: "Bricolage Grotesque Variable", "Bricolage Grotesque", sans-serif;
+  --heading-case: none;
+  --heading-track: -0.02em;
+  --tilt: 0deg;
+  --speed: 1.6;
+  --ease-ui: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease: var(--ease-ui);
+  --stagger: 80ms;
+  --meta-color: #2a1238;
+}
+
+/* ---------- CLOUD NINE: light, airy sky blue. Soft, slow and cool ---------- */
+[data-theme="sky"] {
+  color-scheme: light;
+  --bg: #e6f3ff;
+  --surface: #fbfdff;
+  --surface-2: #e3effa;
+  --surface-3: #cfe3f5;
+  --text: #16283d;
+  --muted: #47607a;
+  --line: #b4cde4;
+  --ink: #16283d;
+  --violet: #5457d1;
+  --mint: #12806b;
+  --coral: #c2492f;
+  --gold: #b87400;
+  --blue: #1f6fc2;
+  --on-accent: #ffffff;
+  --accent: #1f6fc2;
+  --accent-2: #0a7f9e;
+  --glow: 0 10px 30px -10px color-mix(in srgb, var(--accent) 50%, transparent);
+  --shadow: 0 18px 50px #2b6cb024;
+  --shadow-card: 0 1px 0 #fff inset, 0 14px 34px -18px #2b6cb066;
+  --r-sm: 14px;
+  --r-md: 20px;
+  --r-lg: 28px;
+  --r-xl: 38px;
+  --radius: var(--r-lg);
+  --border-w: 1px;
+  --card-border: var(--line);
+  --card-bg: color-mix(in srgb, var(--surface) 80%, transparent);
+  --blur: blur(14px);
+  --display: "DM Sans Variable", "DM Sans", sans-serif;
+  --heading-case: none;
+  --heading-track: -0.025em;
+  --tilt: 0deg;
+  --speed: 1.35;
+  --ease-ui: cubic-bezier(0.3, 0.7, 0.2, 1);
+  --ease: var(--ease-ui);
+  --stagger: 70ms;
+  --meta-color: #cfe7fb;
+}
+
+/* ---------- BUBBLEGUM POP: pink, hearts, sparkle. Bouncy and bright ---------- */
+[data-theme="pop"] {
+  color-scheme: light;
+  --bg: #ffe6f1;
+  --surface: #fff8fb;
+  --surface-2: #ffd9e9;
+  --surface-3: #ffc3dc;
+  --text: #3b1230;
+  --muted: #7a3f66;
+  --line: #f0a3c6;
+  --ink: #3b1230;
+  --violet: #8a42d1;
+  --mint: #11806c;
+  --coral: #cf2f49;
+  --gold: #b86b00;
+  --blue: #3b6fd0;
+  --on-accent: #ffffff;
+  --accent: #c8207c;
+  --accent-2: #8a42d1;
+  --glow: 0 8px 26px -8px color-mix(in srgb, var(--accent) 60%, transparent);
+  --shadow: 0 18px 46px #c8207c26;
+  --shadow-card:
+    0 5px 0 color-mix(in srgb, var(--accent) 22%, var(--surface-3)),
+    0 16px 30px -16px #c8207c55;
+  --r-sm: 16px;
+  --r-md: 22px;
+  --r-lg: 30px;
+  --r-xl: 42px;
+  --radius: var(--r-lg);
+  --border-w: 2px;
+  --card-border: var(--line);
+  --card-bg: var(--surface);
+  --blur: none;
+  --display: "Bricolage Grotesque Variable", "Bricolage Grotesque", sans-serif;
+  --heading-case: none;
+  --heading-track: -0.02em;
+  --tilt: 1deg;
+  --speed: 1;
+  --ease-ui: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease: var(--ease-ui);
+  --stagger: 60ms;
+  --meta-color: #ffd9ea;
+}
+
+/* In-app "Reduce motion" mirrors the OS preference. */
+[data-motion="reduce"] *,
+[data-motion="reduce"] *::before,
+[data-motion="reduce"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  animation-delay: 0ms !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}

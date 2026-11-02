@@ -1,0 +1,72 @@
+/* Guess feedback: tries list with calm status colours and a gentle shake on a miss. */
+.tries {
+  list-style: none;
+  margin: -8px auto 0;
+  padding: 0;
+  max-width: 500px;
+  display: grid;
+  gap: 6px;
+  text-align: left;
+}
+.try {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  animation: rise 0.4s var(--ease) both;
+}
+.try span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.try small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.try.miss svg {
+  color: var(--muted);
+}
+.try.part {
+  border-color: var(--mint);
+  background: color-mix(in srgb, var(--mint) 12%, var(--surface));
+}
+.try.part svg,
+.try.part small {
+  color: var(--mint);
+}
+.try.error svg,
+.try.error small {
+  color: var(--coral);
+}
+.text-action.shake {
+  animation: nudge 0.35s var(--ease);
+}
+@keyframes nudge {
+  20% {
+    translate: -6px 0;
+  }
+  45% {
+    translate: 5px 0;
+  }
+  70% {
+    translate: -3px 0;
+  }
+}
+
+/* Autoplay blocked: make the one fix impossible to miss. */
+.live-bar.attention {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  color: var(--text);
+  animation: breathe 1.6s ease-in-out infinite;
+}
+.live-bar.attention .button {
+  width: 100%;
+  justify-content: center;
+}
