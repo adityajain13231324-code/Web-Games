@@ -13,7 +13,8 @@ Browser games I'm building. Each one lives in its own folder under `games/`, wit
 | [`games/blackjack21`](games/blackjack21) | Classic casino blackjack, 1–6 players + dealer, bots with personalities, matching-bets rule | Static site, PWA | Vercel | [blackjack21-cardgame.vercel.app](https://blackjack21-cardgame.vercel.app) |
 | [`games/apartment-07`](games/apartment-07) | 1–4 player co-op escape mystery | Vite + TypeScript + Phaser, Node + Colyseus server | Railway (Node + WebSockets) | [apartment07.up.railway.app](https://apartment07.up.railway.app) |
 | [`games/sound-doodles`](games/sound-doodles) | 2–8 player voice party game: imitate mystery sounds, friends guess; six modes, six themes | Vite + React, Node + Socket.IO server | Render (Node + WebSockets, one instance) | [sound-doodles.onrender.com](https://sound-doodles.onrender.com) |
+| [`games/tiny-gods`](games/tiny-gods) | Secret-orders strategy: type plain-word orders to a town of 60 villagers, last faction standing wins; 1–4 players + bots, online or pass-and-play | Vite + PixiJS, PeerJS (WebRTC) | Vercel | [tinygods.vercel.app](https://tinygods.vercel.app) |
 
 ## Landing page
 
-[`hub/`](hub) is the landing page that links to all six games: **[randomwebgames.vercel.app](https://randomwebgames.vercel.app)**. It's a static site (no build step). See `hub/HOW_TO_RUN.md` for hosting.
+[`hub/`](hub) is the landing page that links to all seven games: **[randomwebgames.vercel.app](https://randomwebgames.vercel.app)**. It's a static site (no build step). See `hub/HOW_TO_RUN.md` for hosting.

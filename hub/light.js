@@ -1,10 +1,10 @@
 // Native-scrolling alternative: no WebGL, video decoding or animation libraries.
 const cards = [...document.querySelectorAll('.ch')];
-const names = ['Pixel Peek', 'Ultimate Tic Tac Toe', "Liar's Call", 'Apartment 07', 'Blackjack 21', 'Sound Doodles'];
-const posters = ['pp','ut','lc','a7','bj','sd'];
+const names = ['Tiny Gods', 'Pixel Peek', 'Ultimate Tic Tac Toe', "Liar's Call", 'Apartment 07', 'Blackjack 21', 'Sound Doodles'];
+const posters = ['tg','pp','ut','lc','a7','bj','sd'];
 const frame = document.querySelector('.fallback');
 const screen = document.createElement('img');
-screen.src = 'media/pp.jpg'; screen.alt = 'Pixel Peek gameplay'; screen.width = 1280; screen.height = 720;
+screen.src = 'media/tg.jpg'; screen.alt = 'Tiny Gods gameplay'; screen.width = 1280; screen.height = 720;
 frame.replaceChildren(screen); frame.removeAttribute('aria-hidden');
 let current = 0;
 function tune(i) {

@@ -7,6 +7,7 @@
 - `ultimate-tic-tac-toe` is a static Vercel site too (Root Directory `games/ultimate-tic-tac-toe`, no build step; the hub expects https://bettertictactoe.vercel.app). Its tests: `node tests/test-rules.js`, `test-ai.js`, `test-tutorial.js`, and `ui-smoke.js` (needs Playwright).
 - `apartment-07` runs with domain `apartment07.up.railway.app`
 - `sound-doodles` is a Vite + React client with a Node/Socket.IO server, hosted on Render (https://sound-doodles.onrender.com, one instance, free plan sleeps when idle). Its standalone home is the `SOUND-DOODLES` repo; `games/sound-doodles` is a copy of its `main`, so port changes in both.
+- `tiny-gods` is a Vite + PixiJS client (no server of ours; online play is WebRTC lockstep over PeerJS), hosted on Vercel (https://tinygods.vercel.app, build `npm run build`, output `dist`). Its standalone home is the `tinygods` repo; `games/tiny-gods` is a copy, so port changes in both.
 - `hub/` is the static landing page for all games (https://randomwebgames.vercel.app, Vercel with Root Directory `hub`; a copy also deploys to GitHub Pages). Keep the game cards, player counts and gameplay clips in sync with each game's `NOTES.md` (see `hub/NOTES.md`).
 - Use only open-licensed or self-made art and sound. No copyrighted characters or logos beyond what the credits already cover.
 - After changing a game, update its `NOTES.md` (done / planned / known bugs) so the notes stay the source of truth.

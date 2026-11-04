@@ -3,6 +3,7 @@
 // The 3D TV lives in tv.js and is loaded once the page is up (see the bottom of this file).
 
 const CHANNELS = [
+  { name: 'Tiny Gods', url: 'https://tinygods.vercel.app', src: 'media/tg', glow: '#ff9a5c' },
   { name: 'Pixel Peek', url: 'https://gamepixelpeek.vercel.app', src: 'media/pp', glow: '#ffc35a' },
   { name: 'Ultimate Tic Tac Toe', url: 'https://bettertictactoe.vercel.app', src: 'media/ut', glow: '#5fe9ff' },
   { name: "Liar's Call", url: 'https://liarscall.vercel.app', src: 'media/lc', glow: '#ff6a45' },
@@ -22,7 +23,7 @@ const ease = (t) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 const ZOOM_END = .667;   // TV framed and its screen grown to full screen by here; the next game then slides over it
 const FRAME = [0, .45];  // camera moves from the 3/4 view to a front-on view of the set
 const GROW = [.5, .88];  // the screen grows from the TV to the whole viewport
-const SHOW = .86;        // Pixel Peek's title and button come in
+const SHOW = .86;        // Tiny Gods' title and button come in
 
 /* ───────────── smooth scroll ───────────── */
 const gsap = window.gsap, ScrollTrigger = window.ScrollTrigger, SplitText = window.SplitText;
@@ -40,7 +41,7 @@ const heroY = (f) => hero.offsetTop + f * (hero.offsetHeight - innerHeight);
 const scrollToY = (y) => (lenis ? lenis.scrollTo(y, { duration: 1.8 }) : scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' }));
 $$('a[href^="#"]').forEach((a) => a.addEventListener('click', (e) => {
   const id = a.getAttribute('href');
-  if (id === '#pixel-peek') { e.preventDefault(); scrollToY(heroY(ZOOM_END)); return; }
+  if (id === '#tiny-gods') { e.preventDefault(); scrollToY(heroY(ZOOM_END)); return; }
   const el = $(id); if (!el) return;
   e.preventDefault(); lenis ? lenis.scrollTo(el, { duration: 1.8 }) : el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
 }));
@@ -91,11 +92,11 @@ function splitTitles() {
 /* ───────────── hero choreography (TV → portal) ───────────── */
 let heroProgress = 0, heroSmooth = 0;
 ScrollTrigger.create({ trigger: hero, start: 'top top', end: 'bottom bottom', onUpdate: (s) => { heroProgress = s.progress; } });
-const copy = $('.copy'), cue = $('.cue'), portal = $('#pixel-peek'), portalVideo = $('.bg', portal), crt = $('.crt', portal);
+const copy = $('.copy'), cue = $('.cue'), portal = $('#tiny-gods'), portalVideo = $('.bg', portal), crt = $('.crt', portal);
 const portalDim = document.createElement('div'); portalDim.className = 'dim'; portal.appendChild(portalDim);
 let screenRect = () => null;       // set by the TV (or the fallback): where the screen is, in page pixels
 let syncPortal = () => {};         // set by the TV: start the portal's video where the set's video is
-let portalIn = null;               // timeline for Pixel Peek's title and button
+let portalIn = null;               // timeline for Tiny Gods' title and button
 let portalShown = false;
 
 let drawn = -1;
@@ -140,7 +141,7 @@ gsap.ticker.add(choreo);
 const panels = $$('.reel .panel');
 function buildReel() {
   splitTitles();
-  // Pixel Peek's text, played when the screen has grown to full size
+  // Tiny Gods' text, played when the screen has grown to full size
   const pp = splits.get($('.title', portal));
   portalIn = gsap.timeline({ paused: true })
     .fromTo(pp.chars, { yPercent: 110 }, { yPercent: 0, duration: 1.1, stagger: .035, ease: 'expo.out' })

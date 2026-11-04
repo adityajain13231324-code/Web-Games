@@ -78,3 +78,10 @@ The landing page for all six games, live at https://randomwebgames.vercel.app. I
 - With six channels `.guide` is a 12-column grid: the two featured cards (Pixel Peek, Ultimate Tic Tac Toe) span 6 each, the other four span 3 each (two rows). The light-mode override keeps one column on phones.
 - The clip is a light UI, so `#sound-doodles .bg` is dimmed in `enhancements.css` to keep the title readable. Title font is Fraunces 700 (the game's own headline serif), added to the Google Fonts link.
 - The game's code is copied to `games/sound-doodles` (standalone repo: `SOUND-DOODLES`, branch `main`).
+
+## 4 November 2026: Tiny Gods (channel 1)
+
+- Newest games go first: Tiny Gods is CH 01 (first card, the TV's opening channel and the full-screen portal panel); everything else moved down one (Pixel Peek is now the first reel panel, CH 02). The three featured cards are Tiny Gods, Pixel Peek and Ultimate Tic Tac Toe (span 4 each); the other four are small cards.
+- Clip `media/tg.webm` (VP9, 12 s, about 1 MB) and poster `media/tg.jpg` were recorded from the live game (no mp4 version, like Sound Doodles).
+- `boot.js` no longer sends every machine with 4 or fewer CPU cores to the lightweight page (that made many desktops show the flat TV). Phones, narrow windows, reduced motion and data saver still do.
+- Game code copied to `games/tiny-gods`.
